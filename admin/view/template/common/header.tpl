@@ -88,7 +88,7 @@ $(document).ready(function(){
           <li><a href="<?php echo $shipping; ?>"><?php echo $text_shipping; ?></a></li>
           <li><a href="<?php echo $payment; ?>"><?php echo $text_payment; ?></a></li>
           <li><a href="<?php echo $total; ?>"><?php echo $text_total; ?></a></li>
-          <li><a href="<?php echo $feed; ?>"><?php echo $text_feed; ?></a></li>
+          <!--<li><a href="<?php echo $feed; ?>"><?php echo $text_feed; ?></a></li>-->
           <?php if ($openbay_show_menu == 1) { ?>
             <li><a class="parent"><?php echo $text_openbay_extension; ?></a>
                 <ul>
@@ -131,24 +131,24 @@ $(document).ready(function(){
       <li id="sale"><a class="top"><?php echo $text_sale; ?></a>
         <ul>
           <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-          <li><a href="<?php echo $recurring_profile; ?>"><?php echo $text_recurring_profile; ?></a></li>
-          <li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
-          <li><a class="parent"><?php echo $text_customer; ?></a>
-            <ul>
-              <li><a href="<?php echo $customer; ?>"><?php echo $text_customer; ?></a></li>
-              <li><a href="<?php echo $customer_group; ?>"><?php echo $text_customer_group; ?></a></li>
-              <li><a href="<?php echo $customer_ban_ip; ?>"><?php echo $text_customer_ban_ip; ?></a></li>
-            </ul>
-          </li>
-          <li><a href="<?php echo $affiliate; ?>"><?php echo $text_affiliate; ?></a></li>
-          <li><a href="<?php echo $coupon; ?>"><?php echo $text_coupon; ?></a></li>
-          <li><a class="parent"><?php echo $text_voucher; ?></a>
-            <ul>
-              <li><a href="<?php echo $voucher; ?>"><?php echo $text_voucher; ?></a></li>
-              <li><a href="<?php echo $voucher_theme; ?>"><?php echo $text_voucher_theme; ?></a></li>
-            </ul>
-          </li>
-          <!-- PAYPAL MANAGE NAVIGATION LINK -->
+          <!--<li><a href="<?php echo $recurring_profile; ?>"><?php echo $text_recurring_profile; ?></a></li>-->
+            <!--<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>-->
+            <li><a class="parent"><?php echo $text_customer; ?></a>
+              <ul>
+                <li><a href="<?php echo $customer; ?>"><?php echo $text_customer; ?></a></li>
+                <li><a href="<?php echo $customer_group; ?>"><?php echo $text_customer_group; ?></a></li>
+                <li><a href="<?php echo $customer_ban_ip; ?>"><?php echo $text_customer_ban_ip; ?></a></li>
+              </ul>
+            </li>
+            <!--<li><a href="<?php echo $affiliate; ?>"><?php echo $text_affiliate; ?></a></li>
+            <li><a href="<?php echo $coupon; ?>"><?php echo $text_coupon; ?></a></li>
+            <li><a class="parent"><?php echo $text_voucher; ?></a>
+              <ul>
+                <li><a href="<?php echo $voucher; ?>"><?php echo $text_voucher; ?></a></li>
+                <li><a href="<?php echo $voucher_theme; ?>"><?php echo $text_voucher_theme; ?></a></li>
+              </ul>
+            </li>-->
+            <!-- PAYPAL MANAGE NAVIGATION LINK -->
           <?php if ($pp_express_status) { ?>
            <li><a class="parent" href="<?php echo $paypal_express; ?>"><?php echo $text_paypal_express; ?></a>
              <ul>
@@ -157,7 +157,7 @@ $(document).ready(function(){
            </li>
           <?php } ?>
           <!-- PAYPAL MANAGE NAVIGATION LINK END -->
-          <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
+          <!--<li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>-->
         </ul>
       </li>
       <li id="system"><a class="top"><?php echo $text_system; ?></a>
@@ -181,13 +181,13 @@ $(document).ready(function(){
               <li><a href="<?php echo $currency; ?>"><?php echo $text_currency; ?></a></li>
               <li><a href="<?php echo $stock_status; ?>"><?php echo $text_stock_status; ?></a></li>
               <li><a href="<?php echo $order_status; ?>"><?php echo $text_order_status; ?></a></li>
-              <li><a class="parent"><?php echo $text_return; ?></a>
+              <!--<li><a class="parent"><?php echo $text_return; ?></a>
                 <ul>
                   <li><a href="<?php echo $return_status; ?>"><?php echo $text_return_status; ?></a></li>
                   <li><a href="<?php echo $return_action; ?>"><?php echo $text_return_action; ?></a></li>
                   <li><a href="<?php echo $return_reason; ?>"><?php echo $text_return_reason; ?></a></li>
                 </ul>
-              </li>
+              </li>-->
               <li><a href="<?php echo $country; ?>"><?php echo $text_country; ?></a></li>
               <li><a href="<?php echo $zone; ?>"><?php echo $text_zone; ?></a></li>
               <li><a href="<?php echo $geo_zone; ?>"><?php echo $text_geo_zone; ?></a></li>
@@ -205,7 +205,7 @@ $(document).ready(function(){
           <li><a href="<?php echo $backup; ?>"><?php echo $text_backup; ?></a></li>
         </ul>
       </li>
-      <li id="reports"><a class="top"><?php echo $text_reports; ?></a>
+      <!--<li id="reports"><a class="top"><?php echo $text_reports; ?></a>
         <ul>
           <li><a class="parent"><?php echo $text_sale; ?></a>
             <ul>
@@ -236,14 +236,14 @@ $(document).ready(function(){
             </ul>
           </li>
         </ul>
-      </li>
-      <li id="help"><a class="top"><?php echo $text_help; ?></a>
+      </li>-->
+      <!--<li id="help"><a class="top"><?php echo $text_help; ?></a>
         <ul>
           <li><a href="http://www.opencart.com" target="_blank"><?php echo $text_opencart; ?></a></li>
           <li><a href="http://www.opencart.com/index.php?route=documentation/introduction" target="_blank"><?php echo $text_documentation; ?></a></li>
           <li><a href="http://forum.opencart.com" target="_blank"><?php echo $text_support; ?></a></li>
         </ul>
-      </li>
+      </li>-->
     </ul>
     <ul class="right" style="display: none;">
       <li id="store"><a href="<?php echo $store; ?>" target="_blank" class="top"><?php echo $text_front; ?></a>
