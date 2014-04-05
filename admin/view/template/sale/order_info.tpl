@@ -166,7 +166,7 @@
       </div>
       <div id="tab-payment" class="vtabs-content">
         <table class="form">
-          <tr>
+<!--          <tr>
             <td><?php echo $text_firstname; ?></td>
             <td><?php echo $payment_firstname; ?></td>
           </tr>
@@ -185,13 +185,13 @@
             <td><?php echo $text_company_id; ?></td>
             <td><?php echo $payment_company_id; ?></td>
           </tr>
-          <?php } ?>          
+          <?php } ?>
           <?php if ($payment_tax_id) { ?>
           <tr>
             <td><?php echo $text_tax_id; ?></td>
             <td><?php echo $payment_tax_id; ?></td>
           </tr>
-          <?php } ?>            
+          <?php } ?>
           <tr>
             <td><?php echo $text_address_1; ?></td>
             <td><?php echo $payment_address_1; ?></td>
@@ -225,7 +225,7 @@
           <tr>
             <td><?php echo $text_country; ?></td>
             <td><?php echo $payment_country; ?></td>
-          </tr>
+          </tr>-->
           <tr>
             <td><?php echo $text_payment_method; ?></td>
             <td><?php echo $payment_method; ?></td>
