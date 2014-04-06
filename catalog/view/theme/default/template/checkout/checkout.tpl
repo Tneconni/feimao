@@ -7,7 +7,7 @@
   </div>
   <h1><?php echo $heading_title; ?></h1>
   <div class="checkout">
-    <div id="checkout">
+    <div id="checkout" style="display:none;">
       <div class="checkout-heading"><?php echo $text_checkout_option; ?></div>
       <div class="checkout-content"></div>
     </div>
@@ -17,7 +17,7 @@
       <div class="checkout-content"></div>
     </div>
     <?php } else { ?>
-    <div id="payment-address">
+    <div id="payment-address" style='display:none;'>
       <div class="checkout-heading"><span><?php echo $text_checkout_payment_address; ?></span></div>
       <div class="checkout-content"></div>
     </div>
@@ -81,7 +81,31 @@ $(document).ready(function() {
 	<?php if(isset($quickconfirm)) { ?>
 		quickConfirm();
 	<?php }else{ ?>
-		$.ajax({
+
+        $.ajax({
+            url: 'index.php?route=checkout/shipping_address',
+            dataType: 'html',
+            success: function(html) {
+                $('#shipping-address .checkout-content').html(html);
+
+                //$('#payment-address .checkout-content').slideUp('slow');
+
+                $('#shipping-address .checkout-content').slideDown('slow');
+
+                $('#checkout .checkout-heading a').remove();
+                $('#payment-address .checkout-heading a').remove();
+                $('#shipping-address .checkout-heading a').remove();
+                $('#shipping-method .checkout-heading a').remove();
+                $('#payment-method .checkout-heading a').remove();
+
+                $('#payment-address .checkout-heading').append('<a><?php echo $text_modify; ?></a>');
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+
+		/*$.ajax({
 			url: 'index.php?route=checkout/payment_address',
 			dataType: 'html',
 			success: function(html) {
@@ -92,7 +116,7 @@ $(document).ready(function() {
 			error: function(xhr, ajaxOptions, thrownError) {
 				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
 			}
-		});	
+		});*/
 	<?php } ?>
 });
 <?php } ?>

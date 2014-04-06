@@ -87,8 +87,8 @@
     </div>
   </form>
   <?php if ($coupon_status || $voucher_status || $reward_status || $shipping_status) { ?>
-  <h2><?php echo $text_next; ?></h2>
-  <div class="content">
+  <h2 style="display:none;"><?php echo $text_next; ?></h2>
+  <div class="content"  style="display:none;">
     <p><?php echo $text_next_choice; ?></p>
     <table class="radio">
       <?php if ($coupon_status) { ?>
