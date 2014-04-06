@@ -14,9 +14,11 @@ $_['text_forgotten']               = 'Forgotten Password';
 
 // Entry
 $_['entry_email']                  = 'E-Mail Address:';
+$_['entry_account']                  = 'Account:';
 $_['entry_password']               = 'Password:';
 
 // Error
 $_['error_login']                  = 'Warning: No match for E-Mail Address and/or Password.';
+$_['error_account_login']          = 'Warning: No match for Account and/or Password.';
 $_['error_approved']               = 'Warning: Your account requires approval before you can login.'; 
 ?>

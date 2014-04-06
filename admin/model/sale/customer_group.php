@@ -1,12 +1,22 @@
 <?php
 class ModelSaleCustomerGroup extends Model {
 	public function addCustomerGroup($data) {
-		$this->db->query("INSERT INTO " . DB_PREFIX . "customer_group SET approval = '" . (int)$data['approval'] . "', company_id_display = '" . (int)$data['company_id_display'] . "', company_id_required = '" . (int)$data['company_id_required'] . "', tax_id_display = '" . (int)$data['tax_id_display'] . "', tax_id_required = '" . (int)$data['tax_id_required'] . "', sort_order = '" . (int)$data['sort_order'] . "'");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "customer_group SET
+		approval = '" . (int)$data['approval'] . "',
+		 company_id_display = '" . (int)$data['company_id_display'] . "',
+		 company_id_required = '" . (int)$data['company_id_required'] . "',
+		 tax_id_display = '" . (int)$data['tax_id_display'] . "',
+		 tax_id_required = '" . (int)$data['tax_id_required'] . "',
+		  sort_order = '" . (int)$data['sort_order'] . "'");
 	
 		$customer_group_id = $this->db->getLastId();
 		
 		foreach ($data['customer_group_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "customer_group_description SET customer_group_id = '" . (int)$customer_group_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', description = '" . $this->db->escape($value['description']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "customer_group_description SET
+			customer_group_id = '" . (int)$customer_group_id . "',
+			 language_id = '" . (int)$language_id . "',
+			 name = '" . $this->db->escape($value['name']) . "',
+			  description = '" . $this->db->escape($value['description']) . "'");
 		}	
 	}
 	

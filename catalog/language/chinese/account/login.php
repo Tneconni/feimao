@@ -17,9 +17,11 @@ $_['text_forgotten']               = '忘记密码？';
 
 // Entry
 $_['entry_email']                  = '邮箱地址：';
+$_['entry_account']                  = '账户：';
 $_['entry_password']               = '密码：';
 
 // Error
 $_['error_login']                  = '警告： 邮箱地址或密码不匹配！';
+$_['error_account_login']                  = '警告： 账户或密码不匹配！';
 $_['error_approved']               = '警告： 您的帐号还没有通过审核！';
 ?>
