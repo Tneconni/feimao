@@ -198,6 +198,18 @@
                   <?php } ?>
                 </select></td>
             </tr>
+            <tr>
+                <td><?php echo $entry_volume_class; ?></td>
+                <td><select name="config_volume_class_id">
+                        <?php foreach ($volume_classes as $volume_class) { ?>
+                        <?php if ($volume_class['volume_class_id'] == $config_volume_class_id) { ?>
+                        <option value="<?php echo $volume_class['volume_class_id']; ?>" selected="selected"><?php echo $volume_class['title']; ?></option>
+                        <?php } else { ?>
+                        <option value="<?php echo $volume_class['volume_class_id']; ?>"><?php echo $volume_class['title']; ?></option>
+                        <?php } ?>
+                        <?php } ?>
+                    </select></td>
+            </tr>
           </table>
         </div>
         <div id="tab-option">

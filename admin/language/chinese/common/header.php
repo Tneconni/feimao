@@ -89,6 +89,7 @@ $_['text_user_group']                  = '管理员群组';
 $_['text_voucher']                     = '礼品券';
 $_['text_voucher_theme']               = '礼品券主题';
 $_['text_weight_class']                = '重量单位';
+$_['text_volume_class']                = '体积单位';
 $_['text_length_class']                = '尺寸单位';
 $_['text_zone']                        = '地区设置';
 

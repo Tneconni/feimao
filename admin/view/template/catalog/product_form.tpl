@@ -185,12 +185,30 @@
               <td><input type="text" name="date_available" value="<?php echo $date_available; ?>" size="12" class="date" /></td>
             </tr>
             <tr>
+                <td><?php echo $entry_volume; ?></td>
+                <td><input type="text" name="volume" value="<?php echo $volume; ?>" size="4" /></td>
+            </tr>
+            <tr>
+                <td><?php echo $entry_volume_class; ?></td>
+                <td>
+                    <select name="volume_class_id">
+                        <?php foreach ($volume_classes as $volume_class) { ?>
+                        <?php if ($volume_class['volume_class_id'] == $volume_class_id) { ?>
+                        <option value="<?php echo $volume_class['volume_class_id']; ?>" selected="selected"><?php echo $volume_class['title']; ?></option>
+                        <?php } else { ?>
+                        <option value="<?php echo $volume_class['volume_class_id']; ?>"><?php echo $volume_class['title']; ?></option>
+                        <?php } ?>
+                        <?php } ?>
+                    </select>
+                </td>
+            </tr>
+            <tr style="display:none">
               <td><?php echo $entry_dimension; ?></td>
               <td><input type="text" name="length" value="<?php echo $length; ?>" size="4" />
                 <input type="text" name="width" value="<?php echo $width; ?>" size="4" />
                 <input type="text" name="height" value="<?php echo $height; ?>" size="4" /></td>
             </tr>
-            <tr>
+            <tr style="display:none">
               <td><?php echo $entry_length; ?></td>
               <td><select name="length_class_id">
                   <?php foreach ($length_classes as $length_class) { ?>

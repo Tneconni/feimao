@@ -568,6 +568,8 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['entry_subtract'] = $this->language->get('entry_subtract');
 		$this->data['entry_weight_class'] = $this->language->get('entry_weight_class');
 		$this->data['entry_weight'] = $this->language->get('entry_weight');
+        $this->data['entry_volume'] = $this->language->get('entry_volume');
+        $this->data['entry_volume_class'] = $this->language->get('entry_volume_class');
 		$this->data['entry_dimension'] = $this->language->get('entry_dimension');
 		$this->data['entry_length'] = $this->language->get('entry_length');
 		$this->data['entry_image'] = $this->language->get('entry_image');
@@ -946,6 +948,26 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$this->data['status'] = 1;
 		}
+
+        if (isset($this->request->post['volume'])) {
+            $this->data['volume'] = $this->request->post['volume'];
+        } elseif (!empty($product_info)) {
+            $this->data['volume'] = $product_info['volume'];
+        } else {
+            $this->data['volume'] = '';
+        }
+
+        $this->load->model('localisation/volume_class');
+
+        $this->data['volume_classes'] = $this->model_localisation_volume_class->getWeightClasses();
+
+        if (isset($this->request->post['volume_class_id'])) {
+            $this->data['volume_class_id'] = $this->request->post['volume_class_id'];
+        } elseif (!empty($product_info)) {
+            $this->data['volume_class_id'] = $product_info['volume_class_id'];
+        } else {
+            $this->data['volume_class_id'] = $this->config->get('config_volume_class_id');
+        }
 
 		if (isset($this->request->post['weight'])) {
 			$this->data['weight'] = $this->request->post['weight'];
