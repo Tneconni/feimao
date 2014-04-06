@@ -1,13 +1,13 @@
 <?php 
 class ControllerProductCategory extends Controller {  
-	public function index() { 
+	public function index() {
 		$this->language->load('product/category');
 
 		$this->load->model('catalog/category');
 
 		$this->load->model('catalog/product');
 
-		$this->load->model('tool/image'); 
+		$this->load->model('tool/image');
 
 		if (isset($this->request->get['filter'])) {
 			$filter = $this->request->get['filter'];
@@ -46,6 +46,27 @@ class ControllerProductCategory extends Controller {
 			'href'      => $this->url->link('common/home'),
 			'separator' => false
 		);
+
+        //todo get path
+        $customerGroupId = 0;
+        if (!isset($this->request->get['path'])) {
+
+            if( $this->customer->islogged() ){
+
+                $CustomerGroupInfo = $this->customer->getCustomerGroupInfo();
+                if( !empty($CustomerGroupInfo['interest_category_id']) ){
+                    $this->request->get['path'] = $CustomerGroupInfo['interest_category_id'];
+                }else{
+                    $categories = $this->model_catalog_category->getCategories(0);
+                    $this->request->get['path'] = $categories[0]['category_id'];
+                }
+            }else{
+
+                $categories = $this->model_catalog_category->getCategories(0);
+                $this->request->get['path'] = $categories[0]['category_id'];
+            }
+
+        }
 
 		if (isset($this->request->get['path'])) {
 			$url = '';
@@ -88,10 +109,9 @@ class ControllerProductCategory extends Controller {
 		} else {
 			$category_id = 0;
 		}
+        $category_info = $this->model_catalog_category->getCategory($category_id);
 
-		$category_info = $this->model_catalog_category->getCategory($category_id);
-
-		if ($category_info) {
+        if ($category_info) {
 			$this->document->setTitle($category_info['name']);
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);

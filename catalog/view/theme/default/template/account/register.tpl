@@ -125,11 +125,11 @@
               <td><?php foreach ($customer_groups as $customer_group) { ?>
                   <?php if ($customer_group['customer_group_id'] == $customer_group_id) { ?>
                   <input type="radio" name="customer_group_id" value="<?php echo $customer_group['customer_group_id']; ?>" id="customer_group_id<?php echo $customer_group['customer_group_id']; ?>" checked="checked" />
-                  <label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></label>
+                  <label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['interest_name']; ?></label>
                   <br />
                   <?php } else { ?>
                   <input type="radio" name="customer_group_id" value="<?php echo $customer_group['customer_group_id']; ?>" id="customer_group_id<?php echo $customer_group['customer_group_id']; ?>" />
-                  <label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></label>
+                  <label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['interest_name']; ?></label>
                   <br />
                   <?php } ?>
                   <?php } ?></td>

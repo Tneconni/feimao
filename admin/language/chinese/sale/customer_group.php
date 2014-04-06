@@ -15,6 +15,9 @@ $_['column_sort_order']         = '排序';
 $_['column_action']             = '操作';
 
 // Entry
+$_['entry_interest_name']                = '喜好名称:';
+$_['entry_interest_category']                = '喜好产品类别:';
+
 $_['entry_name']                = '会员群组名称：';
 $_['entry_description']         = '描述：';
 $_['entry_approval']            = '审核新会员：<br /><span class="help">新注册会员是否需要审核才能登入。</span>';
