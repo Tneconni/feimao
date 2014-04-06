@@ -1509,6 +1509,10 @@ class ControllerCatalogProduct extends Controller {
                 $json['error'] = $this->language->get('error_filetype');
             }*/
 
+            if(!is_dir(DIR_3D_OBJECT)) {
+                @mkdir(DIR_3D_OBJECT);
+            }
+
             if ($this->request->files['file']['error'] != UPLOAD_ERR_OK) {
                 $json['error'] = $this->language->get('error_upload_' . $this->request->files['file']['error']);
             }
