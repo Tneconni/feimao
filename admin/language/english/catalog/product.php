@@ -42,6 +42,7 @@ $_['entry_location']         = 'Location:';
 $_['entry_shipping']         = 'Requires Shipping:'; 
 $_['entry_manufacturer']     = 'Manufacturer:<br /><span class="help">(Autocomplete)</span>';
 $_['entry_date_available']   = 'Date Available:';
+$_['entry_3d_object']        = '3D Object:';
 $_['entry_quantity']         = 'Quantity:';
 $_['entry_minimum']          = 'Minimum Quantity:<br/><span class="help">Force a minimum ordered amount</span>';
 $_['entry_stock_status']     = 'Out Of Stock Status:<br/><span class="help">Status shown when a product is out of stock</span>';

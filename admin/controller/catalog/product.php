@@ -559,6 +559,7 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['entry_manufacturer'] = $this->language->get('entry_manufacturer');
 		$this->data['entry_shipping'] = $this->language->get('entry_shipping');
 		$this->data['entry_date_available'] = $this->language->get('entry_date_available');
+		$this->data['entry_3d_object'] = $this->language->get('entry_3d_object');
 		$this->data['entry_quantity'] = $this->language->get('entry_quantity');
 		$this->data['entry_stock_status'] = $this->language->get('entry_stock_status');
 		$this->data['entry_price'] = $this->language->get('entry_price');
@@ -623,6 +624,7 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['button_add_image'] = $this->language->get('button_add_image');
 		$this->data['button_remove'] = $this->language->get('button_remove');
 		$this->data['button_add_profile'] = $this->language->get('button_add_profile');
+        $this->data['button_upload'] = $this->language->get('button_upload');
 
 		$this->data['tab_general'] = $this->language->get('tab_general');
 		$this->data['tab_data'] = $this->language->get('tab_data');
@@ -888,6 +890,14 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$this->data['tax_class_id'] = 0;
 		}
+
+        if (isset($this->request->post['threed_object'])) {
+            $this->data['threed_object'] = $this->request->post['threed_object'];
+        } elseif (!empty($product_info)) {
+            $this->data['threed_object'] = $product_info['3d_object'];
+        } else {
+            $this->data['threed_object'] = '';
+        }
 
 		if (isset($this->request->post['date_available'])) {
 			$this->data['date_available'] = $this->request->post['date_available'];
@@ -1456,5 +1466,73 @@ class ControllerCatalogProduct extends Controller {
 
 		$this->response->setOutput(json_encode($json));
 	}
+
+    public function upload() {
+        $this->language->load('sale/order');
+
+        $json = array();
+
+        if (!empty($this->request->files['file']['name'])) {
+            $filename = basename(html_entity_decode($this->request->files['file']['name'], ENT_QUOTES, 'UTF-8'));
+
+            if ((utf8_strlen($filename) < 3) || (utf8_strlen($filename) > 128)) {
+                $json['error'] = $this->language->get('error_filename');
+            }
+
+            if (substr(strrchr($filename, '.'), 1) != 'obj') {
+                $json['error'] = "The filetype must be obj!";
+            }
+
+            // Allowed file extension types
+            /*$allowed = array();
+
+            $filetypes = explode("\n", $this->config->get('config_file_extension_allowed'));
+
+            foreach ($filetypes as $filetype) {
+                $allowed[] = trim($filetype);
+            }
+
+            if (!in_array(substr(strrchr($filename, '.'), 1), $allowed)) {
+                $json['error'] = $this->language->get('error_filetype');
+            }
+
+            // Allowed file mime types
+            $allowed = array();
+
+            $filetypes = explode("\n", $this->config->get('config_file_mime_allowed'));
+
+            foreach ($filetypes as $filetype) {
+                $allowed[] = trim($filetype);
+            }
+
+            if (!in_array($this->request->files['file']['type'], $allowed)) {
+                $json['error'] = $this->language->get('error_filetype');
+            }*/
+
+            if ($this->request->files['file']['error'] != UPLOAD_ERR_OK) {
+                $json['error'] = $this->language->get('error_upload_' . $this->request->files['file']['error']);
+            }
+
+            if ($this->request->files['file']['error'] != UPLOAD_ERR_OK) {
+                $json['error'] = $this->language->get('error_upload_' . $this->request->files['file']['error']);
+            }
+        } else {
+            $json['error'] = $this->language->get('error_upload');
+        }
+
+        if (!isset($json['error'])) {
+            if (is_uploaded_file($this->request->files['file']['tmp_name']) && file_exists($this->request->files['file']['tmp_name'])) {
+
+                $json['filename'] = $filename;
+
+                move_uploaded_file($this->request->files['file']['tmp_name'], DIR_3D_OBJECT . $filename);
+            }
+
+            $json['success'] = $this->language->get('text_upload');
+        }
+
+        $this->response->setOutput(json_encode($json));
+    }
+
 }
 ?>

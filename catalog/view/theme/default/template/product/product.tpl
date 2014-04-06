@@ -7,8 +7,12 @@
   </div>
   <h1><?php echo $heading_title; ?></h1>
   <div class="product-info">
-    <?php if ($thumb || $images) { ?>
-    <div class="left">
+  <div class="left">
+    <?php if($threed_object) { ?>
+    <div class="image">
+        <canvas id="cv" style="border: 1px solid;" width="228" height="228" ></canvas>
+    </div>
+    <?php }elseif($thumb || $images){ ?>
       <?php if ($thumb) { ?>
       <div class="image"><a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" /></a></div>
       <?php } ?>
@@ -19,8 +23,8 @@
         <?php } ?>
       </div>
       <?php } ?>
-    </div>
     <?php } ?>
+  </div>
     <div class="right">
       <div class="description">
         <?php if ($manufacturer) { ?>
@@ -511,5 +515,23 @@ $(document).ready(function() {
 	});
 	$('.time').timepicker({timeFormat: 'h:m'});
 });
-//--></script> 
+//--></script>
+<?php if($threed_object) { ?>
+<script type="text/javascript">
+    var canvas = document.getElementById('cv');
+    var viewer = new JSC3D.Viewer(canvas);
+    viewer.setParameter('SceneUrl', '<?php echo $threed_object; ?>');
+    viewer.setParameter('InitRotationX', -90);
+    viewer.setParameter('InitRotationY', -90);
+    viewer.setParameter('InitRotationZ', 0);
+    viewer.setParameter('ModelColor', '#CAA618');
+    viewer.setParameter('BackgroundColor1', '#FFFFFF');
+    viewer.setParameter('BackgroundColor2', '#383840');
+    viewer.setParameter('RenderMode', 'textureflat');
+    viewer.setParameter('MipMapping', 'on');
+    viewer.setParameter('Renderer', 'webgl');
+    viewer.init();
+    viewer.update();
+</script>
+<?php } ?>
 <?php echo $footer; ?>
