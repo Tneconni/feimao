@@ -31,7 +31,7 @@ class ControllerAccountLogin extends Controller {
 
 			$customer_info = $this->model_account_customer->getCustomerByToken($this->request->get['token']);
 
-			if ($customer_info && $this->customer->login($customer_info['email'], '', true)) {
+			if ($customer_info && $this->customer->login($customer_info['account'], '', true)) {
 				// Default Addresses
 				$this->load->model('account/address');
 
@@ -133,6 +133,7 @@ class ControllerAccountLogin extends Controller {
 		$this->data['text_forgotten'] = $this->language->get('text_forgotten');
 
 		$this->data['entry_email'] = $this->language->get('entry_email');
+		$this->data['entry_account'] = $this->language->get('entry_account');
 		$this->data['entry_password'] = $this->language->get('entry_password');
 
 		$this->data['button_continue'] = $this->language->get('button_continue');
@@ -167,10 +168,10 @@ class ControllerAccountLogin extends Controller {
 			$this->data['success'] = '';
 		}
 
-		if (isset($this->request->post['email'])) {
-			$this->data['email'] = $this->request->post['email'];
+		if (isset($this->request->post['account'])) {
+			$this->data['account'] = $this->request->post['account'];
 		} else {
-			$this->data['email'] = '';
+			$this->data['account'] = '';
 		}
 
 		if (isset($this->request->post['password'])) {
@@ -198,11 +199,12 @@ class ControllerAccountLogin extends Controller {
 	}
 
 	protected function validate() {
-		if (!$this->customer->login($this->request->post['email'], $this->request->post['password'])) {
+		if (!$this->customer->loginAccount($this->request->post['account'], $this->request->post['password'])) {
 			$this->error['warning'] = $this->language->get('error_login');
 		}
 
-		$customer_info = $this->model_account_customer->getCustomerByEmail($this->request->post['email']);
+//		$customer_info = $this->model_account_customer->getCustomerByEmail($this->request->post['email']);
+		$customer_info = $this->model_account_customer->getCustomerByAccount($this->request->post['account']);
 
 		if ($customer_info && !$customer_info['approved']) {
 			$this->error['warning'] = $this->language->get('error_approved');

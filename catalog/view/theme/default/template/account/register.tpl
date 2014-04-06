@@ -15,6 +15,127 @@
     <h2><?php echo $text_your_details; ?></h2>
     <div class="content">
       <table class="form">
+          <tr>
+              <td><span class="required">*</span> <?php echo $entry_nick_name; ?></td>
+              <td><input type="text" name="nick_name" value="<?php echo $nick_name; ?>" />
+                  <?php if ($error_nick_name) { ?>
+                  <span class="error"><?php echo $error_nick_name; ?></span>
+                  <?php } ?></td>
+          </tr>
+          <tr>
+              <td><span class="required">*</span> <?php echo $entry_account; ?></td>
+              <td><input type="text" name="account" value="<?php echo $account; ?>" />
+                  <?php if ($error_account) { ?>
+                  <span class="error"><?php echo $error_account; ?></span>
+                  <?php } ?></td>
+          </tr>
+          <tr>
+              <td><span class="required">*</span> <?php echo $entry_password; ?></td>
+              <td><input type="password" name="password" value="<?php echo $password; ?>" />
+                  <?php if ($error_password) { ?>
+                  <span class="error"><?php echo $error_password; ?></span>
+                  <?php } ?></td>
+          </tr>
+          <tr>
+              <td><span class="required">*</span> <?php echo $entry_confirm; ?></td>
+              <td><input type="password" name="confirm" value="<?php echo $confirm; ?>" />
+                  <?php if ($error_confirm) { ?>
+                  <span class="error"><?php echo $error_confirm; ?></span>
+                  <?php } ?></td>
+          </tr>
+          <tr>
+              <td><span class="required">*</span> <?php echo $entry_firstname; ?></td>
+              <td><input type="text" name="firstname" value="<?php echo $firstname; ?>" />
+                  <?php if ($error_firstname) { ?>
+                  <span class="error"><?php echo $error_firstname; ?></span>
+                  <?php } ?></td>
+          </tr>
+          <tr>
+              <td><span class="required">*</span> <?php echo $entry_telephone; ?></td>
+              <td><input type="text" name="telephone" value="<?php echo $telephone; ?>" />
+                  <?php if ($error_telephone) { ?>
+                  <span class="error"><?php echo $error_telephone; ?></span>
+                  <?php } ?></td>
+          </tr>
+          <tr>
+              <td><span class="required">*</span> <?php echo $entry_payment_psd; ?></td>
+              <td><input type="password" name="payment_psd" value="<?php echo $payment_psd; ?>" />
+                  <?php if ($error_payment_psd) { ?>
+                  <span class="error"><?php echo $error_payment_psd; ?></span>
+                  <?php } ?></td>
+          </tr>
+          <tr>
+              <td><span class="required">*</span> <?php echo $entry_confirm_payment_psd; ?></td>
+              <td><input type="password" name="confirm_payment_psd" value="<?php echo $confirm_payment_psd; ?>" />
+                  <?php if ($error_confirm_payment_psd) { ?>
+                  <span class="error"><?php echo $error_confirm_payment_psd; ?></span>
+                  <?php } ?></td>
+          </tr>
+          <tr>
+              <td><span class="required">*</span> <?php echo $entry_gender; ?></td>
+              <td>
+                  secret<input type="radio" name="gender" value="0" />
+                  man<input type="radio" name="gender" value="1" />
+                  female<input type="radio" name="gender" value="2" />
+
+              </td>
+          </tr>
+          <tr>
+              <td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+              <td><input type="text" name="address_1" value="<?php echo $address_1; ?>" />
+                  <?php if ($error_address_1) { ?>
+                  <span class="error"><?php echo $error_address_1; ?></span>
+                  <?php } ?></td>
+          </tr>
+
+          <tr>
+              <td><?php echo $entry_email; ?></td>
+              <td><input type="text" name="email" value="<?php echo $email; ?>" />
+                  <?php if ($error_email) { ?>
+                  <span class="error"><?php echo $error_email; ?></span>
+                  <?php } ?></td>
+          </tr>
+
+          <tr>
+              <td><?php echo $entry_wechat; ?></td>
+              <td><input type="text" name="wechat" value="<?php echo $wechat; ?>" />
+                  <?php if ($error_wechat) { ?>
+                  <span class="error"><?php echo $error_wechat; ?></span>
+                  <?php } ?></td>
+          </tr>
+
+          <tr>
+              <td><?php echo $entry_company; ?></td>
+              <td><input type="text" name="company" value="<?php echo $company; ?>" /></td>
+          </tr>
+          <tr>
+              <td><?php echo $entry_salary; ?></td>
+              <td><input type="text" name="salary" value="<?php echo $salary; ?>" /></td>
+          </tr>
+          <tr>
+              <td><?php echo $entry_age; ?></td>
+              <td><input type="text" name="age" value="<?php echo $age; ?>" />
+                  <?php if ($error_age) { ?>
+                  <span class="error"><?php echo $error_age; ?></span>
+                  <?php } ?>
+              </td>
+          </tr>
+          <tr style="display: <?php echo (count($customer_groups) > 1 ? 'table-row' : 'none'); ?>;">
+              <td><?php echo $entry_customer_group; ?></td>
+              <td><?php foreach ($customer_groups as $customer_group) { ?>
+                  <?php if ($customer_group['customer_group_id'] == $customer_group_id) { ?>
+                  <input type="radio" name="customer_group_id" value="<?php echo $customer_group['customer_group_id']; ?>" id="customer_group_id<?php echo $customer_group['customer_group_id']; ?>" checked="checked" />
+                  <label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></label>
+                  <br />
+                  <?php } else { ?>
+                  <input type="radio" name="customer_group_id" value="<?php echo $customer_group['customer_group_id']; ?>" id="customer_group_id<?php echo $customer_group['customer_group_id']; ?>" />
+                  <label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></label>
+                  <br />
+                  <?php } ?>
+                  <?php } ?></td>
+          </tr>
+          <!---------------------------------------------------------->
+          <!--
         <tr>
           <td><span class="required">*</span> <?php echo $entry_firstname; ?></td>
           <td><input type="text" name="firstname" value="<?php echo $firstname; ?>" />
@@ -29,47 +150,21 @@
             <span class="error"><?php echo $error_lastname; ?></span>
             <?php } ?></td>
         </tr>
-        <tr>
-          <td><span class="required">*</span> <?php echo $entry_email; ?></td>
-          <td><input type="text" name="email" value="<?php echo $email; ?>" />
-            <?php if ($error_email) { ?>
-            <span class="error"><?php echo $error_email; ?></span>
-            <?php } ?></td>
-        </tr>
-        <tr>
-          <td><span class="required">*</span> <?php echo $entry_telephone; ?></td>
-          <td><input type="text" name="telephone" value="<?php echo $telephone; ?>" />
-            <?php if ($error_telephone) { ?>
-            <span class="error"><?php echo $error_telephone; ?></span>
-            <?php } ?></td>
-        </tr>
+
+
         <tr>
           <td><?php echo $entry_fax; ?></td>
           <td><input type="text" name="fax" value="<?php echo $fax; ?>" /></td>
         </tr>
+        -->
       </table>
     </div>
+    <!--
     <h2><?php echo $text_your_address; ?></h2>
     <div class="content">
       <table class="form">
-        <tr>
-          <td><?php echo $entry_company; ?></td>
-          <td><input type="text" name="company" value="<?php echo $company; ?>" /></td>
-        </tr>        
-        <tr style="display: <?php echo (count($customer_groups) > 1 ? 'table-row' : 'none'); ?>;">
-          <td><?php echo $entry_customer_group; ?></td>
-          <td><?php foreach ($customer_groups as $customer_group) { ?>
-            <?php if ($customer_group['customer_group_id'] == $customer_group_id) { ?>
-            <input type="radio" name="customer_group_id" value="<?php echo $customer_group['customer_group_id']; ?>" id="customer_group_id<?php echo $customer_group['customer_group_id']; ?>" checked="checked" />
-            <label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></label>
-            <br />
-            <?php } else { ?>
-            <input type="radio" name="customer_group_id" value="<?php echo $customer_group['customer_group_id']; ?>" id="customer_group_id<?php echo $customer_group['customer_group_id']; ?>" />
-            <label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></label>
-            <br />
-            <?php } ?>
-            <?php } ?></td>
-        </tr>      
+
+
         <tr id="company-id-display">
           <td><span id="company-id-required" class="required">*</span> <?php echo $entry_company_id; ?></td>
           <td><input type="text" name="company_id" value="<?php echo $company_id; ?>" />
@@ -84,13 +179,7 @@
             <span class="error"><?php echo $error_tax_id; ?></span>
             <?php } ?></td>
         </tr>
-        <tr>
-          <td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
-          <td><input type="text" name="address_1" value="<?php echo $address_1; ?>" />
-            <?php if ($error_address_1) { ?>
-            <span class="error"><?php echo $error_address_1; ?></span>
-            <?php } ?></td>
-        </tr>
+
         <tr>
           <td><?php echo $entry_address_2; ?></td>
           <td><input type="text" name="address_2" value="<?php echo $address_2; ?>" /></td>
@@ -136,24 +225,7 @@
       </table>
     </div>
     <h2><?php echo $text_your_password; ?></h2>
-    <div class="content">
-      <table class="form">
-        <tr>
-          <td><span class="required">*</span> <?php echo $entry_password; ?></td>
-          <td><input type="password" name="password" value="<?php echo $password; ?>" />
-            <?php if ($error_password) { ?>
-            <span class="error"><?php echo $error_password; ?></span>
-            <?php } ?></td>
-        </tr>
-        <tr>
-          <td><span class="required">*</span> <?php echo $entry_confirm; ?></td>
-          <td><input type="password" name="confirm" value="<?php echo $confirm; ?>" />
-            <?php if ($error_confirm) { ?>
-            <span class="error"><?php echo $error_confirm; ?></span>
-            <?php } ?></td>
-        </tr>
-      </table>
-    </div>
+
     <h2><?php echo $text_newsletter; ?></h2>
     <div class="content">
       <table class="form">
@@ -173,6 +245,7 @@
         </tr>
       </table>
     </div>
+-->
     <?php if ($text_agree) { ?>
     <div class="buttons">
       <div class="right"><?php echo $text_agree; ?>
@@ -191,6 +264,7 @@
       </div>
     </div>
     <?php } ?>
+
   </form>
   <?php echo $content_bottom; ?></div>
 <script type="text/javascript"><!--

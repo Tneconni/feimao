@@ -16,17 +16,26 @@ $_['text_your_password']   = '您的账户密码';
 $_['text_agree']           = '我已经阅读并同意 <a class="colorbox" href="%s" alt="%s"><b>%s</b></a>条款';
 
 // Entry
-$_['entry_firstname']      = '您的名字：';
+$_['entry_nick_name']      = '昵称:';
+
+$_['entry_payment_psd']      = '支付密码:';
+$_['entry_confirm_payment_psd']      = '确认支付密码:';
+$_['entry_wechat']      = '微信号:';
+$_['entry_age']      = '年龄:';
+$_['entry_gender']      = '性别:';
+$_['entry_salary']      = '收入水平:';
+
+$_['entry_firstname']      = '姓名：';
 $_['entry_lastname']       = '您的姓氏：';
 $_['entry_email']          = '电子邮箱：';
-$_['entry_telephone']      = '联系电话：';
+$_['entry_telephone']      = '手机号：';
 $_['entry_fax']            = '&nbsp;&nbsp;传真号码：';
-$_['entry_account']        = '公司帐号：';
-$_['entry_company']        = '&nbsp;&nbsp;公司名称：';
-$_['entry_customer_group'] = '会员等级:';
+$_['entry_account']        = '帐号：';
+$_['entry_company']        = '工作单位：';
+$_['entry_customer_group'] = '会员类别:';
 $_['entry_company_id']     = '公司注册号：';
 $_['entry_tax_id']         = '公司税号：';
-$_['entry_address_1']      = '地址 1：';
+$_['entry_address_1']      = '邮寄地址：';
 $_['entry_address_2']      = '&nbsp;&nbsp;地址 2：';
 $_['entry_postcode']       = '&nbsp;&nbsp;邮政编码：';
 $_['entry_city']           = '所在城市：';
@@ -37,7 +46,17 @@ $_['entry_password']       = '输入密码：';
 $_['entry_confirm']        = '确认密码：';
 
 // Error
+$_['error_nick_name']      = '请填写有效的昵称';
+$_['error_account']      = '请填写有效的昵称账户';
+$_['error_payment_psd']      = '请填写有效的支付密码';
+$_['error_confirm_payment_psd']      = '确认支付密码不统一';
+$_['error_wechat']      = '请填写有效的微信账号';
+$_['error_age']      = '请填写有效的年龄';
+$_['error_gender']      = '请填写有效的性别';
+$_['error_salary']      = '请填写有效的收入水平';
+
 $_['error_exists']         = '警告： 该邮箱地址已被注册、请换一个电子邮箱！';
+$_['error_account_exists']         = '警告： 该账户已被注册、请换一个账户';
 $_['error_firstname']      = '名字必须在1到32字符之间！';
 $_['error_lastname']       = '姓氏必须在1到32字符之间！';
 $_['error_email']          = '无效的邮箱地址！';

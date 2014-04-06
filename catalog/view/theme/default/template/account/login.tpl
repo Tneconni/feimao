@@ -26,8 +26,8 @@
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="content">
           <p><?php echo $text_i_am_returning_customer; ?></p>
-          <b><?php echo $entry_email; ?></b><br />
-          <input type="text" name="email" value="<?php echo $email; ?>" />
+          <b><?php echo $entry_account; ?></b><br />
+          <input type="text" name="account" value="<?php echo $account; ?>" />
           <br />
           <br />
           <b><?php echo $entry_password; ?></b><br />

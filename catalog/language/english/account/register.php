@@ -13,6 +13,15 @@ $_['text_your_password']   = 'Your Password';
 $_['text_agree']           = 'I have read and agree to the <a class="colorbox" href="%s" alt="%s"><b>%s</b></a>';
 
 // Entry
+$_['entry_nick_name']      = 'Nick name:';
+$_['entry_account']      = 'Account:';
+$_['entry_payment_psd']      = 'Payment password:';
+$_['entry_confirm_payment_psd']      = 'Confirm Payment password:';
+$_['entry_wechat']      = 'Wechat:';
+$_['entry_age']      = 'Age:';
+$_['entry_gender']      = 'Gender:';
+$_['entry_salary']      = 'Salary:';
+
 $_['entry_firstname']      = 'First Name:';
 $_['entry_lastname']       = 'Last Name:';
 $_['entry_email']          = 'E-Mail:';
@@ -33,6 +42,16 @@ $_['entry_password']       = 'Password:';
 $_['entry_confirm']        = 'Password Confirm:';
 
 // Error
+$_['error_nick_name']      = 'Nick name error';
+$_['error_account']      = 'account error';
+$_['error_payment_psd']      = 'Payment password error';
+$_['error_confirm_payment_psd']      = 'Confirm Payment password error';
+$_['error_wechat']      = 'Wechat error';
+$_['error_age']      = 'Age error';
+$_['error_gender']      = 'Gender error';
+$_['error_salary']      = 'Salary error';
+
+$_['error_account_exists']         = 'Warning: Account is already registered!';
 $_['error_exists']         = 'Warning: E-Mail Address is already registered!';
 $_['error_firstname']      = 'First Name must be between 1 and 32 characters!';
 $_['error_lastname']       = 'Last Name must be between 1 and 32 characters!';
