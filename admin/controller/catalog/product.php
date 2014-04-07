@@ -1479,8 +1479,10 @@ class ControllerCatalogProduct extends Controller {
                 $json['error'] = $this->language->get('error_filename');
             }
 
-            if (substr(strrchr($filename, '.'), 1) != 'obj') {
-                $json['error'] = "The filetype must be obj!";
+            $allowed = array('stl','obj');
+
+            if (!in_array(substr(strrchr($filename, '.'), 1),$allowed)) {
+                $json['error'] = "The filetype must be 'obj' or 'stl'!";
             }
 
             // Allowed file extension types

@@ -8,19 +8,32 @@
   <h1><?php echo $heading_title; ?></h1>
   <div class="product-info">
   <div class="left">
-    <?php if($threed_object) { ?>
-    <div class="image">
-        <canvas id="cv" style="border: 1px solid;" width="228" height="228" ></canvas>
-    </div>
-    <?php }elseif($thumb || $images){ ?>
+    <?php if($thumb || $images) { ?>
       <?php if ($thumb) { ?>
-      <div class="image"><a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" /></a></div>
+      <div class="image nothreedmode">
+          <a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" /></a>
+      </div>
+      <div class="image threedmode" style="display:none;" isloaded='false'>
+          <canvas id="cv" style="border: 1px solid;" width="228" height="228" ></canvas>
+      </div>
       <?php } ?>
-      <?php if ($images) { ?>
+      <?php if ($images || $threed_object) { ?>
       <div class="image-additional">
-        <?php foreach ($images as $image) { ?>
-        <a href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
+
+        <?php if($thumb) { ?>
+          <a onclick="thumbsubimage();" title="<?php echo $heading_title; ?>"><img width='74px' height='74px' src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
         <?php } ?>
+
+        <?php if ($images) { ?>
+          <?php foreach ($images as $image) { ?>
+            <a onclick="shownothreedimage();" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
+          <?php } ?>
+        <?php } ?>
+
+        <?php if($threed_object) { ?>
+          <a onclick="showthreedimage();" title="3D Display"><img width='74px' height='74px' src="<?php echo $threed_display; ?>" title="3D Display" /></a>
+        <?php } ?>
+
       </div>
       <?php } ?>
     <?php } ?>
@@ -518,20 +531,57 @@ $(document).ready(function() {
 //--></script>
 <?php if($threed_object) { ?>
 <script type="text/javascript">
-    var canvas = document.getElementById('cv');
-    var viewer = new JSC3D.Viewer(canvas);
-    viewer.setParameter('SceneUrl', '<?php echo $threed_object; ?>');
-    viewer.setParameter('InitRotationX', -90);
-    viewer.setParameter('InitRotationY', -90);
-    viewer.setParameter('InitRotationZ', 0);
-    viewer.setParameter('ModelColor', '#CAA618');
-    viewer.setParameter('BackgroundColor1', '#FFFFFF');
-    viewer.setParameter('BackgroundColor2', '#383840');
-    viewer.setParameter('RenderMode', 'textureflat');
-    viewer.setParameter('MipMapping', 'on');
-    viewer.setParameter('Renderer', 'webgl');
-    viewer.init();
-    viewer.update();
+
+    function showthreedimage() {
+
+        var isloaded = $(".threedmode").attr("isloaded");
+
+        if(isloaded == 'false') {
+
+            canvas = document.getElementById('cv');
+            viewer = new JSC3D.Viewer(canvas);
+            viewer.setParameter('SceneUrl', '<?php echo $threed_object; ?>');
+            viewer.setParameter('InitRotationX', 20);
+            viewer.setParameter('InitRotationY', 20);
+            viewer.setParameter('InitRotationZ', 0);
+            viewer.setParameter('ModelColor', '#CAA618');
+            viewer.setParameter('BackgroundColor1', '#FFFFFF');
+            viewer.setParameter('BackgroundColor2', '#383840');
+            viewer.setParameter('RenderMode', 'smooth');
+            viewer.setParameter('Definition', 'standard');
+            viewer.init();
+
+            viewer.update();
+
+            logoTimerID = setInterval(function(){viewer.rotate(0, 10, 0);viewer.update();}, 100);
+            viewer.enableDefaultInputHandler(false);
+            setTimeout(function(){viewer.enableDefaultInputHandler(true); loadModel();}, 8000);
+
+            $(".threedmode").attr("isloaded","true");
+
+        }
+
+        $(".nothreedmode").css("display","none");
+        $(".threedmode").css("display","");
+
+    }
+
+    function shownothreedimage() {
+
+        $(".nothreedmode").css("display","");
+        $(".threedmode").css("display","none");
+
+    }
+
+    function thumbsubimage() {
+
+        $(".nothreedmode").css("display","");
+        $(".threedmode").css("display","none");
+        $("#image").trigger("click");
+
+    }
+
+
 </script>
 <?php } ?>
 <?php echo $footer; ?>
