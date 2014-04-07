@@ -16,9 +16,9 @@
     <?php } ?>
   </div>
   <h1><?php echo $heading_title; ?>
-    <?php if ($weight) { ?>
+    <!--<?php if ($weight) { ?>
     &nbsp;(<?php echo $weight; ?>)
-    <?php } ?>
+    <?php } ?>-->
   </h1>
   <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
     <div class="cart-info">
@@ -55,13 +55,14 @@
                 <?php foreach ($product['option'] as $option) { ?>
                 - <small><?php echo $option['name']; ?>: <?php echo $option['value']; ?></small><br />
                 <?php } ?>
-                <?php if($product['recurring']): ?>
+                <!--<?php if($product['recurring']): ?>
                 - <small><?php echo $text_payment_profile ?>: <?php echo $product['profile_name'] ?></small>
-                <?php endif; ?>
+                <?php endif; ?>-->
               </div>
-              <?php if ($product['reward']) { ?>
+              <!--<?php if ($product['reward']) { ?>
               <small><?php echo $product['reward']; ?></small>
-              <?php } ?></td>
+              <?php } ?>-->
+            </td>
             <td class="model"><?php echo $product['model']; ?></td>
             <td class="quantity"><input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" />
               &nbsp;
@@ -203,7 +204,7 @@
   </div>
   <div class="buttons">
     <div class="right"><a href="<?php echo $checkout; ?>" class="button"><?php echo $button_checkout; ?></a></div>
-    <div class="center"><a href="<?php echo $continue; ?>" class="button"><?php echo $button_shopping; ?></a></div>
+    <div class="right" style='margin-right:10px;'><a href="<?php echo $continue; ?>" class="button"><?php echo $button_shopping; ?></a></div>
   </div>
   <?php echo $content_bottom; ?></div>
 <script type="text/javascript"><!--

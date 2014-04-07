@@ -214,7 +214,25 @@ class ControllerCheckoutCart extends Controller {
 
 				$option_data = array();
 
-				foreach ($product['option'] as $option) {
+                $option_data[] = array(
+                    'name'  => '材质：',
+                    'value' => $this->material[$product['material']]['name'],
+                    'type'  => ''
+                );
+
+                $option_data[] = array(
+                    'name'  => '精度：',
+                    'value' => $this->precision[$product['precision']]['name'],
+                    'type'  => ''
+                );
+
+                $option_data[] = array(
+                    'name'  => '颜色：',
+                    'value' => $this->product_color[$product['product_color']]['name'],
+                    'type'  => ''
+                );
+
+				/*foreach ($product['option'] as $option) {
 					if ($option['type'] != 'file') {
 						$value = $option['option_value'];
 					} else {
@@ -227,7 +245,7 @@ class ControllerCheckoutCart extends Controller {
 						'name'  => $option['name'],
 						'value' => (utf8_strlen($value) > 20 ? utf8_substr($value, 0, 20) . '..' : $value)
 					);
-				}
+				}*/
 
 				// Display prices
 				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
@@ -578,19 +596,25 @@ class ControllerCheckoutCart extends Controller {
 				$option = array();	
 			}
 
+            $threedoption = array(
+                'material'          =>  $this->request->post['material'],
+                'precision'         =>  $this->request->post['precision'],
+                'product_color'     =>  $this->request->post['product_color'],
+            );
+
 			if (isset($this->request->post['profile_id'])) {
 				$profile_id = $this->request->post['profile_id'];
 			} else {
 				$profile_id = 0;
 			}
 
-			$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
+			/*$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
 
 			foreach ($product_options as $product_option) {
 				if ($product_option['required'] && empty($option[$product_option['product_option_id']])) {
 					$json['error']['option'][$product_option['product_option_id']] = sprintf($this->language->get('error_required'), $product_option['name']);
 				}
-			}
+			}*/
 
 			$profiles = $this->model_catalog_product->getProfiles($product_info['product_id']);
 
@@ -607,7 +631,7 @@ class ControllerCheckoutCart extends Controller {
 			}
 
 			if (!$json) {
-				$this->cart->add($this->request->post['product_id'], $quantity, $option, $profile_id);
+				$this->cart->add($this->request->post['product_id'], $quantity, $option, $profile_id,$threedoption);
 
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
 
@@ -650,6 +674,7 @@ class ControllerCheckoutCart extends Controller {
 
 						array_multisort($sort_order, SORT_ASC, $total_data);			
 					}
+
 				}
 
 				$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));

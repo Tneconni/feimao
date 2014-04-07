@@ -160,6 +160,10 @@ class ControllerProductProduct extends Controller {
 			$product_id = 0;
 		}
 
+        $this->data['material'] = $this->material;
+        $this->data['precision'] = $this->precision;
+        $this->data['product_color'] = $this->product_color;
+
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);

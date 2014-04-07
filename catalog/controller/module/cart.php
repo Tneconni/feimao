@@ -70,7 +70,25 @@ class ControllerModuleCart extends Controller {
 
 			$option_data = array();
 
-			foreach ($product['option'] as $option) {
+            $option_data[] = array(
+                'name'  => '材质：',
+                'value' => $this->material[$product['material']]['name'],
+                'type'  => ''
+            );
+
+            $option_data[] = array(
+                'name'  => '精度：',
+                'value' => $this->precision[$product['precision']]['name'],
+                'type'  => ''
+            );
+
+            $option_data[] = array(
+                'name'  => '颜色：',
+                'value' => $this->product_color[$product['product_color']]['name'],
+                'type'  => ''
+            );
+
+			/*foreach ($product['option'] as $option) {
 				if ($option['type'] != 'file') {
 					$value = $option['option_value'];	
 				} else {
@@ -84,7 +102,7 @@ class ControllerModuleCart extends Controller {
 					'value' => (utf8_strlen($value) > 20 ? utf8_substr($value, 0, 20) . '..' : $value),
 					'type'  => $option['type']
 				);
-			}
+			}*/
 
 			// Display prices
 			if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {

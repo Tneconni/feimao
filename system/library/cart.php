@@ -4,6 +4,7 @@ class Cart {
 	private $db;
 	private $data = array();
 	private $data_recurring = array();
+    private $registry = array();
 
 	public function __construct($registry) {
 		$this->config = $registry->get('config');
@@ -12,6 +13,7 @@ class Cart {
 		$this->db = $registry->get('db');
 		$this->tax = $registry->get('tax');
 		$this->weight = $registry->get('weight');
+		$this->registry = $registry;
 
 		if (!isset($this->session->data['cart']) || !is_array($this->session->data['cart'])) {
 			$this->session->data['cart'] = array();
@@ -39,6 +41,12 @@ class Cart {
 				} else {
 					$profile_id = 0;
 				}
+
+                if (!empty($product[3])) {
+                    $threedoption = unserialize(base64_decode($product[3]));
+                } else {
+                    $threedoption = array();
+                }
 
 				$product_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) WHERE p.product_id = '" . (int)$product_id . "' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.date_available <= NOW() AND p.status = '1'");
 
@@ -257,6 +265,18 @@ class Cart {
 						}
 					}
 
+                    if($product_query->row['volume']) {
+                        $volume = $product_query->row['volume'];
+                    }else{
+                        $volume = 0;
+                    }
+
+                    $material = $this->registry->get('material');
+                    $precision = $this->registry->get('precision');
+                    $product_color = $this->registry->get('product_color');
+
+                    $volume_price = $volume * ($material[$threedoption['material']]['price'] + $precision[$threedoption['precision']]['price'] + $product_color[$threedoption['product_color']]['price']);
+
 					$this->data[$key] = array(
 						'key'                       => $key,
 						'product_id'                => $product_query->row['product_id'],
@@ -264,14 +284,18 @@ class Cart {
 						'model'                     => $product_query->row['model'],
 						'shipping'                  => $product_query->row['shipping'],
 						'image'                     => $product_query->row['image'],
+						'volume'                    => $volume,
+						'volume_price'              => $volume_price * $quantity,
 						'option'                    => $option_data,
 						'download'                  => $download_data,
 						'quantity'                  => $quantity,
 						'minimum'                   => $product_query->row['minimum'],
 						'subtract'                  => $product_query->row['subtract'],
 						'stock'                     => $stock,
-						'price'                     => ($price + $option_price),
-						'total'                     => ($price + $option_price) * $quantity,
+						//'price'                     => ($price + $option_price),
+						'price'                     => $volume_price,
+						//'total'                     => ($price + $option_price) * $quantity,
+						'total'                     => $volume_price * $quantity,
 						'reward'                    => $reward * $quantity,
 						'points'                    => ($product_query->row['points'] ? ($product_query->row['points'] + $option_points) * $quantity : 0),
 						'tax_class_id'              => $product_query->row['tax_class_id'],
@@ -293,7 +317,9 @@ class Cart {
 						'recurring_trial_price'     => $recurring_trial_price,
 						'recurring_trial_cycle'     => $recurring_trial_cycle,
 						'recurring_trial_duration'  => $recurring_trial_duration,
-					);
+						'material'                  => $threedoption['material'],
+						'precision'                 => $threedoption['precision'],
+						'product_color'             => $threedoption['product_color']);
 				} else {
 					$this->remove($key);
 				}
@@ -315,18 +341,26 @@ class Cart {
 		return $recurring_products;
 	}
 
-	public function add($product_id, $qty = 1, $option, $profile_id = '') {
+	public function add($product_id, $qty = 1, $option, $profile_id = '',$threedoption = array()) {
 		$key = (int)$product_id . ':';
 
-		if ($option) {
+        $key .= ':';
+
+		/*if ($option) {
 			$key .= base64_encode(serialize($option)) . ':';
 		}  else {
 			$key .= ':';
-		}
+		}*/
 
 		if ($profile_id) {
-			$key .= (int)$profile_id;
-		}
+			$key .= (int)$profile_id . ':';
+		}else {
+            $key .= ':';
+        }
+
+        if ($threedoption) {
+            $key .= base64_encode(serialize($threedoption));
+        }
 
 		if ((int)$qty && ((int)$qty > 0)) {
 			if (!isset($this->session->data['cart'][$key])) {
@@ -378,7 +412,7 @@ class Cart {
 		$total = 0;
 
 		foreach ($this->getProducts() as $product) {
-			$total += $product['total'];
+			$total += $product['volume_price'];
 		}
 
 		return $total;
