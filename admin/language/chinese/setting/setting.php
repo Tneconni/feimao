@@ -46,6 +46,7 @@ $_['entry_currency']             = '货币设置：<br /><span class="help">更�
 $_['entry_currency_auto']        = '汇率更新：<br /><span class="help">设置是否每天自动更新汇率！</span>';
 $_['entry_length_class']         = '尺寸单位：';
 $_['entry_weight_class']         = '重量单位：';
+$_['entry_volume_class']         = '体积单位：';
 $_['entry_catalog_limit']        = '每页默认商品数量 (前台管理)：<br /><span class="help">确定在商品分类中每个网页上显示多少商品（商品，种类等）</span>';
 $_['entry_admin_limit']          = '每页默认商品数量 (后台管理)：<br /><span class="help">确定每页显示多少管理项目（订单，客户等）</span>';
 $_['entry_product_count']        = '前台商品计数：<br /><span class="help">显示页面上类别菜单中子类别内的产品数量。</span>';

@@ -64,6 +64,7 @@ class ControllerSettingSetting extends Controller {
 		$this->data['entry_currency_auto'] = $this->language->get('entry_currency_auto');
 		$this->data['entry_length_class'] = $this->language->get('entry_length_class');
 		$this->data['entry_weight_class'] = $this->language->get('entry_weight_class');
+		$this->data['entry_volume_class'] = $this->language->get('entry_volume_class');
 		$this->data['entry_catalog_limit'] = $this->language->get('entry_catalog_limit');
 		$this->data['entry_admin_limit'] = $this->language->get('entry_admin_limit');
 		$this->data['entry_product_count'] = $this->language->get('entry_product_count');
@@ -484,7 +485,17 @@ class ControllerSettingSetting extends Controller {
 
 		$this->data['weight_classes'] = $this->model_localisation_weight_class->getWeightClasses();
 
-		if (isset($this->request->post['config_catalog_limit'])) {
+        if (isset($this->request->post['config_volume_class_id'])) {
+            $this->data['config_volume_class_id'] = $this->request->post['config_volume_class_id'];
+        } else {
+            $this->data['config_volume_class_id'] = $this->config->get('config_volume_class_id');
+        }
+
+        $this->load->model('localisation/volume_class');
+
+        $this->data['volume_classes'] = $this->model_localisation_volume_class->getWeightClasses();
+
+        if (isset($this->request->post['config_catalog_limit'])) {
 			$this->data['config_catalog_limit'] = $this->request->post['config_catalog_limit'];
 		} else {
 			$this->data['config_catalog_limit'] = $this->config->get('config_catalog_limit');

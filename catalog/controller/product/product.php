@@ -227,6 +227,9 @@ class ControllerProductProduct extends Controller {
 			$this->document->addLink($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
 			$this->document->addScript('catalog/view/javascript/jquery/tabs.js');
 			$this->document->addScript('catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js');
+			$this->document->addScript('catalog/view/javascript/3d/jsc3d.js');
+			$this->document->addScript('catalog/view/javascript/3d/jsc3d.touch.js');
+			$this->document->addScript('catalog/view/javascript/3d/jsc3d.webgl.js');
 			$this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
 
 			$this->data['heading_title'] = $product_info['name'];
@@ -277,6 +280,12 @@ class ControllerProductProduct extends Controller {
 			$this->data['model'] = $product_info['model'];
 			$this->data['reward'] = $product_info['reward'];
 			$this->data['points'] = $product_info['points'];
+            if($product_info['3d_object']) {
+                $this->data['threed_object'] = "3d_object/" . $product_info['3d_object'];
+            }else{
+                $this->data['threed_object'] = '';
+            }
+
 
 			if ($product_info['quantity'] <= 0) {
 				$this->data['stock'] = $product_info['stock_status'];

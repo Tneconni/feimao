@@ -181,16 +181,38 @@
                   <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
             </tr>
             <tr>
+                <td><?php echo $entry_3d_object; ?></td>
+                <td><input type="text" name="threed_object" value="<?php echo $threed_object; ?>" size="24" />&nbsp;&nbsp;&nbsp;&nbsp;<a id="button-upload" class="button"><?php echo $button_upload; ?></td>
+            </tr>
+            <tr>
               <td><?php echo $entry_date_available; ?></td>
               <td><input type="text" name="date_available" value="<?php echo $date_available; ?>" size="12" class="date" /></td>
             </tr>
             <tr>
+                <td><?php echo $entry_volume; ?></td>
+                <td><input type="text" name="volume" value="<?php echo $volume; ?>" size="4" /></td>
+            </tr>
+            <tr>
+                <td><?php echo $entry_volume_class; ?></td>
+                <td>
+                    <select name="volume_class_id">
+                        <?php foreach ($volume_classes as $volume_class) { ?>
+                        <?php if ($volume_class['volume_class_id'] == $volume_class_id) { ?>
+                        <option value="<?php echo $volume_class['volume_class_id']; ?>" selected="selected"><?php echo $volume_class['title']; ?></option>
+                        <?php } else { ?>
+                        <option value="<?php echo $volume_class['volume_class_id']; ?>"><?php echo $volume_class['title']; ?></option>
+                        <?php } ?>
+                        <?php } ?>
+                    </select>
+                </td>
+            </tr>
+            <tr style="display:none">
               <td><?php echo $entry_dimension; ?></td>
               <td><input type="text" name="length" value="<?php echo $length; ?>" size="4" />
                 <input type="text" name="width" value="<?php echo $width; ?>" size="4" />
                 <input type="text" name="height" value="<?php echo $height; ?>" size="4" /></td>
             </tr>
-            <tr>
+            <tr style="display:none">
               <td><?php echo $entry_length; ?></td>
               <td><select name="length_class_id">
                   <?php foreach ($length_classes as $length_class) { ?>
@@ -1388,5 +1410,34 @@ function addProfile() {
 <?php } ?>
 
 //--></script>
+
+<script type="text/javascript" src="view/javascript/jquery/ajaxupload.js"></script>
+<script type="text/javascript"><!--
+    new AjaxUpload('#button-upload', {
+        action: 'index.php?route=catalog/product/upload&token=<?php echo $token; ?>',
+        name: 'file',
+        autoSubmit: true,
+        responseType: 'json',
+        onSubmit: function(file, extension) {
+            $('#button-upload').after('<img src="view/image/loading.gif" class="loading" style="padding-left: 5px;" />');
+            $('#button-upload').attr('disabled', true);
+        },
+        onComplete: function(file, json) {
+            $('#button-upload').attr('disabled', false);
+
+            if (json['success']) {
+                alert(json['success']);
+
+                $('input[name=\'threed_object\']').attr('value', json['filename']);
+            }
+
+            if (json['error']) {
+                alert(json['error']);
+            }
+
+            $('.loading').remove();
+        }
+    });
+    //--></script>
 
 <?php echo $footer; ?>
