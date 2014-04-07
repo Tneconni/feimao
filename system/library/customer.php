@@ -224,5 +224,18 @@ class Customer {
 	}
 
 
+    public function getCustomerGroupInfo() {
+        $sql = "SELECT
+  cg.*
+FROM
+  " . DB_PREFIX . "customer AS c
+  LEFT JOIN " . DB_PREFIX . "customer_group AS cg
+    ON c.`customer_group_id` = cg.`customer_group_id`
+WHERE c.`customer_id` = '" . (int)$this->customer_id . "'";
+        $query = $this->db->query( $sql );
+
+        return $query->row;
+    }
+
 }
 ?>

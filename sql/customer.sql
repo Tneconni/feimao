@@ -26,3 +26,9 @@ CREATE TABLE `fm_customer_group_description` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 insert  into `fm_customer_group_description`(`customer_group_id`,`language_id`,`name`,`description`) values (1,2,'普通用户','test'),(3,2,'学生用户',''),(3,1,'student',''),(4,2,'专业用户',''),(4,1,'career',''),(5,2,'工业用户','industry'),(5,1,'industry','industry'),(1,1,'Default','test');
+
+
+
+-- 添加 喜好名称，喜好category id --
+ALTER TABLE `fm_customer_group` ADD `interest_name` VARCHAR(64) NOT NULL;
+ALTER TABLE `fm_customer_group` ADD `interest_category_id` INT(11) NOT NULL;

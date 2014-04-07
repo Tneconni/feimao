@@ -267,6 +267,9 @@ class ControllerSaleCustomerGroup extends Controller {
 		$this->data['text_yes'] = $this->language->get('text_yes');
 		$this->data['text_no'] = $this->language->get('text_no');
 
+		$this->data['entry_interest_name'] = $this->language->get('entry_interest_name');
+		$this->data['entry_interest_category'] = $this->language->get('entry_interest_category');
+
 		$this->data['entry_name'] = $this->language->get('entry_name');
 		$this->data['entry_description'] = $this->language->get('entry_description');
 		$this->data['entry_approval'] = $this->language->get('entry_approval');
@@ -391,7 +394,28 @@ class ControllerSaleCustomerGroup extends Controller {
 			$this->data['sort_order'] = '';
 		}	
 
-		$this->template = 'sale/customer_group_form.tpl';
+        //todo get the categories
+        $this->load->model('catalog/category');
+        $categories = $this->model_catalog_category->getCategoriesByParent( 0 );
+        $this->data['categories'] = $categories;
+
+        if (isset($this->request->post['interest_name'])) {
+            $this->data['interest_name'] = $this->request->post['interest_name'];
+        } elseif (!empty($customer_group_info)) {
+            $this->data['interest_name'] = $customer_group_info['interest_name'];
+        } else {
+            $this->data['interest_name'] = '';
+        }
+
+        if (isset($this->request->post['interest_category_id'])) {
+            $this->data['interest_category_id'] = $this->request->post['interest_category_id'];
+        } elseif (!empty($customer_group_info)) {
+            $this->data['interest_category_id'] = $customer_group_info['interest_category_id'];
+        } else {
+            $this->data['interest_category_id'] = '';
+        }
+
+        $this->template = 'sale/customer_group_form.tpl';
 		$this->children = array(
 			'common/header',
 			'common/footer'

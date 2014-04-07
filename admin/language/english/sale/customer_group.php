@@ -11,6 +11,9 @@ $_['column_sort_order']         = 'Sort Order';
 $_['column_action']             = 'Action';
 
 // Entry
+$_['entry_interest_name']                = 'Interest Name:';
+$_['entry_interest_category']                = 'Interest Category:';
+
 $_['entry_name']                = 'Customer Group Name:';
 $_['entry_description']         = 'Description:';
 $_['entry_approval']            = 'Approve New Customers:<br /><span class="help">Customers must be approved by and administrator before they can login.</span>';

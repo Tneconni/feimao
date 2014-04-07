@@ -107,9 +107,34 @@
             <td><?php echo $entry_sort_order; ?></td>
             <td><input type="text" name="sort_order" value="<?php echo $sort_order; ?>" size="1" /></td>
           </tr>
+
+            <tr>
+                <td><?php echo $entry_interest_name; ?></td>
+                <td><input type="text" name="interest_name"
+                           value="<?php echo $interest_name; ?>" size="12" /></td>
+            </tr>
+            <tr>
+                <td><?php echo $entry_interest_category; ?></td>
+                <td>
+                    <select name="interest_category_id" >
+                        <?php foreach( $categories as $cat ){ ?>
+                        <option value="<?php echo $cat['category_id']; ?>"
+                            <?php if($interest_category_id == $cat['category_id'] ){ ?>
+                        selected='selected'
+                            <?php } ?>
+                                ><?php echo $cat['name']; ?></option>
+                        <?php } ?>
+
+                        <option></option>
+                    </select>
+                </td>
+            </tr>
+
         </table>
       </form>
     </div>
+
+
   </div>
 </div>
 <?php echo $footer; ?>
