@@ -19,10 +19,10 @@
           <a href="#tab-data"><?php echo $tab_data; ?></a>
           <a href="#tab-links"><?php echo $tab_links; ?></a>
           <a href="#tab-attribute"><?php echo $tab_attribute; ?></a>
-          <a href="#tab-option"><?php echo $tab_option; ?></a>
+          <!--<a href="#tab-option"><?php echo $tab_option; ?></a>-->
           <a href="#tab-profile"><?php echo $tab_profile; ?></a>
-          <a href="#tab-discount"><?php echo $tab_discount; ?></a>
-          <a href="#tab-special"><?php echo $tab_special; ?></a>
+          <!--<a href="#tab-discount"><?php echo $tab_discount; ?></a>-->
+          <!--<a href="#tab-special"><?php echo $tab_special; ?></a>-->
           <a href="#tab-image"><?php echo $tab_image; ?></a>
           <!--<a href="#tab-reward"><?php echo $tab_reward; ?></a>-->
           <!--<a href="#tab-design"><?php echo $tab_design; ?></a>-->
@@ -389,7 +389,7 @@
             </tfoot>
           </table>
         </div>
-        <div id="tab-option">
+        <div id="tab-option" style="display:none">
           <div id="vtab-option" class="vtabs">
             <?php $option_row = 0; ?>
             <?php foreach ($product_options as $product_option) { ?>
@@ -610,7 +610,7 @@
                 </tfoot>
             </table>
         </div>
-        <div id="tab-discount">
+        <div id="tab-discount" style='display: none;'>
           <table id="discount" class="list">
             <thead>
               <tr>
@@ -654,7 +654,7 @@
             </tfoot>
           </table>
         </div>
-        <div id="tab-special">
+        <div id="tab-special" style="display: none;">
           <table id="special" class="list">
             <thead>
               <tr>

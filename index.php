@@ -31,6 +31,51 @@ require_once(DIR_SYSTEM . 'library/less/lessc.inc.php');
 // Registry
 $registry = new Registry();
 
+$material = array(
+    '1' =>  array(
+        'price' => '2',
+        'name'  => '树脂',
+    ),
+    '2' =>  array(
+        'price' => '2',
+        'name'  => '金属',
+    ),
+    '3' =>  array(
+        'price' => '3',
+        'name'  => '橡胶',
+    ),
+);
+
+$precision = array(
+    '1' =>  array(
+        'price' => '1',
+        'name'  => '1mm',
+    ),
+    '2' =>  array(
+        'price' => '2',
+        'name'  => '2mm',
+    ),
+    '3' =>  array(
+        'price' => '3',
+        'name'  => '3mm',
+    ),
+);
+
+$product_color = array(
+    '1' =>  array(
+        'price' => '1',
+        'name'  => '红色',
+    ),
+    '2' =>  array(
+        'price' => '2',
+        'name'  => '黑色',
+    ),
+);
+
+$registry->set('material', $material);
+$registry->set('precision', $precision);
+$registry->set('product_color', $product_color);
+
 // Loader
 $loader = new Loader($registry);
 $registry->set('load', $loader);
