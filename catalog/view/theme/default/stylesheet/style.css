@@ -1,0 +1,11 @@
+@import "bootstrap/css/bootstrap.min.css";
+.asd {
+  margin-left: 20px;
+}
+.asd .qwe {
+  display: block;
+  font-size: 12px;
+}
+.asd .qwe .zxc {
+  padging: 10px;
+}
