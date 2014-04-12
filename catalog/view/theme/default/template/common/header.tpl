@@ -50,10 +50,59 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <?php echo $google_analytics; ?>
 </head>
 <body>
+<!--头部——开始-->
+<div class="header ie6fixedTL">
+    <div class="header_top clearfix">
+        <ul class="top_menul jvf_fl clearfix">
+
+            <li class="header_top_mubg left_mu5"><a href="/index.php/Goods/shoppingCart">
+                    <em></em>
+                    购物车<span>(<span id="shoppingCartNum">0</span>)</span></a></li>
+        </ul>
+
+        <ul class="top_menur jvf_fr clearfix">
+            <li>请您先</li>
+            <li><a href="/index.php?route=account/login">[&nbsp;登录&nbsp;]</a></li>
+            <li>或者</li>
+            <li><a href="/index.php?route=account/register">[&nbsp;注册&nbsp;]</a></li>
+            <li>|</li>
+            <li style = "display:none" class="header_top_mubg right_mu1"><a href="/index.php/Help/index">
+                    <em></em>
+                    帮助</a></li>
+        </ul>
+    </div>
+
+    <div class="header_con clearfix">
+        <div class="header_logo jvf_fl">
+            <h1><a href="<?php echo $home; ?>"><img src="/catalog/view/theme/default/image/531fd1cfa2fef.png" alt="肥猫网" /></a></h1>
+        </div>
+        <div class="jvf_fl header_con_menu">
+            <ul>
+                <li class="menu_active">
+                    <a >首页</a></li>
+                <li ><a >关于肥猫</a></li>
+                <li ><a >模型库</a></li>
+                <li ><a >打印机展厅</a></li>
+                <li ><a  >打印商城</a></li>
+                <li ><a >加入我们</a></li>
+                <li ><a >肥猫学院</a></li>
+                <li ><a >合作项目</a></li>
+                <li ><a >会员俱乐部</a></li>
+                <li ><a >客服中心</a></li>
+                <li ><a >联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--头部——结束-->
+
 <div id="container">
 <div id="header">
   <?php if ($logo) { ?>
-  <div id="logo"><a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a></div>
+  <div id="logo"><a href="<?php echo $home; ?>">
+          <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>"
+                                                     alt="<?php echo $name; ?>" />
+      </a></div>
   <?php } ?>
   <?php echo $language; ?>
   <?php echo $currency; ?>
@@ -69,7 +118,11 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
     <?php echo $text_logged; ?>
     <?php } ?>
   </div>
-  <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
+  <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a>
+      <a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a>
+      <a href="<?php echo $account; ?>"><?php echo $text_account; ?></a>
+      <a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a>
+      <a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
 </div>
 <?php if ($categories) { ?>
 <div id="menu">
