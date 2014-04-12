@@ -70,6 +70,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
             <li style = "display:none" class="header_top_mubg right_mu1"><a href="/index.php/Help/index">
             <em></em>帮助</a></li>
             <?php } else { ?>
+            <li><a href="<?php echo $account; ?>">[&nbsp;我的账户&nbsp;]</a></li>
             <li><a href="<?php echo $logout; ?>">[&nbsp;退出&nbsp;]</a></li>
             <?php } ?>
         </ul>
