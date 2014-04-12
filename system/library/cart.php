@@ -29,7 +29,8 @@ class Cart {
 
 				// Options
 				if (!empty($product[1])) {
-					$options = unserialize(base64_decode($product[1]));
+					//$options = unserialize(base64_decode($product[1]));
+					$options = array();
 				} else {
 					$options = array();
 				} 
@@ -275,7 +276,11 @@ class Cart {
                     $precision = $this->registry->get('precision');
                     $product_color = $this->registry->get('product_color');
 
-                    $volume_price = $volume * ($material[$threedoption['material']]['price'] + $precision[$threedoption['precision']]['price'] + $product_color[$threedoption['product_color']]['price']);
+                    if(!empty($threedoption['material']) && !empty($threedoption['precision']) && !empty($threedoption['product_color'])) {
+                        $volume_price = $volume * ($material[$threedoption['material']]['price'] + $precision[$threedoption['precision']]['price'] + $product_color[$threedoption['product_color']]['price']);
+                    }else{
+                        $volume_price = 0;
+                    }
 
 					$this->data[$key] = array(
 						'key'                       => $key,

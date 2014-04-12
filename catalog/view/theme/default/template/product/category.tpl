@@ -90,11 +90,11 @@
       <?php if ($product['rating']) { ?>
       <div class="rating"><img src="catalog/view/theme/default/image/stars-<?php echo $product['rating']; ?>.png" alt="<?php echo $product['reviews']; ?>" /></div>
       <?php } ?>
-      <div class="cart">
+      <div class="cart" style="display: none;">
         <input type="button" value="<?php echo $button_cart; ?>" onclick="addToCart('<?php echo $product['product_id']; ?>');" class="button" />
       </div>
-      <div class="wishlist"><a onclick="addToWishList('<?php echo $product['product_id']; ?>');"><?php echo $button_wishlist; ?></a></div>
-      <div class="compare"><a onclick="addToCompare('<?php echo $product['product_id']; ?>');"><?php echo $button_compare; ?></a></div>
+      <div class="wishlist" style="display: none;"><a onclick="addToWishList('<?php echo $product['product_id']; ?>');"><?php echo $button_wishlist; ?></a></div>
+      <div class="compare" style="display: none;"><a onclick="addToCompare('<?php echo $product['product_id']; ?>');"><?php echo $button_compare; ?></a></div>
     </div>
     <?php } ?>
   </div>
@@ -113,7 +113,7 @@ function display(view) {
 		$('.product-grid').attr('class', 'product-list');
 		
 		$('.product-list > div').each(function(index, element) {
-			html  = '<div class="right">';
+			html  = '<div class="right" style="display: none;">';
 			html += '  <div class="cart">' + $(element).find('.cart').html() + '</div>';
 			html += '  <div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
 			html += '  <div class="compare">' + $(element).find('.compare').html() + '</div>';
@@ -177,9 +177,9 @@ function display(view) {
 				html += '<div class="rating">' + rating + '</div>';
 			}
 						
-			html += '<div class="cart">' + $(element).find('.cart').html() + '</div>';
-			html += '<div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
-			html += '<div class="compare">' + $(element).find('.compare').html() + '</div>';
+			html += '<div class="cart" style="display: none;">' + $(element).find('.cart').html() + '</div>';
+			html += '<div class="wishlist" style="display: none;">' + $(element).find('.wishlist').html() + '</div>';
+			html += '<div class="compare" style="display: none;">' + $(element).find('.compare').html() + '</div>';
 			
 			$(element).html(html);
 		});	
