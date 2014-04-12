@@ -78,12 +78,11 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
         </div>
         <div class="jvf_fl header_con_menu">
             <ul>
-                <li class="menu_active">
-                    <a >首页</a></li>
+                <li ><a href="<?php echo $homepage; ?>" >首页</a></li>
                 <li ><a >关于肥猫</a></li>
-                <li ><a >模型库</a></li>
+                <li ><a href="<?php echo $moxingku; ?>" >模型库</a></li>
                 <li ><a >打印机展厅</a></li>
-                <li ><a  >打印商城</a></li>
+                <li ><a href="<?php echo $dayinshangcheng; ?>" >打印商城</a></li>
                 <li ><a >加入我们</a></li>
                 <li ><a >肥猫学院</a></li>
                 <li ><a >合作项目</a></li>
@@ -124,6 +123,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
       <a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a>
       <a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
 </div>
+    <!--
 <?php if ($categories) { ?>
 <div id="menu">
   <ul>
@@ -148,6 +148,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
   </ul>
 </div>
 <?php } ?>
+    -->
 <?php if ($error) { ?>
     
     <div class="warning"><?php echo $error ?><img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>

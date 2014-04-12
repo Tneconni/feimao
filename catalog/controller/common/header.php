@@ -28,6 +28,10 @@ class ControllerCommonHeader extends Controller {
 		$this->data['google_analytics'] = html_entity_decode($this->config->get('config_google_analytics'), ENT_QUOTES, 'UTF-8');
 		$this->data['name'] = $this->config->get('config_name');
 
+		$this->data['homepage'] = HTTP_SERVER;
+		$this->data['moxingku'] = $this->url->link('product/category', 'flag&moxingku', 'SSL');
+		$this->data['dayinshangcheng'] = $this->url->link('product/category', 'flag&dayinshangcheng', 'SSL');
+
 		if ($this->config->get('config_icon') && file_exists(DIR_IMAGE . $this->config->get('config_icon'))) {
 			$this->data['icon'] = $server . 'image/' . $this->config->get('config_icon');
 		} else {

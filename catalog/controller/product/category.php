@@ -109,6 +109,7 @@ class ControllerProductCategory extends Controller {
 		} else {
 			$category_id = 0;
 		}
+
         $category_info = $this->model_catalog_category->getCategory($category_id);
 
         if ($category_info) {
@@ -212,13 +213,20 @@ class ControllerProductCategory extends Controller {
 			$this->data['products'] = array();
 
 			$data = array(
-				'filter_category_id' => $category_id,
+				//'filter_category_id' => $category_id,
 				'filter_filter'      => $filter, 
 				'sort'               => $sort,
 				'order'              => $order,
 				'start'              => ($page - 1) * $limit,
 				'limit'              => $limit
 			);
+
+            if(!isset($this->request->get['flag'])) {
+                $data['filter_category_id'] = $category_id;
+                $this->data['showallproducts'] = true;
+            }else{
+                $this->data['showallproducts'] = false;
+            }
 
 			$product_total = $this->model_catalog_product->getTotalProducts($data); 
 
@@ -382,6 +390,10 @@ class ControllerProductCategory extends Controller {
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
+
+            if (isset($this->request->get['flag'])) {
+                $url .= '&flag';
+            }
 
 			$pagination = new Pagination();
 			$pagination->total = $product_total;
