@@ -6,7 +6,9 @@ class ControllerCommonHome extends Controller {
 
 //		$this->data['heading_title'] = $this->config->get('config_title');
         $this->data['heading_title'] = "要3D打印就上肥猫网";
-		
+
+        $this->data['enter_button'] = $this->url->link('product/category','flag');
+
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/home.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/common/home.tpl';
 		} else {
