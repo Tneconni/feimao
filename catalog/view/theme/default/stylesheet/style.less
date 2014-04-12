@@ -1,12 +1,207 @@
 @import "bootstrap/css/bootstrap.min.css";
-.asd{
-  margin-left: 20px;
-  .qwe{
+ol, ul {
+  list-style: none outside none;
 
-    display:block;
-    font-size:12px;
-    .zxc{
-      padging:10px;
+}
+
+.header{
+  height: 35px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: url(../image/jvf_common.png) repeat-x;
+  height: 95px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  ul{
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding: 0;
+    &.top_menul{
+      margin-bottom:0px;
+      li {
+        display: inline;
+        float: left;
+        height: 35px;
+        line-height: 35px;
+        margin: 0 3px;
+        _margin: 0 1px;
+        color: #DDD;
+        a{
+          overflow: hidden;
+          padding-left: 20px;
+          position: relative;
+          color: #DDD;
+          span {
+            color: #84C01E;
+            font-weight: bold;
+            padding: 0 0 0 2px;
+          }
+        }
+        .left_mu5{
+          a {
+            em {
+              background-position: 0 -135px;
+            }
+          }
+        }
+      }
     }
   }
+  ul{
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding: 0;
+    &.top_menur{
+      margin-bottom:0px;
+      li {
+        display: inline;
+        float: left;
+        height: 35px;
+        line-height: 35px;
+        margin: 0 3px;
+        _margin: 0 1px;
+        color: #DDD;
+        &.right_mu1{
+          a {
+            overflow: hidden;
+            padding-left: 20px;
+            position: relative;
+          }
+        }
+        a{
+          overflow: hidden;
+          padding-left: 20px;
+          position: relative;
+          color: #DDD;
+          span {
+            color: #84C01E;
+            font-weight: bold;
+            padding: 0 0 0 2px;
+          }
+        }
+        .left_mu5{
+          a {
+            em {
+              background-position: 0 -135px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .header_top {
+    width: 960px;
+    margin: 0 auto;
+
+
+    ul{
+      li {
+        display: inline;
+        float: left;
+        height: 35px;
+        line-height: 35px;
+        margin: 0 3px;
+        _margin: 0 1px;
+        color: #DDD;
+        a{
+          overflow: hidden;
+          padding-left: 20px;
+          position: relative;
+          color: #DDD;
+          span {
+            color: #84C01E;
+            font-weight: bold;
+            padding: 0 0 0 2px;
+          }
+        }
+        &.left_mu5{
+          a {
+            em {
+              background-position: 0 -135px;
+            }
+          }
+        }
+        &.header_top_mubg {
+          em {
+            background: url(../image/jvf_index.png) no-repeat;
+            height: 15px;
+            width: 15px;
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+        }
+
+      }
+    }
+  }
+
+  .header_con {
+    margin: 0 auto;
+    width: 1310px;
+    .header_logo {
+      width: 140px;
+      h1{
+        margin-top:0px;
+        margin-bottom:0px;
+        a {
+          height: 50px;
+          overflow: hidden;
+          width: 140px;
+          img {
+            border: none;
+          }
+        }
+      }
+    }
+
+    .header_con_menu{
+      margin-top: 15px;
+      ul{
+        li {
+          float: left;
+          padding: 0 10px;
+          &.menu_active{
+            a {
+              background-position: 0 0;
+            }
+          }
+          a {
+            background-image: url("../image/jvf_all.png");
+            background-position: 74px 0;
+            background-repeat: no-repeat;
+            display: block;
+            height: 36px;
+            line-height: 29px;
+            text-align: center;
+            width: 74px;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: "微软雅黑";
+            letter-spacing: 1px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.clearfix {
+  zoom: 1;
+}
+
+
+
+.jvf_fl {
+  float: left;
+  display: block;
+}
+.jvf_fr {
+  float: right;
+  display: block;
 }
