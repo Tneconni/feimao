@@ -284,6 +284,13 @@ class ControllerProductProduct extends Controller {
 			$this->data['model'] = $product_info['model'];
 			$this->data['reward'] = $product_info['reward'];
 			$this->data['points'] = $product_info['points'];
+
+            if($product_info['volume']) {
+                $this->data['volume'] = $product_info['volume'];
+            }else{
+                $this->data['volume'] = '';
+            }
+
             if($product_info['3d_object']) {
                 $this->data['threed_object'] = "3d_object/" . $product_info['3d_object'];
             }else{

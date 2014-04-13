@@ -55,7 +55,8 @@ class ModelCatalogProduct extends Model {
 				'date_added'       => $query->row['date_added'],
 				'date_modified'    => $query->row['date_modified'],
 				'viewed'           => $query->row['viewed'],
-				'3d_object'        => $query->row['3d_object']
+				'3d_object'        => $query->row['3d_object'],
+				'volume'           => $query->row['volume']
 			);
 		} else {
 			return false;
