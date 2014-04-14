@@ -54,21 +54,18 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <div class="header ie6fixedTL">
     <div class="header_top clearfix">
         <ul class="top_menul jvf_fl clearfix">
-
-            <li class="header_top_mubg left_mu5"><a href="<?php echo $shopping_cart; ?>">
-                    <em></em>
-                    购物车<span><!--(<span id="shoppingCartNum">0</span>)--></span></a></li>
+            <li class="header_top_mubg left_mu5">
+                <a href="<?php echo $shopping_cart; ?>">
+                    <em></em>购物车<span>(<span id="shoppingCartNum"><?php echo $cart_products; ?></span>)</span>
+                </a>
+            </li>
         </ul>
-
         <ul class="top_menur jvf_fr clearfix">
             <?php if(!$logged) { ?>
             <li>请您先</li>
-            <li><a href="/index.php?route=account/login">[&nbsp;登录&nbsp;]</a></li>
+            <li><a style="padding-left: 0px;" href="/index.php?route=account/login">[&nbsp;登录&nbsp;]</a></li>
             <li>或者</li>
-            <li><a href="/index.php?route=account/register">[&nbsp;注册&nbsp;]</a></li>
-            <li>|</li>
-            <li style = "display:none" class="header_top_mubg right_mu1"><a href="/index.php/Help/index">
-            <em></em>帮助</a></li>
+            <li><a style="padding-left: 0px;" href="/index.php?route=account/register">[&nbsp;注册&nbsp;]</a></li>
             <?php } else { ?>
             <li><a href="<?php echo $account; ?>">[&nbsp;我的账户&nbsp;]</a></li>
             <li><a href="<?php echo $logout; ?>">[&nbsp;退出&nbsp;]</a></li>
@@ -102,10 +99,11 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <div id="container">
 <div id="header">
   <?php if ($logo) { ?>
-  <div id="logo"><a href="<?php echo $home; ?>">
-          <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>"
-                                                     alt="<?php echo $name; ?>" />
-      </a></div>
+  <div id="logo">
+      <a href="<?php echo $home; ?>">
+          <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
+      </a>
+  </div>
   <?php } ?>
   <?php echo $language; ?>
   <?php echo $currency; ?>

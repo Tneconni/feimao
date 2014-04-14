@@ -69,4 +69,6 @@ $_['error_profile_required'] = 'Please select a payment profile!';
 $_['text_trial']             = '%s every %s %s for %s payments then ';
 $_['text_recurring']         = '%s every %s %s';
 $_['text_length']            = ' for %s payments';
+
+$_['cart_products']          = ' %s items ';
 ?>

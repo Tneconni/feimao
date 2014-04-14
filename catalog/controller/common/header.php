@@ -139,6 +139,8 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 
+        $this->data['cart_products'] = sprintf($this->language->get('cart_products'), $this->cart->countProducts());
+
 		$this->children = array(
 			'module/language',
 			'module/currency',

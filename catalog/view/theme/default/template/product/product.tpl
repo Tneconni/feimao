@@ -310,7 +310,9 @@ $('#button-cart').bind('click', function() {
 				$('.success').fadeIn('slow');
 					
 				$('#cart-total').html(json['total']);
-				
+
+                $('#shoppingCartNum').html(json['cart_products']);
+
 				$('html, body').animate({ scrollTop: 0 }, 'slow'); 
 			}	
 		}
