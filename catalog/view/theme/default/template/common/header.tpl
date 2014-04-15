@@ -81,9 +81,9 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
             <ul>
                 <li ><a href="<?php echo $homepage; ?>" >首页</a></li>
                 <li ><a >关于肥猫</a></li>
-                <li ><a href="<?php echo $moxingku; ?>" >模型库</a></li>
+                <li ><a href="<?php echo $model; ?>" >模型库</a></li>
                 <li ><a >打印机展厅</a></li>
-                <li ><a href="<?php echo $dayinshangcheng; ?>" >打印商城</a></li>
+                <li ><a href="<?php echo $printer; ?>" >打印商城</a></li>
                 <li ><a >加入我们</a></li>
                 <li ><a >肥猫学院</a></li>
                 <li ><a >合作项目</a></li>

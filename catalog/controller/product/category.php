@@ -159,11 +159,35 @@ class ControllerProductCategory extends Controller {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
 
-			$this->data['breadcrumbs'][] = array(
-				'text'      => $category_info['name'],
-				'href'      => $this->url->link('product/category', 'path=' . $this->request->get['path']),
-				'separator' => $this->language->get('text_separator')
-			);
+            if(isset($this->request->get['model'])) {
+
+                $this->data['breadcrumbs'][] = array(
+                    'text'      => '模型库',
+                    'href'      => $this->url->link('product/category', 'model', 'SSL'),
+                    'separator' => $this->language->get('text_separator')
+                );
+
+            }elseif(isset($this->request->get['printer'])) {
+
+                $this->data['breadcrumbs'][] = array(
+                    'text'      => '打印商城',
+                    'href'      => $this->url->link('product/category', 'printer', 'SSL'),
+                    'separator' => $this->language->get('text_separator')
+                );
+
+            }else{
+
+                $this->data['breadcrumbs'][] = array(
+                    'text'      => $category_info['name'],
+                    'href'      => $this->url->link('product/category', 'path=' . $this->request->get['path']),
+                    'separator' => $this->language->get('text_separator')
+                );
+
+            }
+
+
+
+
 
 			if ($category_info['image']) {
 				$this->data['thumb'] = $this->model_tool_image->resize($category_info['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
@@ -221,11 +245,18 @@ class ControllerProductCategory extends Controller {
 				'limit'              => $limit
 			);
 
-            if(!isset($this->request->get['flag'])) {
-                $data['filter_category_id'] = $category_id;
-                $this->data['showallproducts'] = true;
+            if(isset($this->request->get['model'])) {
+
+                $data['filter_category_id'] = $this->model_catalog_category->getCategoryIdsByTopType('0');
+
+            }elseif(isset($this->request->get['printer'])) {
+
+                $data['filter_category_id'] = $this->model_catalog_category->getCategoryIdsByTopType('1');
+
             }else{
-                $this->data['showallproducts'] = false;
+
+                $data['filter_category_id'] = $category_id;
+
             }
 
 			$product_total = $this->model_catalog_product->getTotalProducts($data); 
@@ -366,11 +397,27 @@ class ControllerProductCategory extends Controller {
 			sort($limits);
 
 			foreach($limits as $value){
-				$this->data['limits'][] = array(
+                $tmp_limit = array(
 					'text'  => $value,
-					'value' => $value,
-					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url . '&limit=' . $value)
+					'value' => $value
 				);
+
+                if(isset($this->request->get['model'])) {
+
+                    $tmp_limit['href'] = $this->url->link('product/category', 'model' . $url . '&limit=' . $value, 'SSL');
+
+                }elseif(isset($this->request->get['printer'])){
+
+                    $tmp_limit['href'] = $this->url->link('product/category', 'printer' . $url . '&limit=' . $value, 'SSL');
+
+                }else{
+
+                    $tmp_limit['href'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url . '&limit=' . $value);
+
+                }
+
+                $this->data['limits'][] = $tmp_limit;
+
 			}
 
 			$url = '';
@@ -391,8 +438,12 @@ class ControllerProductCategory extends Controller {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
 
-            if (isset($this->request->get['flag'])) {
-                $url .= '&flag';
+            if (isset($this->request->get['model'])) {
+                $url .= '&model';
+            }
+
+            if (isset($this->request->get['printer'])) {
+                $url .= '&printer';
             }
 
 			$pagination = new Pagination();

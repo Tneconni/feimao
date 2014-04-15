@@ -29,7 +29,15 @@ class ControllerModuleCategory extends Controller {
 
 		$this->data['categories'] = array();
 
-		$categories = $this->model_catalog_category->getCategories(0);
+        if(isset($this->request->get['model'])) {
+            $topType = '0';
+        }elseif(isset($this->request->get['printer'])) {
+            $topType = '1';
+        }else{
+            $topType = $this->model_catalog_category->topTypeByCategoryId($this->data['category_id']);
+        }
+
+		$categories = $this->model_catalog_category->getCategories(0,$topType,true);
 
 		foreach ($categories as $category) {
 			$total = $this->model_catalog_product->getTotalProducts(array('filter_category_id' => $category['category_id']));
