@@ -27,8 +27,6 @@
 			   height:45px;
 			   line-height:45px; padding-left:60px; color:#eb5015;
 			   text-decoration:none; font-weight:bold;background-repeat:no-repeat;}
-
-
                     </style>
                     <div style="font-size:14px; color:#898989;">
                         <script>
@@ -39,7 +37,7 @@
                                 $('#blk3').hide();
                             }
                         </script>
-                        <a href="javascript:showpan()" class="style_1" style="background:url('/catalog/view/theme/default/image/feimao/btn_bg.jpg')">
+                        <a href="tencent://message/?uin=991089892&amp;Site=qq&amp;Menu=yes" class="style_1" style="background:url('/catalog/view/theme/default/image/feimao/btn_bg.jpg')">
                             联系客服请点击
                         </a>
                         <!--联系客服代码 start-->
