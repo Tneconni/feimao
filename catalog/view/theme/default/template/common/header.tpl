@@ -127,7 +127,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 </div>
     <!--
 <?php if ($categories) { ?>
-<div id="menu">
+<div id="menu" style="display:none">
   <ul>
     <?php foreach ($categories as $category) { ?>
     <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
@@ -157,3 +157,4 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
     
 <?php } ?>
 <div id="notification"></div>
+</div>

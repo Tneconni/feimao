@@ -1,11 +1,269 @@
 @import "bootstrap/css/bootstrap.min.css";
-.asd {
-  margin-left: 20px;
+@import "bootstrap/css/market.less";
+ol,
+ul {
+  list-style: none outside none;
 }
-.asd .qwe {
-  display: block;
+.header {
+  height: 35px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: url(../image/jvf_common.png) repeat-x;
+  height: 95px;
+  font-family: Arial, sans-serif;
   font-size: 12px;
 }
-.asd .qwe .zxc {
-  padging: 10px;
+.header ul {
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding: 0;
+}
+.header ul.top_menul {
+  margin-bottom: 0px;
+}
+.header ul.top_menul li {
+  display: inline;
+  float: left;
+  height: 35px;
+  line-height: 35px;
+  margin: 0 3px;
+  _margin: 0 1px;
+  color: #DDD;
+}
+.header ul.top_menul li a {
+  overflow: hidden;
+  padding-left: 20px;
+  position: relative;
+  color: #DDD;
+}
+.header ul.top_menul li a span {
+  color: #84C01E;
+  font-weight: bold;
+  padding: 0 0 0 2px;
+}
+.header ul.top_menul li .left_mu5 a em {
+  background-position: 0 -135px;
+}
+.header ul {
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding: 0;
+}
+.header ul.top_menur {
+  margin-bottom: 0px;
+}
+.header ul.top_menur li {
+  display: inline;
+  float: left;
+  height: 35px;
+  line-height: 35px;
+  margin: 0 3px;
+  _margin: 0 1px;
+  color: #DDD;
+}
+.header ul.top_menur li.right_mu1 a {
+  overflow: hidden;
+  padding-left: 20px;
+  position: relative;
+}
+.header ul.top_menur li a {
+  overflow: hidden;
+  padding-left: 20px;
+  position: relative;
+  color: #DDD;
+}
+.header ul.top_menur li a span {
+  color: #84C01E;
+  font-weight: bold;
+  padding: 0 0 0 2px;
+}
+.header ul.top_menur li .left_mu5 a em {
+  background-position: 0 -135px;
+}
+.header .header_top {
+  width: 960px;
+  margin: 0 auto;
+}
+.header .header_top ul li {
+  display: inline;
+  float: left;
+  height: 35px;
+  line-height: 35px;
+  margin: 0 3px;
+  _margin: 0 1px;
+  color: #DDD;
+}
+.header .header_top ul li a {
+  overflow: hidden;
+  padding-left: 20px;
+  position: relative;
+  color: #DDD;
+}
+.header .header_top ul li a span {
+  color: #84C01E;
+  font-weight: bold;
+  padding: 0 0 0 2px;
+}
+.header .header_top ul li.left_mu5 a em {
+  background-position: 0 -135px;
+}
+.header .header_top ul li.header_top_mubg em {
+  background: url(../image/jvf_index.png) no-repeat;
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.header .header_con {
+  margin: 0 auto;
+  width: 1310px;
+}
+.header .header_con .header_logo {
+  width: 140px;
+}
+.header .header_con .header_logo h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.header .header_con .header_logo h1 a {
+  height: 50px;
+  overflow: hidden;
+  width: 140px;
+}
+.header .header_con .header_logo h1 a img {
+  border: none;
+}
+.header .header_con .header_con_menu {
+  margin-top: 15px;
+}
+.header .header_con .header_con_menu ul li {
+  float: left;
+  padding: 0 10px;
+}
+.header .header_con .header_con_menu ul li.menu_active a {
+  background-position: 0 0;
+}
+.header .header_con .header_con_menu ul li a {
+  background-image: url("../image/jvf_all.png");
+  background-position: 74px 0;
+  background-repeat: no-repeat;
+  display: block;
+  height: 36px;
+  line-height: 29px;
+  text-align: center;
+  width: 74px;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: "微软雅黑";
+  letter-spacing: 1px;
+  color: #666;
+  text-decoration: none;
+}
+.header .header_con .header_con_menu ul li a:hover {
+  background-position: 0 0;
+}
+.clearfix {
+  zoom: 1;
+}
+.clear {
+  clear: both;
+}
+.jvf_fl {
+  float: left;
+  display: block;
+}
+.jvf_fr {
+  float: right;
+  display: block;
+}
+.fm-catalog {
+  width: 1200px;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  border: solid 1px #cdcdcd;
+  line-height: 2;
+}
+.fm-catalog .bottom-line {
+  border-bottom: solid 1px #cdcdcd;
+}
+.fm-catalog .fm-category {
+  height: auto;
+  overflow: hidden;
+  padding: 20px;
+}
+.fm-catalog .fm-category .title {
+  float: left;
+  padding: 0 10px;
+}
+.fm-catalog .fm-category .sec-category {
+  float: left;
+}
+.fm-catalog .fm-category .sec-category .category-type .type-title {
+  float: left;
+  padding: 0 10px;
+  background-color: #499eff;
+  border-radius: 2px;
+  color: #fff;
+}
+.fm-catalog .fm-category .sec-category .category-type ul.list {
+  margin: 0;
+  float: left;
+}
+.fm-catalog .fm-category .sec-category .category-type ul.list li {
+  float: left;
+  margin: 0 10px;
+}
+.fm-catalog .fm-price {
+  margin: 20px;
+}
+.fm-catalog .fm-price .title {
+  float: left;
+  padding: 0 10px;
+}
+.fm-catalog .fm-price .sec-category {
+  float: left;
+}
+.fm-market {
+  width: 1200px;
+  height: auto;
+  overflow: hidden;
+  margin: 20px auto;
+  border: solid 1px #cdcdcd;
+  line-height: 2;
+}
+.fm-market .mkt-title {
+  height: 30px;
+}
+.fm-market .mkt-title ul.mkt-sort {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  overflow: hidden;
+  border-bottom: solid 1px #cdcdcd;
+}
+.fm-market .mkt-title ul.mkt-sort li {
+  float: left;
+  padding: 2px 20px;
+  color: #121212;
+  border-right: solid 1px #cdcdcd;
+}
+.fm-market .mkt-title ul.mkt-sort li:hover {
+  color: #fff;
+}
+.fm-market ul.fm-product {
+  margin: 0;
+  padding: 0;
+}
+.fm-market ul.fm-product li {
+  padding: 10px;
+  margin: 20px;
+  border: solid 1px #cdcdcd;
+}
+.fm-market ul.fm-product li img {
+  height: 140px;
 }
