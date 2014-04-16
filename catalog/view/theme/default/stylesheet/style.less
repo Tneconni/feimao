@@ -1,4 +1,6 @@
 @import "bootstrap/css/bootstrap.min.css";
+@import "bootstrap/css/market.less";
+
 ol, ul {
   list-style: none outside none;
 
@@ -202,6 +204,9 @@ ol, ul {
   zoom: 1;
 }
 
+.clear{
+  clear:both;
+}
 
 
 .jvf_fl {
@@ -211,4 +216,157 @@ ol, ul {
 .jvf_fr {
   float: right;
   display: block;
+}
+
+.fm-catalog{
+
+  width:1200px;
+  height:auto;
+  overflow: hidden;
+  margin:0 auto;
+  border:solid 1px #cdcdcd;
+  line-height:2;
+
+  .bottom-line{
+    border-bottom:solid 1px #cdcdcd
+  }
+
+  .fm-category{
+
+    height:auto;
+    overflow: hidden;
+    padding:20px;
+
+    .title{
+      float:left;
+      padding:0 10px;
+    }
+
+    .sec-category{
+
+      float:left;
+
+      .category-type{
+        .type-title{
+          float:left;
+          padding:0 10px;
+          background-color:#499eff;
+          border-radius: 2px;
+          color:#fff;
+        }
+        ul.list{
+          margin:0;
+          float:left;
+          li{
+            float:left;
+            margin:0 10px;
+          }
+
+        }
+      }
+
+    }
+
+  }
+
+  .fm-price{
+
+    margin:20px;
+
+    .title{
+      float:left;
+      padding:0 10px;
+    }
+
+    .sec-category{
+      float:left;
+    }
+  }
+
+
+}
+
+.fm-market{
+
+  width:1200px;
+  height:auto;
+  overflow: hidden;
+  margin:20px auto;
+  border:solid 1px #cdcdcd;
+  line-height:2;
+
+  .mkt-title{
+
+    height:30px;
+
+    ul.mkt-sort{
+
+      margin:0;
+      padding:0;
+      height:auto;
+      overflow: hidden;
+      border-bottom:solid 1px #cdcdcd;
+
+      li{
+
+        float:left;
+        padding:2px 20px;
+        color:#121212;
+        border-right:solid 1px #cdcdcd;
+
+        &:hover{
+          color:#fff;
+        }
+      }
+    }
+
+  }
+
+  ul.fm-product{
+
+    margin:0;
+    padding:0;
+
+    li{
+
+      padding:10px;
+      margin:20px;
+      border:solid 1px #cdcdcd;
+
+      img{
+        height:140px;
+
+      }
+
+      .title{
+
+      }
+
+      .price{
+
+      }
+
+      .interaction{
+
+        .favourite{
+
+        }
+        .cart{
+
+        }
+        .comment{
+
+        }
+        .recommend{
+
+        }
+        .detail{
+
+        }
+      }
+
+    }
+
+  }
+
 }
