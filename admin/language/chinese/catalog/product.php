@@ -41,6 +41,7 @@ $_['entry_store']                = '&nbsp;&nbsp;网店：';
 $_['entry_keyword']              = '&nbsp;&nbsp;SEO关键字：<br /><span class="help">请不要使用空格键，SEO关键字必须是维一的。</span>';
 $_['entry_model']                = '&nbsp;&nbsp;商品型号：';
 $_['entry_sku']                  = '&nbsp;&nbsp;库存单位：<br/><span class="help">库存单位</span>';
+$_['entry_type']                 = '&nbsp;&nbsp;类型';
 $_['entry_upc']                  = '&nbsp;&nbsp;UPC：<br/><span class="help">通用产品代码</span>';
 $_['entry_ean']                  = '&nbsp;&nbsp;EAN：<br/><span class="help">欧洲商品编号</span>';
 $_['entry_jan']                  = '&nbsp;&nbsp;JAN：<br/><span class="help">日本商品编号</span>';

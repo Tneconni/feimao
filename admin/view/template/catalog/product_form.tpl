@@ -74,30 +74,44 @@
                 <?php } ?></td>
             </tr>
             <tr>
+                <td><?php echo $entry_type; ?></td>
+                <td>
+                    <select name="product_type">
+                        <?php if($product_type == '0') { ?>
+                        <option value="0" selected="selected">模型库</option>
+                        <option value="1">打印商城</option>
+                        <?php } else { ?>
+                        <option value="0">模型库</option>
+                        <option value="1" selected="selected">打印商城</option>
+                        <?php } ?>
+                    </select>
+                </td>
+            </tr>
+            <tr style="display:none;">
               <td><?php echo $entry_sku; ?></td>
               <td><input type="text" name="sku" value="<?php echo $sku; ?>" /></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td><?php echo $entry_upc; ?></td>
               <td><input type="text" name="upc" value="<?php echo $upc; ?>" /></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td><?php echo $entry_ean; ?></td>
               <td><input type="text" name="ean" value="<?php echo $ean; ?>" /></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td><?php echo $entry_jan; ?></td>
               <td><input type="text" name="jan" value="<?php echo $jan; ?>" /></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td><?php echo $entry_isbn; ?></td>
               <td><input type="text" name="isbn" value="<?php echo $isbn; ?>" /></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td><?php echo $entry_mpn; ?></td>
               <td><input type="text" name="mpn" value="<?php echo $mpn; ?>" /></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td><?php echo $entry_location; ?></td>
               <td><input type="text" name="location" value="<?php echo $location; ?>" /></td>
             </tr>
@@ -105,7 +119,7 @@
                 <td><?php echo $entry_price; ?></td>
                 <td><input type="text" name="price" value="<?php echo $price; ?>" /></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td><?php echo $entry_tax_class; ?></td>
               <td><select name="tax_class_id">
                   <option value="0"><?php echo $text_none; ?></option>
@@ -118,15 +132,15 @@
                   <?php } ?>
                 </select></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td><?php echo $entry_quantity; ?></td>
               <td><input type="text" name="quantity" value="<?php echo $quantity; ?>" size="2" /></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td><?php echo $entry_minimum; ?></td>
-              <td><input type="text" name="minimum" value="<?php echo $minimum; ?>" size="2" /></td>
+              <td><input type="text" name="minimum" value="1" size="2" /></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td><?php echo $entry_subtract; ?></td>
               <td><select name="subtract">
                   <?php if ($subtract) { ?>
@@ -138,7 +152,7 @@
                   <?php } ?>
                 </select></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td><?php echo $entry_stock_status; ?></td>
               <td><select name="stock_status_id">
                   <?php foreach ($stock_statuses as $stock_status) { ?>
