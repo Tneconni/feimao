@@ -1,7 +1,4 @@
 <?php echo $header; ?>
-
-
-</div>
 <!--新首页 start-->
 <div class="clearfix" style="margin-top:8px; background:url('/catalog/view/theme/default/image/index_bg.jpg');">
     <div style="width:1262px;height:324px;background:url('/catalog/view/theme/default/image/index1.jpg');  margin:auto;">
