@@ -96,8 +96,8 @@
 
             <div class="price">
 
-                <span class="curr-price"></span>
-                <span class="pre-price"></span>
+                <span class="curr-price"> ￥355 </span>
+                <span class="pre-price"> ￥585 </span>
 
             </div>
 

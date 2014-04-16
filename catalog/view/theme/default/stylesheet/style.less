@@ -313,9 +313,9 @@ ol, ul {
         padding:2px 20px;
         color:#121212;
         border-right:solid 1px #cdcdcd;
-
+        cursor:pointer;
         &:hover{
-          color:#fff;
+          color:#499eff;
         }
       }
     }
@@ -332,17 +332,41 @@ ol, ul {
       padding:10px;
       margin:20px;
       border:solid 1px #cdcdcd;
+      float:left;
+      width:212px;
+      height:auto;
+      overflow: hidden;
 
       img{
+        width:190px;
         height:140px;
-
+        border:none;
       }
 
       .title{
 
+        font-size:12px;
+        color:#121212;
+        line-height:2;
+
       }
 
       .price{
+        padding-right:10px;
+        border-bottom:solid 1px #cdcdcd;
+        .curr-price{
+          font-size:18px;
+          color:#499eff;
+        }
+
+        .pre-price{
+          float:right;
+          font-size:13px;
+          color:#666;
+          margin-top: 4px;
+          text-decoration:line-through;
+
+        }
 
       }
 
