@@ -752,7 +752,7 @@ class ControllerSaleOrder extends Controller {
 		if (isset($this->request->get['order_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$order_info = $this->model_sale_order->getOrder($this->request->get['order_id']);
 		}
-
+//        var_dump($order_info);exit();
 		$this->data['token'] = $this->session->data['token'];
 
 		if (isset($this->request->get['order_id'])) {
@@ -1258,7 +1258,7 @@ class ControllerSaleOrder extends Controller {
 				$this->error['shipping_address_1'] = $this->language->get('error_address_1');
 			}
 
-			if ((utf8_strlen($this->request->post['shipping_city']) < 3) || (utf8_strlen($this->request->post['shipping_city']) > 128)) {
+			if ((utf8_strlen($this->request->post['shipping_city']) < 1) || (utf8_strlen($this->request->post['shipping_city']) > 128)) {
 				$this->error['shipping_city'] = $this->language->get('error_city');
 			}
 
@@ -1282,7 +1282,7 @@ class ControllerSaleOrder extends Controller {
 				$this->error['shipping_method'] = $this->language->get('error_shipping');
 			}			
 		}
-
+//        var_dump($this->error);exit();
 		if ($this->error && !isset($this->error['warning'])) {
 			$this->error['warning'] = $this->language->get('error_warning');
 		}

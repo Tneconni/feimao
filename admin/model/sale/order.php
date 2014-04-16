@@ -704,7 +704,7 @@ class ModelSaleOrder extends Model {
 			}
 		}
 
-		if ($data['notify']) {
+		/*if ($data['notify']) {
 			$language = new Language($order_info['language_directory']);
 			$language->load($order_info['language_filename']);
 			$language->load('mail/order');
@@ -747,7 +747,7 @@ class ModelSaleOrder extends Model {
 			$mail->setSubject(html_entity_decode($subject, ENT_QUOTES, 'UTF-8'));
 			$mail->setText(html_entity_decode($message, ENT_QUOTES, 'UTF-8'));
 			$mail->send();
-		}
+		}*/
 
 		$this->load->model('payment/amazon_checkout');
 		$this->model_payment_amazon_checkout->orderStatusChange($order_id, $data);

@@ -183,7 +183,7 @@
         </div>
         <div id="tab-shipping" class="vtabs-content">
           <table class="form">
-            <tr>
+            <tr style="display:none">
               <td><?php echo $entry_address; ?></td>
               <td><select name="shipping_address">
                   <option value="0" selected="selected"><?php echo $text_none; ?></option>
@@ -320,7 +320,7 @@
               <?php } ?>
             </tbody>
           </table>
-          <table class="list">
+          <table class="list" style="display:none;">
             <thead>
               <tr>
                 <td colspan="2" class="left"><?php echo $text_product; ?></td>
@@ -493,7 +493,7 @@
               <?php } ?>
             </tbody>
           </table>
-          <table class="list">
+          <table class="list" style="display:none;">
             <thead>
               <tr>
                 <td class="left" colspan="2"><?php echo $text_order; ?></td>

@@ -322,9 +322,9 @@ class Cart {
 						'recurring_trial_price'     => $recurring_trial_price,
 						'recurring_trial_cycle'     => $recurring_trial_cycle,
 						'recurring_trial_duration'  => $recurring_trial_duration,
-						'material'                  => $threedoption['material'],
-						'precision'                 => $threedoption['precision'],
-						'product_color'             => $threedoption['product_color']);
+						'material'                  => isset($threedoption['material'])?$threedoption['material']:'',
+						'precision'                 => isset($threedoption['precision'])?$threedoption['precision']:'',
+						'product_color'             => isset($threedoption['product_color'])?$threedoption['product_color']:'');
 				} else {
 					$this->remove($key);
 				}
