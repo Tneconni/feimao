@@ -184,7 +184,7 @@ ul {
   width: 1200px;
   height: auto;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 100px auto 0px;
   border: solid 1px #cdcdcd;
   line-height: 2;
 }
@@ -217,6 +217,9 @@ ul {
 .fm-catalog .fm-category .sec-category .category-type ul.list li {
   float: left;
   margin: 0 10px;
+}
+.fm-catalog .fm-category .sec-category .category-type ul.list li a {
+  font-size: 14px;
 }
 .fm-catalog .fm-price {
   margin: 20px;
@@ -251,19 +254,117 @@ ul {
   padding: 2px 20px;
   color: #121212;
   border-right: solid 1px #cdcdcd;
+  cursor: pointer;
 }
-.fm-market .mkt-title ul.mkt-sort li:hover {
-  color: #fff;
+.fm-market .mkt-title ul.mkt-sort li.up-arrow {
+  background-image: url('../image/feimao/fm-up.png');
+  background-repeat: no-repeat;
+  background-position: 51px 10px;
+}
+.fm-market .mkt-title ul.mkt-sort li.down-arrow {
+  background-image: url('../image/feimao/fm-down.png');
+  background-repeat: no-repeat;
+  background-position: 51px 10px;
+}
+.fm-market .mkt-title ul.mkt-sort li a {
+  color: #121212;
+  font-size: 14px;
+}
+.fm-market .mkt-title ul.mkt-sort li a:hover {
+  color: #499eff;
+  text-decoration: none;
 }
 .fm-market ul.fm-product {
   margin: 0;
   padding: 0;
 }
 .fm-market ul.fm-product li {
+  -moz-box-shadow: 0px 0px 5px #999;
+  -webkit-box-shadow: 0px 0px 5px #999;
+  box-shadow: 0px 0px 5px #999;
   padding: 10px;
-  margin: 20px;
-  border: solid 1px #cdcdcd;
+  margin: 20px 12px;
+  border: solid 1px #88c0ff;
+  float: left;
+  width: 212px;
+  height: auto;
+  overflow: hidden;
 }
 .fm-market ul.fm-product li img {
+  width: 190px;
   height: 140px;
+  border: none;
+}
+.fm-market ul.fm-product li .title {
+  font-size: 12px;
+  color: #666666;
+  line-height: 2;
+}
+.fm-market ul.fm-product li .price {
+  padding-right: 10px;
+  border-bottom: solid 1px #cdcdcd;
+}
+.fm-market ul.fm-product li .price .curr-price {
+  font-size: 18px;
+  color: #499eff;
+}
+.fm-market ul.fm-product li .price .pre-price {
+  float: right;
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+  text-decoration: line-through;
+}
+.fm-market ul.fm-product li .interactive {
+  margin-top: 4px;
+  height: auto;
+  color: #666666;
+}
+.fm-market ul.fm-product li .interactive .favourite {
+  display: block;
+  float: left;
+  background-image: url("../image/feimao/fm_star.png");
+  background-repeat: no-repeat;
+  background-position: 0 0px;
+  width: 20px;
+  height: 16px;
+  cursor: pointer;
+  margin: 2px 2px;
+}
+.fm-market ul.fm-product li .interactive .cart {
+  display: block;
+  float: left;
+  background-image: url("../image/feimao/fm_cart.png");
+  background-position: 0 0px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 16px;
+  cursor: pointer;
+  margin: 2px 2px;
+}
+.fm-market ul.fm-product li .interactive .comment {
+  display: block;
+  float: left;
+  font-size: 12px;
+  margin: 0 2px;
+  width: 45px;
+  height: 22px;
+  text-align: center;
+}
+.fm-market ul.fm-product li .interactive .recommend {
+  display: block;
+  float: left;
+  font-size: 12px;
+  margin: 0 2px;
+  width: 45px;
+  height: 22px;
+  text-align: center;
+}
+.fm-market ul.fm-product li .interactive .detail {
+  display: block;
+  float: left;
+  font-size: 12px;
+  width: 40px;
+  height: 22px;
+  text-align: center;
 }

@@ -80,16 +80,16 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
         <div class="jvf_fl header_con_menu">
             <ul>
                 <li ><a href="<?php echo $homepage; ?>" >首页</a></li>
-                <li ><a >关于肥猫</a></li>
+                <li ><a href='index.php?route=information/information&information_id=4'>关于肥猫</a></li>
                 <li ><a href="<?php echo $model; ?>" >模型库</a></li>
-                <li ><a >打印机展厅</a></li>
+                <li ><a href='index.php?route=information/information&information_id=7'>打印机展厅</a></li>
                 <li ><a href="<?php echo $printer; ?>" >打印商城</a></li>
-                <li ><a >加入我们</a></li>
-                <li ><a >肥猫学院</a></li>
-                <li ><a >合作项目</a></li>
-                <li ><a >会员俱乐部</a></li>
-                <li ><a >客服中心</a></li>
-                <li ><a >联系我们</a></li>
+                <li ><a href='index.php?route=information/information&information_id=8'>加入我们</a></li>
+                <li ><a href='index.php?route=information/information&information_id=9'>肥猫学院</a></li>
+                <li ><a href='index.php?route=information/information&information_id=10'>合作项目</a></li>
+                <li ><a href='index.php?route=account/account'>会员俱乐部</a></li>
+                <li ><a href='index.php?route=information/information&information_id=11'>客服中心</a></li>
+                <li ><a href='index.php?route=information/information&information_id=12'>联系我们</a></li>
             </ul>
         </div>
     </div>
