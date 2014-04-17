@@ -735,7 +735,7 @@ class ControllerProductProduct extends Controller {
 		$captcha->showImage();
 	}
 
-	public function upload() {
+	/*public function upload() {
 		$this->language->load('product/product');
 
 		$json = array();
@@ -792,7 +792,7 @@ class ControllerProductProduct extends Controller {
 		}	
 
 		$this->response->setOutput(json_encode($json));		
-	}
+	}*/
 
     public function uploadmodel() {
 
@@ -806,6 +806,12 @@ class ControllerProductProduct extends Controller {
             'separator' => false
         );
 
+        $this->data['breadcrumbs'][] = array(
+            'text'      => '上传模型',
+            'href'      => 'javascript:undefined;',
+            'separator' => $this->language->get('text_separator')
+        );
+
         $this->load->model('catalog/category');
 
         $this->document->addScript('catalog/view/javascript/jquery/tabs.js');
@@ -814,8 +820,6 @@ class ControllerProductProduct extends Controller {
         $this->document->addScript('catalog/view/javascript/3d/jsc3d.touch.js');
         $this->document->addScript('catalog/view/javascript/3d/jsc3d.webgl.js');
         $this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
-
-        $this->data['heading_title'] = $product_info['name'];
 
         $this->data['text_select'] = $this->language->get('text_select');
         $this->data['text_manufacturer'] = $this->language->get('text_manufacturer');
@@ -829,7 +833,6 @@ class ControllerProductProduct extends Controller {
         $this->data['text_discount'] = $this->language->get('text_discount');
         $this->data['text_option'] = $this->language->get('text_option');
         $this->data['text_qty'] = $this->language->get('text_qty');
-        $this->data['text_minimum'] = sprintf($this->language->get('text_minimum'), $product_info['minimum']);
         $this->data['text_or'] = $this->language->get('text_or');
         $this->data['text_write'] = $this->language->get('text_write');
         $this->data['text_note'] = $this->language->get('text_note');
@@ -854,20 +857,18 @@ class ControllerProductProduct extends Controller {
 
         $this->data['tab_description'] = $this->language->get('tab_description');
         $this->data['tab_attribute'] = $this->language->get('tab_attribute');
-        $this->data['tab_review'] = sprintf($this->language->get('tab_review'), $product_info['reviews']);
         $this->data['tab_related'] = $this->language->get('tab_related');
 
         $this->data['product_id'] = $this->request->get['product_id'];
-        $this->data['manufacturer'] = $product_info['manufacturer'];
-        $this->data['manufacturers'] = $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $product_info['manufacturer_id']);
-        $this->data['model'] = $product_info['model'];
-        $this->data['reward'] = $product_info['reward'];
-        $this->data['points'] = $product_info['points'];
 
-        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/product.tpl')) {
-            $this->template = $this->config->get('config_template') . '/template/product/product.tpl';
+        $this->data['material'] = $this->material;
+        $this->data['precision'] = $this->precision;
+        $this->data['product_color'] = $this->product_color;
+
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/uploadmodel.tpl')) {
+            $this->template = $this->config->get('config_template') . '/template/product/uploadmodel.tpl';
         } else {
-            $this->template = 'default/template/product/product.tpl';
+            $this->template = 'default/template/product/uploadmodel.tpl';
         }
 
         $this->children = array(
@@ -881,6 +882,53 @@ class ControllerProductProduct extends Controller {
 
         $this->response->setOutput($this->render());
 
+    }
+
+    public function upload() {
+//        $this->language->load('product/product');
+
+        $json = array();
+
+        if (!empty($this->request->files['file']['name'])) {
+            $filename = basename(html_entity_decode($this->request->files['file']['name'], ENT_QUOTES, 'UTF-8'));
+
+            /*if ((utf8_strlen($filename) < 3) || (utf8_strlen($filename) > 128)) {
+                $json['error'] = '文件名应在3-128个字符之间';
+            }*/
+
+            $allowed = array('stl','obj');
+
+            if (!in_array(substr(strrchr($filename, '.'), 1),$allowed)) {
+                $json['error'] = "The filetype must be 'obj' or 'stl'!";
+            }
+
+            if(!is_dir(DIR_3D_OBJECT)) {
+                @mkdir(DIR_3D_OBJECT);
+            }
+
+            if ($this->request->files['file']['error'] != UPLOAD_ERR_OK) {
+                $json['error'] = '上传失败';
+            }
+
+            if ($this->request->files['file']['error'] != UPLOAD_ERR_OK) {
+                $json['error'] = '上传失败';
+            }
+        } else {
+            $json['error'] = '上传失败';
+        }
+
+        if (!isset($json['error'])) {
+            if (is_uploaded_file($this->request->files['file']['tmp_name']) && file_exists($this->request->files['file']['tmp_name'])) {
+
+                $json['filename'] = $filename;
+
+                move_uploaded_file($this->request->files['file']['tmp_name'], DIR_3D_OBJECT . $filename);
+            }
+
+            $json['success'] = '文件上传成功！';
+        }
+
+        $this->response->setOutput(json_encode($json));
     }
 
 }

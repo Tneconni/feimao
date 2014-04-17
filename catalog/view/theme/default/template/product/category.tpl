@@ -78,6 +78,7 @@
       <?php } ?>
       <div class="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
       <div class="description"><?php echo $product['description']; ?></div>
+      <?php if(empty($model)) { ?>
       <?php if ($product['price']) { ?>
       <div class="price">
         <?php if (!$product['special']) { ?>
@@ -90,6 +91,7 @@
         <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
         <?php } ?>
       </div>
+      <?php } ?>
       <?php } ?>
       <?php if ($product['rating']) { ?>
       <div class="rating"><img src="catalog/view/theme/default/image/stars-<?php echo $product['rating']; ?>.png" alt="<?php echo $product['reviews']; ?>" /></div>

@@ -249,6 +249,8 @@ class ControllerProductCategory extends Controller {
 
                 $data['filter_category_id'] = $this->model_catalog_category->getCategoryIdsByTopType('0');
 
+                $this->data['model'] = 'exist';
+
             }elseif(isset($this->request->get['printer'])) {
 
                 $data['filter_category_id'] = $this->model_catalog_category->getCategoryIdsByTopType('1');
