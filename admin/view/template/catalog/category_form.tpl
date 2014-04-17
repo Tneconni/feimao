@@ -52,8 +52,18 @@
           <table class="form">
             <tr>
               <td><?php echo $entry_parent; ?></td>
-              <td><input type="text" name="path" value="<?php echo $path; ?>" size="100" />
-                <input type="hidden" name="parent_id" value="<?php echo $parent_id; ?>" /></td>
+              <td>
+                  <select name="top_type">
+                      <?php if($top_type == '0') { ?>
+                          <option value="0" selected="selected">模型库</option>
+                          <option value="1">打印商城</option>
+                      <?php } else { ?>
+                          <option value="0">模型库</option>
+                          <option value="1" selected="selected">打印商城</option>
+                      <?php } ?>
+                  </select>
+                  <input type="hidden" name="parent_id" value="0" />
+              </td>
             </tr>
             <tr>
               <td><?php echo $entry_filter; ?></td>

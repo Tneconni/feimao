@@ -52,8 +52,10 @@
               <span class="stock">***</span>
               <?php } ?>
               <div>
+                <?php if(!empty($product['option'])) { ?>
                 <?php foreach ($product['option'] as $option) { ?>
                 - <small><?php echo $option['name']; ?>: <?php echo $option['value']; ?></small><br />
+                <?php } ?>
                 <?php } ?>
                 <!--<?php if($product['recurring']): ?>
                 - <small><?php echo $text_payment_profile ?>: <?php echo $product['profile_name'] ?></small>

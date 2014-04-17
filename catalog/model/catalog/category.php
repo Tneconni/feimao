@@ -6,16 +6,23 @@ class ModelCatalogCategory extends Model {
 		return $query->row;
 	}
 	
-	public function getCategories($parent_id = 0) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "category c
-		LEFT JOIN " . DB_PREFIX . "category_description
-		 cd ON (c.category_id = cd.category_id)
-		 LEFT JOIN " . DB_PREFIX . "category_to_store c2s
-		  ON (c.category_id = c2s.category_id)
-		   WHERE c.parent_id = '" . (int)$parent_id . "' AND
-		   cd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND
-		    c2s.store_id = '" . (int)$this->config->get('config_store_id') . "'  AND
-		     c.status = '1' ORDER BY c.sort_order, LCASE(cd.name)");
+	public function getCategories($parent_id = 0,$topType = '0',$flag = false) {
+
+        $sql = "SELECT * FROM " . DB_PREFIX . "category c LEFT JOIN " . DB_PREFIX . "category_description cd ON (c.category_id = cd.category_id) LEFT JOIN " . DB_PREFIX . "category_to_store c2s ON (c.category_id = c2s.category_id)";
+
+        $sql .= " WHERE c.parent_id = '" . (int)$parent_id . "' AND";
+
+        $sql .= " cd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND";
+
+        $sql .= " c2s.store_id = '" . (int)$this->config->get('config_store_id') . "'  AND";
+
+        if($flag) {
+            $sql .= " c.top_type = '" . $topType . "' AND";
+        }
+
+        $sql .= " c.status = '1' ORDER BY c.sort_order, LCASE(cd.name)";
+
+        $query = $this->db->query($sql);
 
 		return $query->rows;
 	}
@@ -75,5 +82,39 @@ class ModelCatalogCategory extends Model {
 		
 		return $query->row['total'];
 	}
+
+    public function topTypeByCategoryId($category_id) {
+
+        $topType = '0';
+
+        $query = $this->db->query("SELECT top_type FROM " . DB_PREFIX . "category WHERE category_id = " . (int)$category_id);
+
+        if(isset($query->row['top_type'])) {
+            $topType = $query->row['top_type'];
+        }
+
+        return $topType;
+    }
+
+    public function getCategoryIdsByTopType($topType = '0') {
+
+        $query = $this->db->query("SELECT GROUP_CONCAT(category_id) as categoryIds FROM " . DB_PREFIX . "category WHERE top_type = '".$topType."' GROUP BY top_type");
+
+        if(isset($query->row['categoryIds'])) {
+
+            $result = explode(',',$query->row['categoryIds']);
+
+        }else{
+
+            $result = array('none');
+
+        }
+
+        return $result;
+
+    }
+
+
+
 }
 ?>

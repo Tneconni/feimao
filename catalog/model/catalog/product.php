@@ -55,7 +55,9 @@ class ModelCatalogProduct extends Model {
 				'date_added'       => $query->row['date_added'],
 				'date_modified'    => $query->row['date_modified'],
 				'viewed'           => $query->row['viewed'],
-				'3d_object'        => $query->row['3d_object']
+				'3d_object'        => $query->row['3d_object'],
+				'volume'           => $query->row['volume'],
+				'type'             => $query->row['type']
 			);
 		} else {
 			return false;
@@ -93,7 +95,20 @@ class ModelCatalogProduct extends Model {
 			if (!empty($data['filter_sub_category'])) {
 				$sql .= " AND cp.path_id = '" . (int)$data['filter_category_id'] . "'";	
 			} else {
-				$sql .= " AND p2c.category_id = '" . (int)$data['filter_category_id'] . "'";			
+
+                if(is_array($data['filter_category_id'])) {
+
+                    $filter_category_ids = '(' . implode(',',$data['filter_category_id']) . ')';
+
+                    $sql .= " AND p2c.category_id IN " . $filter_category_ids;
+
+
+                }else{
+
+                    $sql .= " AND p2c.category_id = '" . (int)$data['filter_category_id'] . "'";
+
+                }
+
 			}	
 
 			if (!empty($data['filter_filter'])) {
@@ -172,6 +187,10 @@ class ModelCatalogProduct extends Model {
 		if (!empty($data['filter_manufacturer_id'])) {
 			$sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
 		}
+
+        if(!empty($data['filter_category_ids'])) {
+            $sql .= " AND ";
+        }
 
 		$sql .= " GROUP BY p.product_id";
 
@@ -494,7 +513,20 @@ class ModelCatalogProduct extends Model {
 			if (!empty($data['filter_sub_category'])) {
 				$sql .= " AND cp.path_id = '" . (int)$data['filter_category_id'] . "'";	
 			} else {
-				$sql .= " AND p2c.category_id = '" . (int)$data['filter_category_id'] . "'";			
+
+                if(is_array($data['filter_category_id'])) {
+
+                    $filter_category_ids = '(' . implode(',',$data['filter_category_id']) . ')';
+
+                    $sql .= " AND p2c.category_id IN " . $filter_category_ids;
+
+
+                }else{
+
+                    $sql .= " AND p2c.category_id = '" . (int)$data['filter_category_id'] . "'";
+
+                }
+
 			}	
 
 			if (!empty($data['filter_filter'])) {

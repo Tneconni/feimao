@@ -310,6 +310,14 @@ class ControllerCatalogCategory extends Controller {
 			$this->data['parent_id'] = 0;
 		}
 
+        if (isset($this->request->post['top_type'])) {
+            $this->data['top_type'] = $this->request->post['top_type'];
+        } elseif (!empty($category_info)) {
+            $this->data['top_type'] = $category_info['top_type'];
+        } else {
+            $this->data['top_type'] = 0;
+        }
+
 		$this->load->model('catalog/filter');
 
 		if (isset($this->request->post['category_filter'])) {

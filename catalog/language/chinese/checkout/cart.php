@@ -74,4 +74,6 @@ $_['error_shipping']         = '警告： 请选择运输方式！';
 $_['error_no_shipping']      = '警告： 无有效运输方式。请<a href="%s">联系我们</a>获得帮助！';
 $_['error_profile_required'] = '请选择分期付款方式！';
 
+$_['cart_products']          = ' 共 %s 件商品 ';
+
 ?>

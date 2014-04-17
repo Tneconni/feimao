@@ -3,6 +3,13 @@ class ControllerCheckoutCart extends Controller {
 	private $error = array();
 
 	public function index() {
+
+        if (!$this->customer->isLogged()) {
+            $this->session->data['redirect'] = $this->url->link('account/account', '', 'SSL');
+
+            $this->redirect($this->url->link('account/login', '', 'SSL'));
+        }
+
 		$this->language->load('checkout/cart');
 
 		if (!isset($this->session->data['vouchers'])) {
@@ -214,23 +221,27 @@ class ControllerCheckoutCart extends Controller {
 
 				$option_data = array();
 
-                $option_data[] = array(
-                    'name'  => '材质：',
-                    'value' => $this->material[$product['material']]['name'],
-                    'type'  => ''
-                );
+                if(!empty($product['material']) && !empty($product['material']) && !empty($product['material'])) {
 
-                $option_data[] = array(
-                    'name'  => '精度：',
-                    'value' => $this->precision[$product['precision']]['name'],
-                    'type'  => ''
-                );
+                    $option_data[] = array(
+                        'name'  => '材质：',
+                        'value' => $this->material[$product['material']]['name'],
+                        'type'  => ''
+                    );
 
-                $option_data[] = array(
-                    'name'  => '颜色：',
-                    'value' => $this->product_color[$product['product_color']]['name'],
-                    'type'  => ''
-                );
+                    $option_data[] = array(
+                        'name'  => '精度：',
+                        'value' => $this->precision[$product['precision']]['name'],
+                        'type'  => ''
+                    );
+
+                    $option_data[] = array(
+                        'name'  => '颜色：',
+                        'value' => $this->product_color[$product['product_color']]['name'],
+                        'type'  => ''
+                    );
+
+                }
 
 				/*foreach ($product['option'] as $option) {
 					if ($option['type'] != 'file') {
@@ -447,7 +458,7 @@ class ControllerCheckoutCart extends Controller {
 			} else {
 				$this->template = 'default/template/checkout/cart.tpl';
 			}
-
+            //echo 'www';exit();
 			$this->children = array(
 				'common/column_left',
 				'common/column_right',
@@ -596,11 +607,17 @@ class ControllerCheckoutCart extends Controller {
 				$option = array();	
 			}
 
-            $threedoption = array(
-                'material'          =>  $this->request->post['material'],
-                'precision'         =>  $this->request->post['precision'],
-                'product_color'     =>  $this->request->post['product_color'],
-            );
+            $threedoption = array();
+
+            if(isset($this->request->post['material']) && isset($this->request->post['precision']) && isset($this->request->post['product_color'])) {
+
+                $threedoption = array(
+                    'material'          =>  $this->request->post['material'],
+                    'precision'         =>  $this->request->post['precision'],
+                    'product_color'     =>  $this->request->post['product_color'],
+                );
+
+            }
 
 			if (isset($this->request->post['profile_id'])) {
 				$profile_id = $this->request->post['profile_id'];
@@ -678,6 +695,7 @@ class ControllerCheckoutCart extends Controller {
 				}
 
 				$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));
+                $json['cart_products'] = sprintf($this->language->get('cart_products'), $this->cart->countProducts());
 			} else {
 				$json['redirect'] = str_replace('&amp;', '&', $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']));
 			}

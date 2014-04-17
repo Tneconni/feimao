@@ -29,7 +29,8 @@ class Cart {
 
 				// Options
 				if (!empty($product[1])) {
-					$options = unserialize(base64_decode($product[1]));
+					//$options = unserialize(base64_decode($product[1]));
+					$options = array();
 				} else {
 					$options = array();
 				} 
@@ -275,7 +276,11 @@ class Cart {
                     $precision = $this->registry->get('precision');
                     $product_color = $this->registry->get('product_color');
 
-                    $volume_price = $volume * ($material[$threedoption['material']]['price'] + $precision[$threedoption['precision']]['price'] + $product_color[$threedoption['product_color']]['price']);
+                    if(!empty($threedoption['material']) && !empty($threedoption['precision']) && !empty($threedoption['product_color'])) {
+                        $volume_price = $volume * ($material[$threedoption['material']]['price'] + $precision[$threedoption['precision']]['price'] + $product_color[$threedoption['product_color']]['price']);
+                    }else{
+                        $volume_price = $product_query->row['price'];
+                    }
 
 					$this->data[$key] = array(
 						'key'                       => $key,
@@ -317,9 +322,9 @@ class Cart {
 						'recurring_trial_price'     => $recurring_trial_price,
 						'recurring_trial_cycle'     => $recurring_trial_cycle,
 						'recurring_trial_duration'  => $recurring_trial_duration,
-						'material'                  => $threedoption['material'],
-						'precision'                 => $threedoption['precision'],
-						'product_color'             => $threedoption['product_color']);
+						'material'                  => isset($threedoption['material'])?$threedoption['material']:'',
+						'precision'                 => isset($threedoption['precision'])?$threedoption['precision']:'',
+						'product_color'             => isset($threedoption['product_color'])?$threedoption['product_color']:'');
 				} else {
 					$this->remove($key);
 				}

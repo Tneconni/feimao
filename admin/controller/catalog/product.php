@@ -549,6 +549,7 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['entry_keyword'] = $this->language->get('entry_keyword');
 		$this->data['entry_model'] = $this->language->get('entry_model');
 		$this->data['entry_sku'] = $this->language->get('entry_sku');
+		$this->data['entry_type'] = $this->language->get('entry_type');
 		$this->data['entry_upc'] = $this->language->get('entry_upc');
 		$this->data['entry_ean'] = $this->language->get('entry_ean');
 		$this->data['entry_jan'] = $this->language->get('entry_jan');
@@ -757,12 +758,20 @@ class ControllerCatalogProduct extends Controller {
 			$this->data['model'] = '';
 		}
 
-		if (isset($this->request->post['sku'])) {
-			$this->data['sku'] = $this->request->post['sku'];
+        if (isset($this->request->post['sku'])) {
+            $this->data['sku'] = $this->request->post['sku'];
+        } elseif (!empty($product_info)) {
+            $this->data['sku'] = $product_info['sku'];
+        } else {
+            $this->data['sku'] = '';
+        }
+
+		if (isset($this->request->post['product_type'])) {
+			$this->data['product_type'] = $this->request->post['product_type'];
 		} elseif (!empty($product_info)) {
-			$this->data['sku'] = $product_info['sku'];
+			$this->data['product_type'] = $product_info['type'];
 		} else {
-			$this->data['sku'] = '';
+			$this->data['product_type'] = '';
 		}
 
 		if (isset($this->request->post['upc'])) {

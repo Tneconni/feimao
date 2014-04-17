@@ -28,6 +28,10 @@ class ControllerCommonHeader extends Controller {
 		$this->data['google_analytics'] = html_entity_decode($this->config->get('config_google_analytics'), ENT_QUOTES, 'UTF-8');
 		$this->data['name'] = $this->config->get('config_name');
 
+		$this->data['homepage'] = HTTP_SERVER;
+		$this->data['model'] = $this->url->link('product/category', 'model', 'SSL');
+		$this->data['printer'] = $this->url->link('product/category', 'printer', 'SSL');
+
 		if ($this->config->get('config_icon') && file_exists(DIR_IMAGE . $this->config->get('config_icon'))) {
 			$this->data['icon'] = $server . 'image/' . $this->config->get('config_icon');
 		} else {
@@ -57,7 +61,7 @@ class ControllerCommonHeader extends Controller {
 		$this->data['account'] = $this->url->link('account/account', '', 'SSL');
 		$this->data['shopping_cart'] = $this->url->link('checkout/cart');
 		$this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
-
+        $this->data['logout'] = $this->url->link('account/logout', '', 'SSL');
 		// Daniel's robot detector
 		$status = true;
 
@@ -135,10 +139,12 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 
+        $this->data['cart_products'] = sprintf($this->language->get('cart_products'), $this->cart->countProducts());
+
 		$this->children = array(
 			'module/language',
 			'module/currency',
-			'module/cart'
+			//'module/cart'
 		);
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/header.tpl')) {

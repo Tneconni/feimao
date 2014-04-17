@@ -54,21 +54,22 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <div class="header ie6fixedTL">
     <div class="header_top clearfix">
         <ul class="top_menul jvf_fl clearfix">
-
-            <li class="header_top_mubg left_mu5"><a href="/index.php/Goods/shoppingCart">
-                    <em></em>
-                    购物车<span>(<span id="shoppingCartNum">0</span>)</span></a></li>
+            <li class="header_top_mubg left_mu5">
+                <a href="<?php echo $shopping_cart; ?>">
+                    <em></em>购物车<span>(<span id="shoppingCartNum"><?php echo $cart_products; ?></span>)</span>
+                </a>
+            </li>
         </ul>
-
         <ul class="top_menur jvf_fr clearfix">
+            <?php if(!$logged) { ?>
             <li>请您先</li>
-            <li><a href="/index.php?route=account/login">[&nbsp;登录&nbsp;]</a></li>
+            <li><a style="padding-left: 0px;" href="/index.php?route=account/login">[&nbsp;登录&nbsp;]</a></li>
             <li>或者</li>
-            <li><a href="/index.php?route=account/register">[&nbsp;注册&nbsp;]</a></li>
-            <li>|</li>
-            <li style = "display:none" class="header_top_mubg right_mu1"><a href="/index.php/Help/index">
-                    <em></em>
-                    帮助</a></li>
+            <li><a style="padding-left: 0px;" href="/index.php?route=account/register">[&nbsp;注册&nbsp;]</a></li>
+            <?php } else { ?>
+            <li><a href="<?php echo $account; ?>">[&nbsp;我的账户&nbsp;]</a></li>
+            <li><a href="<?php echo $logout; ?>">[&nbsp;退出&nbsp;]</a></li>
+            <?php } ?>
         </ul>
     </div>
 
@@ -78,12 +79,11 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
         </div>
         <div class="jvf_fl header_con_menu">
             <ul>
-                <li class="menu_active">
-                    <a >首页</a></li>
+                <li ><a href="<?php echo $homepage; ?>" >首页</a></li>
                 <li ><a >关于肥猫</a></li>
-                <li ><a >模型库</a></li>
+                <li ><a href="<?php echo $model; ?>" >模型库</a></li>
                 <li ><a >打印机展厅</a></li>
-                <li ><a  >打印商城</a></li>
+                <li ><a href="<?php echo $printer; ?>" >打印商城</a></li>
                 <li ><a >加入我们</a></li>
                 <li ><a >肥猫学院</a></li>
                 <li ><a >合作项目</a></li>
@@ -99,14 +99,14 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <div id="container">
 <div id="header" style="display:none">
   <?php if ($logo) { ?>
-  <div id="logo"><a href="<?php echo $home; ?>">
-          <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>"
-                                                     alt="<?php echo $name; ?>" />
-      </a></div>
+  <div id="logo">
+      <a href="<?php echo $home; ?>">
+          <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
+      </a>
+  </div>
   <?php } ?>
   <?php echo $language; ?>
   <?php echo $currency; ?>
-  <?php echo $cart; ?>
   <div id="search">
     <div class="button-search"></div>
     <input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
@@ -124,6 +124,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
       <a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a>
       <a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
 </div>
+    <!--
 <?php if ($categories) { ?>
 <div id="menu" style="display:none">
   <ul>
@@ -148,6 +149,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
   </ul>
 </div>
 <?php } ?>
+    -->
 <?php if ($error) { ?>
     
     <div class="warning"><?php echo $error ?><img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>
