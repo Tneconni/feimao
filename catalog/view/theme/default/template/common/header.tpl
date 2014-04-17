@@ -97,7 +97,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <!--头部——结束-->
 
 <div id="container">
-<div id="header">
+<div id="header" style="display:none">
   <?php if ($logo) { ?>
   <div id="logo"><a href="<?php echo $home; ?>">
           <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>"

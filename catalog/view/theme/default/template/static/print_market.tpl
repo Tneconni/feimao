@@ -67,20 +67,22 @@
 
             <li>默认</li>
             <li>最新</li>
-            <li >
-                <span>销量</span>
-                <span class="down-arrow"></span>
+            <li class="up-arrow">
+                <a class="sale">销量</a>
+
             </li>
             <li class="down-arrow">
-                <span>好评</span>
-                <span class="down-arrow"></span>
+                <a class="evaluate">好评</a>
+
             </li>
-            <li class="">
-                <span>价格</span>
+            <li class="down-arrow">
+                <a class="money">价格</a>
+                <!--
             <span>
                 <span class="up-pointer"></span>
                 <span class="down-pointer"></span>
             </span>
+            -->
             </li>
         </ul>
     </div>
@@ -105,9 +107,153 @@
 
                 <span class="favourite"></span>
                 <span class="cart"></span>
-                <span class="comment"></span>
-                <span class="recommend"></span>
-                <span class="detail"></span>
+                <span class="comment">评价(0)</span>
+                <span class="recommend">推荐(0)</span>
+                <span class="detail">详情</span>
+
+            </div>
+
+        </li>
+        <li>
+
+            <img src="#" />
+
+            <div class="title">生活家居, 创意空气净化杯</div>
+
+            <div class="price">
+
+                <span class="curr-price"> ￥355 </span>
+                <span class="pre-price"> ￥585 </span>
+
+            </div>
+
+            <div class="interactive">
+
+                <span class="favourite"></span>
+                <span class="cart"></span>
+                <span class="comment">评价(0)</span>
+                <span class="recommend">推荐(0)</span>
+                <span class="detail">详情</span>
+
+            </div>
+
+        </li>
+        <li>
+
+            <img src="#" />
+
+            <div class="title">生活家居, 创意空气净化杯</div>
+
+            <div class="price">
+
+                <span class="curr-price"> ￥355 </span>
+                <span class="pre-price"> ￥585 </span>
+
+            </div>
+
+            <div class="interactive">
+
+                <span class="favourite"></span>
+                <span class="cart"></span>
+                <span class="comment">评价(0)</span>
+                <span class="recommend">推荐(0)</span>
+                <span class="detail">详情</span>
+
+            </div>
+
+        </li>
+        <li>
+
+            <img src="#" />
+
+            <div class="title">生活家居, 创意空气净化杯</div>
+
+            <div class="price">
+
+                <span class="curr-price"> ￥355 </span>
+                <span class="pre-price"> ￥585 </span>
+
+            </div>
+
+            <div class="interactive">
+
+                <span class="favourite"></span>
+                <span class="cart"></span>
+                <span class="comment">评价(0)</span>
+                <span class="recommend">推荐(0)</span>
+                <span class="detail">详情</span>
+
+            </div>
+
+        </li>
+        <li>
+
+            <img src="#" />
+
+            <div class="title">生活家居, 创意空气净化杯</div>
+
+            <div class="price">
+
+                <span class="curr-price"> ￥355 </span>
+                <span class="pre-price"> ￥585 </span>
+
+            </div>
+
+            <div class="interactive">
+
+                <span class="favourite"></span>
+                <span class="cart"></span>
+                <span class="comment">评价(0)</span>
+                <span class="recommend">推荐(0)</span>
+                <span class="detail">详情</span>
+
+            </div>
+
+        </li>
+        <li>
+
+            <img src="#" />
+
+            <div class="title">生活家居, 创意空气净化杯</div>
+
+            <div class="price">
+
+                <span class="curr-price"> ￥355 </span>
+                <span class="pre-price"> ￥585 </span>
+
+            </div>
+
+            <div class="interactive">
+
+                <span class="favourite"></span>
+                <span class="cart"></span>
+                <span class="comment">评价(0)</span>
+                <span class="recommend">推荐(0)</span>
+                <span class="detail">详情</span>
+
+            </div>
+
+        </li>
+        <li>
+
+            <img src="#" />
+
+            <div class="title">生活家居, 创意空气净化杯</div>
+
+            <div class="price">
+
+                <span class="curr-price"> ￥355 </span>
+                <span class="pre-price"> ￥585 </span>
+
+            </div>
+
+            <div class="interactive">
+
+                <span class="favourite"></span>
+                <span class="cart"></span>
+                <span class="comment">评价(0)</span>
+                <span class="recommend">推荐(0)</span>
+                <span class="detail">详情</span>
 
             </div>
 
