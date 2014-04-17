@@ -279,7 +279,7 @@ class Cart {
                     if(!empty($threedoption['material']) && !empty($threedoption['precision']) && !empty($threedoption['product_color'])) {
                         $volume_price = $volume * ($material[$threedoption['material']]['price'] + $precision[$threedoption['precision']]['price'] + $product_color[$threedoption['product_color']]['price']);
                     }else{
-                        $volume_price = 0;
+                        $volume_price = $product_query->row['price'];
                     }
 
 					$this->data[$key] = array(

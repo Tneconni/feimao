@@ -22,7 +22,7 @@
           <!--<a href="#tab-option"><?php echo $tab_option; ?></a>-->
           <a href="#tab-profile"><?php echo $tab_profile; ?></a>
           <!--<a href="#tab-discount"><?php echo $tab_discount; ?></a>-->
-          <!--<a href="#tab-special"><?php echo $tab_special; ?></a>-->
+          <a href="#tab-special"><?php echo $tab_special; ?></a>
           <a href="#tab-image"><?php echo $tab_image; ?></a>
           <!--<a href="#tab-reward"><?php echo $tab_reward; ?></a>-->
           <!--<a href="#tab-design"><?php echo $tab_design; ?></a>-->
@@ -668,7 +668,7 @@
             </tfoot>
           </table>
         </div>
-        <div id="tab-special" style="display: none;">
+        <div id="tab-special">
           <table id="special" class="list">
             <thead>
               <tr>

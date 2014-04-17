@@ -221,23 +221,27 @@ class ControllerCheckoutCart extends Controller {
 
 				$option_data = array();
 
-                $option_data[] = array(
-                    'name'  => '材质：',
-                    'value' => $this->material[$product['material']]['name'],
-                    'type'  => ''
-                );
+                if(!empty($product['material']) && !empty($product['material']) && !empty($product['material'])) {
 
-                $option_data[] = array(
-                    'name'  => '精度：',
-                    'value' => $this->precision[$product['precision']]['name'],
-                    'type'  => ''
-                );
+                    $option_data[] = array(
+                        'name'  => '材质：',
+                        'value' => $this->material[$product['material']]['name'],
+                        'type'  => ''
+                    );
 
-                $option_data[] = array(
-                    'name'  => '颜色：',
-                    'value' => $this->product_color[$product['product_color']]['name'],
-                    'type'  => ''
-                );
+                    $option_data[] = array(
+                        'name'  => '精度：',
+                        'value' => $this->precision[$product['precision']]['name'],
+                        'type'  => ''
+                    );
+
+                    $option_data[] = array(
+                        'name'  => '颜色：',
+                        'value' => $this->product_color[$product['product_color']]['name'],
+                        'type'  => ''
+                    );
+
+                }
 
 				/*foreach ($product['option'] as $option) {
 					if ($option['type'] != 'file') {
@@ -454,7 +458,7 @@ class ControllerCheckoutCart extends Controller {
 			} else {
 				$this->template = 'default/template/checkout/cart.tpl';
 			}
-
+            //echo 'www';exit();
 			$this->children = array(
 				'common/column_left',
 				'common/column_right',
@@ -603,11 +607,17 @@ class ControllerCheckoutCart extends Controller {
 				$option = array();	
 			}
 
-            $threedoption = array(
-                'material'          =>  $this->request->post['material'],
-                'precision'         =>  $this->request->post['precision'],
-                'product_color'     =>  $this->request->post['product_color'],
-            );
+            $threedoption = array();
+
+            if(isset($this->request->post['material']) && isset($this->request->post['precision']) && isset($this->request->post['product_color'])) {
+
+                $threedoption = array(
+                    'material'          =>  $this->request->post['material'],
+                    'precision'         =>  $this->request->post['precision'],
+                    'product_color'     =>  $this->request->post['product_color'],
+                );
+
+            }
 
 			if (isset($this->request->post['profile_id'])) {
 				$profile_id = $this->request->post['profile_id'];

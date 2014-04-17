@@ -70,23 +70,27 @@ class ControllerModuleCart extends Controller {
 
 			$option_data = array();
 
-            $option_data[] = array(
-                'name'  => '材质：',
-                'value' => $this->material[$product['material']]['name'],
-                'type'  => ''
-            );
+            if(!empty($product['material']) && !empty($product['material']) && !empty($product['material'])) {
 
-            $option_data[] = array(
-                'name'  => '精度：',
-                'value' => $this->precision[$product['precision']]['name'],
-                'type'  => ''
-            );
+                $option_data[] = array(
+                    'name'  => '材质：',
+                    'value' => $this->material[$product['material']]['name'],
+                    'type'  => ''
+                );
 
-            $option_data[] = array(
-                'name'  => '颜色：',
-                'value' => $this->product_color[$product['product_color']]['name'],
-                'type'  => ''
-            );
+                $option_data[] = array(
+                    'name'  => '精度：',
+                    'value' => $this->precision[$product['precision']]['name'],
+                    'type'  => ''
+                );
+
+                $option_data[] = array(
+                    'name'  => '颜色：',
+                    'value' => $this->product_color[$product['product_color']]['name'],
+                    'type'  => ''
+                );
+
+            }
 
 			/*foreach ($product['option'] as $option) {
 				if ($option['type'] != 'file') {

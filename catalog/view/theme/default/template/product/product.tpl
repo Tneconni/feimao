@@ -51,7 +51,7 @@
         <img src="catalog/view/theme/default/image/stars-<?php echo $rating; ?>.png" alt="<?php echo $reviews; ?>" />
       </div>
       <?php if ($price) { ?>
-      <div class="price" style="display:none;"><?php echo $text_price; ?>
+      <div class="price" <?php if(!$product_type) echo "style='display:none;'"; ?>><?php echo $text_price; ?>
         <?php if (!$special) { ?>
         <?php echo $price; ?>
         <?php } else { ?>
@@ -91,6 +91,7 @@
           <br />
       </div>
       <?php endif; ?>
+      <?php if($product_type == '0') { ?>
       <div class="options">
           <h2>选项</h2>
           <br />
@@ -116,12 +117,13 @@
           </select>
           <br />
       </div>
+      <?php } ?>
       <div class="cart">
         <div><?php echo $text_qty; ?>
           <input type="text" name="quantity" size="2" value="<?php echo $minimum; ?>" />
           <input type="hidden" name="product_id" size="2" value="<?php echo $product_id; ?>" />
           &nbsp;
-          <?php if($volume) { ?>
+          <?php if(($volume && $product_type == '0') || ($product_type != '0')) { ?>
             <input type="button" value="<?php echo $button_cart; ?>" id="button-cart" class="button" />
           <?php } else { ?>
             <input type="button" value="无此产品体积" id="button-cart" class="" disabled />

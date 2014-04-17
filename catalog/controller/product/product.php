@@ -299,6 +299,8 @@ class ControllerProductProduct extends Controller {
 
             $this->data['threed_display'] = HTTP_SERVER . 'image/3ddisplay.jpg';
 
+            $this->data['product_type'] = $product_info['type'];
+
 			if ($product_info['quantity'] <= 0) {
 				$this->data['stock'] = $product_info['stock_status'];
 			} elseif ($this->config->get('config_stock_display')) {
