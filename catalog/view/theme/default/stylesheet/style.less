@@ -223,7 +223,7 @@ ol, ul {
   width:1200px;
   height:auto;
   overflow: hidden;
-  margin:0 auto;
+  margin:100px auto 0px;
   border:solid 1px #cdcdcd;
   line-height:2;
 
@@ -313,9 +313,24 @@ ol, ul {
         padding:2px 20px;
         color:#121212;
         border-right:solid 1px #cdcdcd;
+        cursor:pointer;
 
         &:hover{
-          color:#fff;
+          color:#499eff;
+        }
+
+        &.up-arrow{
+
+          background-image:url('../image/feimao/fm-up.png');
+          background-repeat:no-repeat;
+          background-position:51px 10px;
+        }
+
+        &.down-arrow{
+          background-image:url('../image/feimao/fm-down.png');
+          background-repeat:no-repeat;
+          background-position:51px 10px;
+
         }
       }
     }
@@ -328,40 +343,101 @@ ol, ul {
     padding:0;
 
     li{
-
+      -moz-box-shadow:0px 0px 5px #999; -webkit-box-shadow:0px 0px 5px #999; box-shadow:0px 0px 5px #999;
       padding:10px;
-      margin:20px;
-      border:solid 1px #cdcdcd;
+      margin:20px 12px; 
+      border:solid 1px #88c0ff;
+      float:left;
+      width:212px;
+      height:auto;
+      overflow: hidden;
 
       img{
+        width:190px;
         height:140px;
-
+        border:none;
       }
 
       .title{
 
+        font-size:12px;
+        color:#666666;
+        line-height:2;
+
       }
 
       .price{
+        padding-right:10px;
+        border-bottom:solid 1px #cdcdcd;
+        .curr-price{
+          font-size:18px;
+          color:#499eff;
+        }
+
+        .pre-price{
+          float:right;
+          font-size:13px;
+          color:#666;
+          margin-top: 4px;
+          text-decoration:line-through;
+
+        }
 
       }
 
-      .interaction{
+      .interactive{
+        margin-top:4px;
+        height:auto;
+        color:#666666;
 
         .favourite{
+          display:block;
+          float:left;
+          background-image: url("../image/feimao/fm_star.png");
+          background-repeat:no-repeat;
+          background-position:0 0px;
 
+          width:20px;
+          height:16px;
+          cursor:pointer;
+          margin:2px 2px
         }
         .cart{
-
+          display:block;
+          float:left;
+          background-image: url("../image/feimao/fm_cart.png");
+          background-position:0 0px;
+          background-repeat:no-repeat;
+          width:20px;
+          height:16px;
+          cursor:pointer;
+          margin:2px 2px
         }
         .comment{
-
+          display:block;
+          float:left;
+          font-size:12px;
+          margin:0 2px;
+          width:45px;
+          height:22px;
+          text-align:center
         }
         .recommend{
-
+          display:block;
+          float:left;
+          font-size:12px;
+          margin:0 2px;
+          width:45px;
+          height:22px;
+          text-align:center
         }
         .detail{
-
+          display:block;
+          float:left;
+          font-size:12px;
+          width:40px;
+          height:22px;
+          text-align:center
         }
       }
 

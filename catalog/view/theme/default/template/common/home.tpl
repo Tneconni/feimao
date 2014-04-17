@@ -22,7 +22,7 @@
 <div style="width:100%;height:242px;background:url('image/data/3.jpg') no-repeat center;"></div>
 <div style="width:100%;height:125px;background:url('image/data/4.jpg') no-repeat center;">
     <div style="width:300px; margin:auto; height:125px; ">
-        <a href="<?php echo $enter_button; ?>" style="display:block; width:120px; height:125px;margin-left:170px;"></a>
+        <a href="index.php?route=common/nav" style="display:block; width:120px; height:125px;margin-left:170px;"></a>
     </div>
 </div>
 <div style="width:100%;height:245px;background:url('image/data/5.jpg') no-repeat center;"></div>
