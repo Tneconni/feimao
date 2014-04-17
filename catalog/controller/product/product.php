@@ -885,21 +885,18 @@ class ControllerProductProduct extends Controller {
     }
 
     public function upload() {
-//        $this->language->load('product/product');
 
         $json = array();
 
         if (!empty($this->request->files['file']['name'])) {
-            $filename = basename(html_entity_decode($this->request->files['file']['name'], ENT_QUOTES, 'UTF-8'));
 
-            /*if ((utf8_strlen($filename) < 3) || (utf8_strlen($filename) > 128)) {
-                $json['error'] = '文件名应在3-128个字符之间';
-            }*/
+            $extension = substr(strrchr($this->request->files['file']['name'], '.'), 1);
+            $filename = time() . '.' . $extension;
 
             $allowed = array('stl','obj');
 
-            if (!in_array(substr(strrchr($filename, '.'), 1),$allowed)) {
-                $json['error'] = "The filetype must be 'obj' or 'stl'!";
+            if (!in_array($extension,$allowed)) {
+                $json['error'] = "文件类型必须为'stl'或'obj'";
             }
 
             if(!is_dir(DIR_3D_OBJECT)) {
@@ -910,9 +907,6 @@ class ControllerProductProduct extends Controller {
                 $json['error'] = '上传失败';
             }
 
-            if ($this->request->files['file']['error'] != UPLOAD_ERR_OK) {
-                $json['error'] = '上传失败';
-            }
         } else {
             $json['error'] = '上传失败';
         }
@@ -923,8 +917,9 @@ class ControllerProductProduct extends Controller {
                 $json['filename'] = $filename;
 
                 move_uploaded_file($this->request->files['file']['tmp_name'], DIR_3D_OBJECT . $filename);
-            }
 
+            }
+            $json['filenameUrl'] = HTTP_SERVER . 'customer_3d_object/' . $filename;
             $json['success'] = '文件上传成功！';
         }
 

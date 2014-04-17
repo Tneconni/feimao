@@ -7,8 +7,11 @@
   </div>
   <div class="product-info">
   <div class="left">
-      <div class="image">
-          <img width="200px" src="image/uploadmodel.jpg" alt="Upload your 3d model" />
+      <div class="image nothreemode">
+          <img width="228px" height="228px" src="image/uploadmodel.jpg" alt="Upload your 3d model" />
+      </div>
+      <div class="image threedmode" style="display:none;" isloaded='false'>
+          <canvas id="cv" style="border: 1px solid;" width="228px" height="228px" ></canvas>
       </div>
   </div>
     <div class="right">
@@ -38,8 +41,9 @@
           </select>
           <br /><br />
           <b>上传模型:</b>&nbsp;&nbsp;
-          <input type="text" name="threed_object" value="" size="24" />&nbsp;&nbsp;&nbsp;&nbsp;<a id="button-upload" class="button">上传</a>
+          <input type="text" name="modeluplaodedbycustomer" value="" size="24" />&nbsp;&nbsp;&nbsp;&nbsp;<a id="button-upload" class="button">上传</a>
           <br />
+          <span class="error modeluplaodedbycustomererror" style="margin-top: 10px;"></span>
       </div>
       <div class="cart">
         <div><?php echo $text_qty; ?>
@@ -83,6 +87,12 @@ $('select[name="profile_id"], input[name="quantity"]').change(function(){
 });
     
 $('#button-cart').bind('click', function() {
+
+    if($("input[name='modeluplaodedbycustomer']").val() == '') {
+        $(".modeluplaodedbycustomererror").text('提醒：请先上传需要打印的模型！');
+        return;
+    }
+
 	$.ajax({
 		url: 'index.php?route=checkout/cart/add',
 		type: 'post',
@@ -100,6 +110,10 @@ $('#button-cart').bind('click', function() {
                 
                 if (json['error']['profile']) {
                     $('select[name="profile_id"]').after('<span class="error">' + json['error']['profile'] + '</span>');
+                }
+
+                if (json['error']['modeluplaodedbycustomer']) {
+                    $("#button-upload").after('<span class="error">' + json['error']['modeluplaodedbycustomer'] + '</span>');
                 }
 			} 
 			
@@ -196,7 +210,12 @@ $(document).ready(function() {
             if (json['success']) {
                 alert(json['success']);
 
-                $('input[name=\'threed_object\']').attr('value', json['filename']);
+                $('input[name=\'modeluplaodedbycustomer\']').attr('value', json['filename']);
+
+                if(json['filenameUrl']) {
+                    showthreedimage(json['filenameUrl']);
+                }
+
             }
 
             if (json['error']) {
@@ -207,5 +226,49 @@ $(document).ready(function() {
         }
     });
 //--></script>
+    <script type="text/javascript">
 
+        function showthreedimage(threedPath) {
+
+            canvas = document.getElementById('cv');
+            viewer = new JSC3D.Viewer(canvas);
+            viewer.setParameter('SceneUrl', threedPath);
+            viewer.setParameter('InitRotationX', 20);
+            viewer.setParameter('InitRotationY', 20);
+            viewer.setParameter('InitRotationZ', 0);
+            viewer.setParameter('ModelColor', '#CAA618');
+            viewer.setParameter('BackgroundColor1', '#FFFFFF');
+            viewer.setParameter('BackgroundColor2', '#383840');
+            viewer.setParameter('RenderMode', 'smooth');
+            viewer.setParameter('Definition', 'standard');
+            viewer.init();
+
+            viewer.update();
+
+            logoTimerID = setInterval(function(){viewer.rotate(0, 10, 0);viewer.update();}, 100);
+            viewer.enableDefaultInputHandler(false);
+            setTimeout(function(){viewer.enableDefaultInputHandler(true); loadModel();}, 8000);
+
+            $(".nothreemode").css({display:'none'});
+            $(".threedmode").css({display:'block'});
+
+        }
+
+        function shownothreedimage() {
+
+            $(".nothreedmode").css("display","");
+            $(".threedmode").css("display","none");
+
+        }
+
+        function thumbsubimage() {
+
+            $(".nothreedmode").css("display","");
+            $(".threedmode").css("display","none");
+            $("#image").trigger("click");
+
+        }
+
+
+    </script>
 <?php echo $footer; ?>

@@ -557,9 +557,9 @@ class ModelSaleOrder extends Model {
 	}
 
 	public function getOrderProducts($order_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
+        $query = $this->db->query("SELECT *, (SELECT `option` FROM " . DB_PREFIX . "order_to_threedoption as otc WHERE otc.order_product_id = op.order_product_id ) as threedoption FROM " . DB_PREFIX . "order_product as op WHERE order_id = '" . (int)$order_id . "'");
 
-		return $query->rows;
+        return $query->rows;
 	}
 
 	public function getOrderOption($order_id, $order_option_id) {

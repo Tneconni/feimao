@@ -221,7 +221,7 @@ class ControllerCheckoutCart extends Controller {
 
 				$option_data = array();
 
-                if(!empty($product['material']) && !empty($product['material']) && !empty($product['material'])) {
+                if(!empty($product['material']) && !empty($product['precision']) && !empty($product['product_color'])) {
 
                     $option_data[] = array(
                         'name'  => '材质：',
@@ -238,6 +238,16 @@ class ControllerCheckoutCart extends Controller {
                     $option_data[] = array(
                         'name'  => '颜色：',
                         'value' => $this->product_color[$product['product_color']]['name'],
+                        'type'  => ''
+                    );
+
+                }
+
+                if(!empty($product['modeluplaodedbycustomer'])) {
+
+                    $option_data[] = array(
+                        'name'  => '用户上传模型：',
+                        'value' => $product['modeluplaodedbycustomer'],
                         'type'  => ''
                     );
 
@@ -616,6 +626,16 @@ class ControllerCheckoutCart extends Controller {
                     'precision'         =>  $this->request->post['precision'],
                     'product_color'     =>  $this->request->post['product_color'],
                 );
+
+            }
+
+            if(isset($this->request->post['modeluplaodedbycustomer'])) {
+
+                if(file_exists(DIR_3D_OBJECT . $this->request->post['modeluplaodedbycustomer'])) {
+                    $threedoption['modeluplaodedbycustomer'] = $this->request->post['modeluplaodedbycustomer'];
+                }else{
+                    $json['error']['modeluplaodedbycustomer'] = '此文件不存在，请再次上传！';
+                }
 
             }
 

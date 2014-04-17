@@ -309,7 +309,7 @@
           <thead>
             <tr>
               <td class="left"><?php echo $column_product; ?></td>
-              <td class="left"><?php echo $column_model; ?></td>
+              <td class="left"><?php echo $column_option; ?></td>
               <td class="right"><?php echo $column_quantity; ?></td>
               <td class="right"><?php echo $column_price; ?></td>
               <td class="right"><?php echo $column_total; ?></td>
@@ -327,7 +327,7 @@
                 &nbsp;<small> - <?php echo $option['name']; ?>: <a href="<?php echo $option['href']; ?>"><?php echo $option['value']; ?></a></small>
                 <?php } ?>
                 <?php } ?></td>
-              <td class="left"><?php echo $product['model']; ?></td>
+              <td class="left"><?php echo $product['threedoption']; ?></td>
               <td class="right"><?php echo $product['quantity']; ?></td>
               <td class="right"><?php echo $product['price']; ?></td>
               <td class="right"><?php echo $product['total']; ?></td>

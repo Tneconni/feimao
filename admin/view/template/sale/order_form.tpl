@@ -264,7 +264,7 @@
               <tr>
                 <td></td>
                 <td class="left"><?php echo $column_product; ?></td>
-                <td class="left"><?php echo $column_model; ?></td>
+                <td class="left"><?php echo $column_option; ?></td>
                 <td class="right"><?php echo $column_quantity; ?></td>
                 <td class="right"><?php echo $column_price; ?></td>
                 <td class="right"><?php echo $column_total; ?></td>
@@ -300,8 +300,8 @@
                   <input type="hidden" name="order_product[<?php echo $product_row; ?>][order_download][<?php echo $download_row; ?>][remaining]" value="<?php echo $download['remaining']; ?>" />
                   <?php $download_row++; ?>
                   <?php } ?></td>
-                <td class="left"><?php echo $order_product['model']; ?>
-                  <input type="hidden" name="order_product[<?php echo $product_row; ?>][model]" value="<?php echo $order_product['model']; ?>" /></td>
+                <td class="left"><?php echo $order_product['threedoption']; ?>
+                  <input type="hidden" name="order_product[<?php echo $product_row; ?>][model]" value="<?php echo $order_product['threedoption']; ?>" /></td>
                 <td class="right"><?php echo $order_product['quantity']; ?>
                   <input type="hidden" name="order_product[<?php echo $product_row; ?>][quantity]" value="<?php echo $order_product['quantity']; ?>" /></td>                 
                 <td class="right"><?php echo $order_product['price']; ?>
@@ -352,7 +352,7 @@
               <tr>
                 <td></td>
                 <td class="left"><?php echo $column_product; ?></td>
-                <td class="left"><?php echo $column_model; ?></td>
+                <td class="left"><?php echo $column_option; ?></td>
                 <td class="right"><?php echo $column_quantity; ?></td>
                 <td class="right"><?php echo $column_price; ?></td>
                 <td class="right"><?php echo $column_total; ?></td>
@@ -443,7 +443,7 @@
             <thead>
               <tr>
                 <td class="left"><?php echo $column_product; ?></td>
-                <td class="left"><?php echo $column_model; ?></td>
+                <td class="left"><?php echo $column_option; ?></td>
                 <td class="right"><?php echo $column_quantity; ?></td>
                 <td class="right"><?php echo $column_price; ?></td>
                 <td class="right"><?php echo $column_total; ?></td>
@@ -458,7 +458,7 @@
                   <?php foreach ($order_product['option'] as $option) { ?>
                   - <small><?php echo $option['name']; ?>: <?php echo $option['value']; ?></small><br />
                   <?php } ?></td>
-                <td class="left"><?php echo $order_product['model']; ?></td>
+                <td class="left"><?php echo $order_product['threedoption']; ?></td>
                 <td class="right"><?php echo $order_product['quantity']; ?></td>
                 <td class="right"><?php echo $order_product['price']; ?></td>
                 <td class="right"><?php echo $order_product['total']; ?></td>
