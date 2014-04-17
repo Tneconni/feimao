@@ -260,6 +260,9 @@ ol, ul {
           li{
             float:left;
             margin:0 10px;
+            a{
+              font-size:14px;
+            }
           }
 
         }
@@ -315,10 +318,6 @@ ol, ul {
         border-right:solid 1px #cdcdcd;
         cursor:pointer;
 
-        &:hover{
-          color:#499eff;
-        }
-
         &.up-arrow{
 
           background-image:url('../image/feimao/fm-up.png');
@@ -331,6 +330,14 @@ ol, ul {
           background-repeat:no-repeat;
           background-position:51px 10px;
 
+        }
+        a{
+          color:#121212;
+          font-size:14px;
+          &:hover{
+            color:#499eff;
+            text-decoration: none;
+          }
         }
       }
     }

@@ -38,18 +38,27 @@
                 <ul class="list">
 
                     <li class="">
-                        <span>100-200</span>
-                        <span>(10)</span>
+                        <a href="#">
+                            <span>100-200</span>
+                            <span>(10)</span>
+                        </a>
+
                     </li>
 
                     <li class="">
-                        <span>200-300</span>
-                        <span>(10)</span>
+                        <a href="#">
+                            <span>200-300</span>
+                            <span>(10)</span>
+                        </a>
+
                     </li>
 
                     <li class="">
-                        <span>300-400</span>
-                        <span>(2000)</span>
+                        <a href="#">
+                            <span>300-400</span>
+                            <span>(2000)</span>
+                        </a>
+
                     </li>
 
 
@@ -65,8 +74,12 @@
     <div class="mkt-title">
         <ul class="mkt-sort">
 
-            <li>默认</li>
-            <li>最新</li>
+            <li>
+                <a href="#">默认</a>
+            </li>
+            <li>
+                <a href="#">最新</a>
+            </li>
             <li class="up-arrow">
                 <a class="sale">销量</a>
 
