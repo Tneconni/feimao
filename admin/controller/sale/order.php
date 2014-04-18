@@ -536,7 +536,7 @@ class ControllerSaleOrder extends Controller {
 		$this->data['entry_reward'] = $this->language->get('entry_reward');
 
 		$this->data['column_product'] = $this->language->get('column_product');
-		$this->data['column_model'] = $this->language->get('column_model');
+		$this->data['column_option'] = $this->language->get('column_option');
 		$this->data['column_quantity'] = $this->language->get('column_quantity');
 		$this->data['column_price'] = $this->language->get('column_price');
 		$this->data['column_total'] = $this->language->get('column_total');
@@ -1126,6 +1126,7 @@ class ControllerSaleOrder extends Controller {
 				'name'             => $order_product['name'],
 				'model'            => $order_product['model'],
 				'option'           => $order_option,
+                'threedoption'     => $order_product['threedoption'],
 				'download'         => $order_download,
 				'quantity'         => $order_product['quantity'],
 				'price'            => $order_product['price'],
@@ -1448,7 +1449,7 @@ class ControllerSaleOrder extends Controller {
 			$this->data['text_error'] = $this->language->get('text_error');
 
 			$this->data['column_product'] = $this->language->get('column_product');
-			$this->data['column_model'] = $this->language->get('column_model');
+			$this->data['column_option'] = $this->language->get('column_option');
 			$this->data['column_quantity'] = $this->language->get('column_quantity');
 			$this->data['column_price'] = $this->language->get('column_price');
 			$this->data['column_total'] = $this->language->get('column_total');
@@ -1667,6 +1668,7 @@ class ControllerSaleOrder extends Controller {
 					'model'    		   => $product['model'],
 					'option'   		   => $option_data,
 					'quantity'		   => $product['quantity'],
+					'threedoption'     => $product['threedoption'],
 					'price'    		   => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
 					'total'    		   => $this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),
 					'href'     		   => $this->url->link('catalog/product/update', 'token=' . $this->session->data['token'] . '&product_id=' . $product['product_id'], 'SSL')
@@ -2373,7 +2375,7 @@ class ControllerSaleOrder extends Controller {
 		$this->data['text_shipping_method'] = $this->language->get('text_shipping_method');
 
 		$this->data['column_product'] = $this->language->get('column_product');
-		$this->data['column_model'] = $this->language->get('column_model');
+		$this->data['column_option'] = $this->language->get('column_option');
 		$this->data['column_quantity'] = $this->language->get('column_quantity');
 		$this->data['column_price'] = $this->language->get('column_price');
 		$this->data['column_total'] = $this->language->get('column_total');

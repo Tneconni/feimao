@@ -269,7 +269,7 @@ class Cart {
                     if($product_query->row['volume']) {
                         $volume = $product_query->row['volume'];
                     }else{
-                        $volume = 0;
+                        $volume = 1;
                     }
 
                     $material = $this->registry->get('material');
@@ -280,6 +280,24 @@ class Cart {
                         $volume_price = $volume * ($material[$threedoption['material']]['price'] + $precision[$threedoption['precision']]['price'] + $product_color[$threedoption['product_color']]['price']);
                     }else{
                         $volume_price = $product_query->row['price'];
+                    }
+
+                    $threedoptionb = array();
+
+                    if(!empty($threedoption['material'])) {
+                        $threedoptionb[] = $material[$threedoption['material']]['name'];
+                    }
+
+                    if(!empty($threedoption['precision'])) {
+                        $threedoptionb[] = $precision[$threedoption['precision']]['name'];
+                    }
+
+                    if(!empty($threedoption['product_color'])) {
+                        $threedoptionb[] = $product_color[$threedoption['product_color']]['name'];
+                    }
+
+                    if(!empty($threedoption['modeluplaodedbycustomer'])) {
+                        $threedoptionb[] = $threedoption['modeluplaodedbycustomer'];
                     }
 
 					$this->data[$key] = array(
@@ -324,7 +342,9 @@ class Cart {
 						'recurring_trial_duration'  => $recurring_trial_duration,
 						'material'                  => isset($threedoption['material'])?$threedoption['material']:'',
 						'precision'                 => isset($threedoption['precision'])?$threedoption['precision']:'',
-						'product_color'             => isset($threedoption['product_color'])?$threedoption['product_color']:'');
+						'product_color'             => isset($threedoption['product_color'])?$threedoption['product_color']:'',
+						'modeluplaodedbycustomer'   => isset($threedoption['modeluplaodedbycustomer'])?$threedoption['modeluplaodedbycustomer']:'',
+						'threedoption'              => $threedoptionb);
 				} else {
 					$this->remove($key);
 				}

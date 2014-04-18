@@ -360,6 +360,8 @@ class ModelCatalogProduct extends Model {
 			$sql .= " AND p.status = '" . (int)$data['filter_status'] . "'";
 		}
 
+        $sql .= " AND visible = 1";
+
 		$sql .= " GROUP BY p.product_id";
 
 		$sort_data = array(
@@ -620,6 +622,8 @@ class ModelCatalogProduct extends Model {
 		if (isset($data['filter_status']) && !is_null($data['filter_status'])) {
 			$sql .= " AND p.status = '" . (int)$data['filter_status'] . "'";
 		}
+
+        $sql .= " AND visible = 1";
 
 		$query = $this->db->query($sql);
 
