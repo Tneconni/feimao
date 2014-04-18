@@ -590,6 +590,7 @@ class ControllerCheckoutCart extends Controller {
 	}
 
 	public function add() {
+
 		$this->language->load('checkout/cart');
 
 		$json = array();

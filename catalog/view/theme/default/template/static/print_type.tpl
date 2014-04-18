@@ -51,7 +51,7 @@
                                 <div style="clear:both; height:1px;"></div>
                                 <ul>
                                     <li style="width:84px;"><img src="/catalog/view/theme/default/image/feimao/kefu/kefu_qq.jpg"></li>
-                                    <li style="width:134px;"><a href="tencent://message/?uin=991089892&amp;Site=qq&amp;Menu=yes" target="_blank">991089892</a></li>
+                                    <li style="width:134px;"><a href="tencent://message/?uin=792724991&amp;Site=qq&amp;Menu=yes" target="_blank">792724991</a></li>
                                 </ul>
                                 <ul>
                                     <li style="width:84px;"><img src="/catalog/view/theme/default/image/feimao/kefu/kefu_tel.jpg"></li>
@@ -72,7 +72,7 @@
                         选择模型库中的模型进行体验3D打印
                     </div>
                     <div style="font-size:14px; color:#898989;">
-                        <a href="/index.php/ModelSearch/index/putype/1" class="style_1" style="background:url('/catalog/view/theme/default/image/feimao/btn_bg.jpg')">
+                        <a href="<?php echo $modelwarehuose; ?>" class="style_1" style="background:url('/catalog/view/theme/default/image/feimao/btn_bg.jpg')">
                             进入模型库请点击
                         </a>
                     </div>
@@ -86,7 +86,7 @@
                         已有模型的用户可以跳过此步，直接进入打印需求填写
                     </div>
                     <div style="font-size:14px; color:#898989;">
-                        <a href="/index.php/print/printmodel/putype/1" class="style_1" style="background:url('/catalog/view/theme/default/image/feimao/btn_bg.jpg')">
+                        <a href="<?php echo $uploadmodel; ?>" class="style_1" style="background:url('/catalog/view/theme/default/image/feimao/btn_bg.jpg')">
                             跳过此步请点击
                         </a>
                     </div>

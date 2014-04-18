@@ -812,6 +812,8 @@ class ControllerProductProduct extends Controller {
             'separator' => $this->language->get('text_separator')
         );
 
+        $this->data['product_id'] = $this->request->get['product_id'];
+
         $this->load->model('catalog/category');
 
         $this->document->addScript('catalog/view/javascript/jquery/tabs.js');
