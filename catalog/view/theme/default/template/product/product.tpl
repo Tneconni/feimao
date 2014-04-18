@@ -14,15 +14,15 @@
           <a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" /></a>
       </div>
       <div class="image threedmode" style="display:none;" isloaded='false'>
-          <canvas id="cv" style="border: 1px solid;" width="228" height="228" ></canvas>
+          <canvas id="cv" style="border: 1px solid;" width="228" height="228" onclick="showthreedimage();" ></canvas>
       </div>
       <?php } ?>
       <?php if ($images || $threed_object) { ?>
       <div class="image-additional">
 
-        <?php if($thumb) { ?>
+        <!--<?php if($thumb) { ?>
           <a onclick="thumbsubimage();" title="<?php echo $heading_title; ?>"><img width='74px' height='74px' src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
-        <?php } ?>
+        <?php } ?>-->
 
         <?php if ($images) { ?>
           <?php foreach ($images as $image) { ?>
@@ -444,12 +444,14 @@ $(document).ready(function() {
 
             viewer.update();
 
-            logoTimerID = setInterval(function(){viewer.rotate(0, 10, 0);viewer.update();}, 100);
+            logoTimerID = setInterval(function(){viewer.rotate(0, 10, 0);viewer.update();}, 300);
             viewer.enableDefaultInputHandler(false);
             setTimeout(function(){viewer.enableDefaultInputHandler(true); loadModel();}, 8000);
 
             $(".threedmode").attr("isloaded","true");
 
+        }else{
+            clearInterval(logoTimerID);
         }
 
         $(".nothreedmode").css("display","none");
@@ -464,13 +466,13 @@ $(document).ready(function() {
 
     }
 
-    function thumbsubimage() {
+    /*function thumbsubimage() {
 
         $(".nothreedmode").css("display","");
         $(".threedmode").css("display","none");
         $("#image").trigger("click");
 
-    }
+    }*/
 
 
 </script>

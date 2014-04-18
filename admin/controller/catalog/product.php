@@ -1482,16 +1482,18 @@ class ControllerCatalogProduct extends Controller {
         $json = array();
 
         if (!empty($this->request->files['file']['name'])) {
-            $filename = basename(html_entity_decode($this->request->files['file']['name'], ENT_QUOTES, 'UTF-8'));
 
-            if ((utf8_strlen($filename) < 3) || (utf8_strlen($filename) > 128)) {
+            $extension = substr(strrchr($this->request->files['file']['name'], '.'), 1);
+            $filename = time() . $extension;
+
+            /*if ((utf8_strlen($filename) < 3) || (utf8_strlen($filename) > 128)) {
                 $json['error'] = $this->language->get('error_filename');
-            }
+            }*/
 
             $allowed = array('stl','obj');
 
-            if (!in_array(substr(strrchr($filename, '.'), 1),$allowed)) {
-                $json['error'] = "The filetype must be 'obj' or 'stl'!";
+            if (!in_array($extension,$allowed)) {
+                $json['error'] = "文件类型必须为'obj'或'stl'!";
             }
 
             // Allowed file extension types
