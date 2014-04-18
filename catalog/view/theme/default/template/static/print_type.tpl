@@ -38,8 +38,8 @@
                                 $('#blk3').hide();
                             }
                         </script>
-                        <a href="javascript:showpan()" class="style_1" style="background:url('/catalog/view/theme/default/image/feimao/btn_bg.jpg')">
-                            联系客服请点击
+                        <a href="tencent://message/?uin=792724991&amp;Site=qq&amp;Menu=yes" target="_blank" class="style_1" style="background:url('/catalog/view/theme/default/image/feimao/btn_bg.jpg')">
+                            联系客服（QQ）&nbsp;<img src='image/qq.png' width='25px;' />
                         </a>
                         <!--联系客服代码 start-->
                         <div id="blk3" class="blk" style="display:none; left:-150px;">
@@ -72,7 +72,7 @@
                     </div>
                     <div style="font-size:14px; color:#898989;">
                         <a href="<?php echo $modelwarehuose; ?>" class="style_1" style="background:url('/catalog/view/theme/default/image/feimao/btn_bg.jpg')">
-                            进入模型库请点击
+                            进入模型库
                         </a>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                     </div>
                     <div style="font-size:14px; color:#898989;">
                         <a href="<?php echo $uploadmodel; ?>" class="style_1" style="background:url('/catalog/view/theme/default/image/feimao/btn_bg.jpg')">
-                            跳过此步请点击
+                            上传已有模型
                         </a>
                     </div>
                 </div>
