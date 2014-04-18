@@ -18,11 +18,11 @@
                         没有模型的用户请联系客服，先制作模型后体验3D打印
                     </div>
                     <style>
-                        .style_1{display:block; width:133px;
+                        .style_1{display:block; width:195px;
 			    height:45px;
 			    line-height:45px; padding-left:60px; color:#eb5015;
 				text-decoration:none;font-weight:bold; background-repeat:no-repeat;}
-                        .style_1:hover{display:block; width:133px;
+                        .style_1:hover{display:block; width:195px;
 			   height:45px;
 			   line-height:45px; padding-left:60px; color:#eb5015;
 			   text-decoration:none; font-weight:bold;background-repeat:no-repeat;}

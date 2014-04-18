@@ -14,7 +14,8 @@
             </object>
         </a>
     </div>
-    <div style="width:1262px;height:138px;background:url('/catalog/view/theme/default/image/index2.jpg');  margin:auto;">
+    <div style=" width:1262px;height:138px; /*background:url('/catalog/view/theme/default/image/index2.jpg'); */ margin:auto;">
+        <!--
         <a href="/index.php/Print/index/putype/2" style="width:133px;height:130px;margin-left:210px; display:block;">
             <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
                     codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="133" height="130">
@@ -25,6 +26,12 @@
                        pluginspage="http://www.macromedia.com/go/getflashplayer" width="133" height="130"></embed>
             </object>
         </a>
+        -->
+        <img src="/catalog/view/theme/default/image/index2.jpg" width="" usemap="#mymap"/>
+        <map name=mymap>
+            <area shape="rect" coords="596,0,734,38" href="index.php?route=static/static/print_type">
+
+        </map>
     </div>
     <div style="width:1262px;height:297px;background:url('/catalog/view/theme/default/image/index3.jpg');  margin:auto;">
         <a href="/index.php/Print/index/putype/3" style="width:133px;height:130px;margin-left:210px; margin-top:15px; display:block; position:absolute;">
