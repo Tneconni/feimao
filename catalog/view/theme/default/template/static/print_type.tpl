@@ -1,5 +1,4 @@
 <?php echo $header;?>
-
 <div style="height:640px; background:url('/catalog/view/theme/default/image/feimao/bg.jpg');">
     <div style="width:1203px; margin:auto; height:640px; background-color:#FFFFFF;">
         <div style="float:left; width:242px; margin-left:20px; margin-top:20px;">

@@ -157,3 +157,4 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <?php } ?>
 <div id="notification"></div>
 </div>
+<div class="banner-height"></div>
