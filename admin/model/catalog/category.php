@@ -216,7 +216,7 @@ class ModelCatalogCategory extends Model {
 	public function getCategories($data) {
 		$sql = "SELECT cp.category_id AS category_id,
 		GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR ' &gt; ') AS name,
-		 c.parent_id,
+		 c.parent_id, c.top_type,
 		  c.sort_order FROM " . DB_PREFIX . "category_path cp
 		   LEFT JOIN " . DB_PREFIX . "category c ON (cp.path_id = c.category_id)
 		    LEFT JOIN " . DB_PREFIX . "category_description cd1 ON (c.category_id = cd1.category_id)

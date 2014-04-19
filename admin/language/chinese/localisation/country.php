@@ -31,8 +31,8 @@ $_['help_address_format']     = '姓氏 = {firstname}<br />名字 = {lastname}<b
 // Error
 $_['error_permission']       = '警告： 您没有权限更改国家设置！';
 $_['error_name']             = '警告： 国家名称必须在3至128个字符之间！';
-$_['error_default']          = '警告： 该国家不能删除，因为被设为网店默认国家！';
-$_['error_store']            = '警告： 该国家不能删除，因为被绑定到 %s 网店！';
+$_['error_default']          = '警告： 该国家不能删除，因为被设为网站默认国家！';
+$_['error_store']            = '警告： 该国家不能删除，因为被绑定到 %s 网站！';
 $_['error_address']          = '警告： 该国家不能删除，因为被绑定到 %s 地址簿记录！';
 $_['error_affiliate']        = '警告： 该国家不能删除，因为被绑定到 %s 加盟会员！';
 $_['error_zone']             = '警告： 该国家不能删除，因为被绑定到 %s 区域！';

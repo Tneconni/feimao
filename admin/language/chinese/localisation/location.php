@@ -37,7 +37,7 @@ $_['entry_comment']      = '备注';
 // Help
 $_['help_geocode']       = '请使用 geocode 按钮生成您店铺位置的 geocode，您也可以手工录入。';
 $_['help_open']          = '填写店铺营业时间段';
-$_['help_comment']       = '该部分让您能够告知会员一些信息，比如：“商店不接受支票”等信息。';
+$_['help_comment']       = '该部分让您能够告知会员一些信息，比如：“3D打印平台不接受支票”等信息。';
 
 // Error
 $_['error_permission']   = '警告：您无权修改店铺位置！';

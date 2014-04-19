@@ -11,8 +11,8 @@ $_['text_success']            = '成功： 您已成功更新订单！';
 $_['text_order_id']           = '订单号：';
 $_['text_invoice_no']         = '发票号：';
 $_['text_invoice_date']       = '发票日期：';
-$_['text_store_name']         = '网店名称：';
-$_['text_store_url']          = '网店地址：';
+$_['text_store_name']         = '网站名称：';
+$_['text_store_url']          = '网站地址：';
 $_['text_customer']           = '会员名称：';
 $_['text_customer_group']     = '会员等级：';
 $_['text_email']              = 'E-Mail：';
@@ -139,7 +139,7 @@ $_['column_notify']           = '通知会员';
 $_['column_action']           = '操作';
 
 // Entry 
-$_['entry_store']             = '&nbsp;&nbsp;商店：';
+$_['entry_store']             = '&nbsp;&nbsp;3D打印平台：';
 $_['entry_customer']          = '&nbsp;&nbsp;会员：';
 $_['entry_customer_group']    = '&nbsp;&nbsp;会员等级：';
 $_['entry_firstname']         = '姓氏：';

@@ -4,7 +4,7 @@
 **/
 
 // Heading
-$_['heading_title']     = '商店管理员';
+$_['heading_title']     = '3D打印平台管理员';
 
 // Text
 $_['text_success']      = '成功： 您已成功更新管理员设置！';
