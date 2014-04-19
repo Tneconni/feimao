@@ -1,5 +1,31 @@
 @import "bootstrap/css/bootstrap.min.css";
 @import "bootstrap/css/market.less";
+.guide {
+  background-image: url('../image/feimao/guide_bg.png');
+  backgroud-position: top center;
+  height: 768px;
+  width: 100%;
+}
+.guide .guide-blank {
+  height: 430px;
+}
+.guide .guide-btn-group {
+  margin-left: 750px;
+}
+.guide .guide-btn-group .register-button {
+  background-image: url('../image/feimao/register_button.png');
+  width: 168px;
+  height: 48px;
+  float: left;
+  display: block;
+}
+.guide .guide-btn-group .home-button {
+  width: 168px;
+  height: 48px;
+  background-image: url('../image/feimao/home_button.png');
+  float: left;
+  display: block;
+}
 ol,
 ul {
   list-style: none outside none;
@@ -367,4 +393,7 @@ ul {
   width: 40px;
   height: 22px;
   text-align: center;
+}
+.banner-height {
+  height: 95px;
 }

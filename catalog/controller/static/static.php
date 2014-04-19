@@ -43,4 +43,25 @@ class ControllerStaticStatic extends Controller {
 
     }
 
+    // 指向页面
+    public function guide(){
+
+
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/static/guide.tpl')) {
+            $this->template = $this->config->get('config_template') . '/template/static/guide.tpl';
+        } else {
+            $this->template = 'default/template/static/guide.tpl';
+        }
+
+        $this->children = array(
+
+            'common/footer',
+            'common/header'
+
+        );
+
+        $this->response->setOutput($this->render());
+
+    }
+
 }
