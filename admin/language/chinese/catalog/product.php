@@ -26,6 +26,7 @@ $_['text_amount']                = '固定数额';
 // Column
 $_['column_name']                = '商品名称';
 $_['column_model']               = '商品型号';
+$_['column_type']                = '商品类型';
 $_['column_image']               = '图片';
 $_['column_price']               = '价格';
 $_['column_quantity']            = '数量';

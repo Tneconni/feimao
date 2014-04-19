@@ -146,6 +146,8 @@ class ControllerCatalogCategory extends Controller {
 
 		$results = $this->model_catalog_category->getCategories($data);
 
+        $top_type = array('模型库','打印商城');
+
 		foreach ($results as $result) {
 			$action = array();
 
@@ -156,6 +158,7 @@ class ControllerCatalogCategory extends Controller {
 
 			$this->data['categories'][] = array(
 				'category_id' => $result['category_id'],
+				'top_type'    => isset($top_type[$result['top_type']])?$top_type[$result['top_type']]:'',
 				'name'        => $result['name'],
 				'sort_order'  => $result['sort_order'],
 				'selected'    => isset($this->request->post['selected']) && in_array($result['category_id'], $this->request->post['selected']),
@@ -168,6 +171,7 @@ class ControllerCatalogCategory extends Controller {
 		$this->data['text_no_results'] = $this->language->get('text_no_results');
 
 		$this->data['column_name'] = $this->language->get('column_name');
+        $this->data['column_category_type'] = $this->language->get('column_category_type');
 		$this->data['column_sort_order'] = $this->language->get('column_sort_order');
 		$this->data['column_action'] = $this->language->get('column_action');
 

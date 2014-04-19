@@ -15,6 +15,7 @@ $_['text_clear']                 = '清除图像';
 
 // Column
 $_['column_name']                = '分类名称';
+$_['column_category_type']       = '目录类型';
 $_['column_sort_order']          = '分类顺序';
 $_['column_action']              = '操作';
 

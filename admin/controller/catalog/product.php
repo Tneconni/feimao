@@ -348,6 +348,8 @@ class ControllerCatalogProduct extends Controller {
 
 		$results = $this->model_catalog_product->getProducts($data);
 
+        $top_type = array('模型库','打印商城');
+
 		foreach ($results as $result) {
 			$action = array();
 
@@ -379,6 +381,7 @@ class ControllerCatalogProduct extends Controller {
 				'name'       => $result['name'],
 				'model'      => $result['model'],
 				'price'      => $result['price'],
+                'type'       => isset($top_type[$result['type']])?$top_type[$result['type']]:'',
 				'special'    => $special,
 				'image'      => $image,
 				'quantity'   => $result['quantity'],
@@ -397,8 +400,10 @@ class ControllerCatalogProduct extends Controller {
 
 		$this->data['column_image'] = $this->language->get('column_image');		
 		$this->data['column_name'] = $this->language->get('column_name');		
-		$this->data['column_model'] = $this->language->get('column_model');		
-		$this->data['column_price'] = $this->language->get('column_price');		
+		$this->data['column_category_type'] = $this->language->get('column_category_type');
+		$this->data['column_model'] = $this->language->get('column_model');
+		$this->data['column_type'] = $this->language->get('column_type');
+		$this->data['column_price'] = $this->language->get('column_price');
 		$this->data['column_quantity'] = $this->language->get('column_quantity');		
 		$this->data['column_status'] = $this->language->get('column_status');		
 		$this->data['column_action'] = $this->language->get('column_action');		
