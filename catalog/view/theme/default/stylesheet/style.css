@@ -26,6 +26,167 @@
   float: left;
   display: block;
 }
+.fm-contents {
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+}
+.print-type-menu {
+  height: 41px;
+  margin-top: 20px;
+  border-bottom: solid 2px #499eff;
+}
+.print-type-menu .type-single {
+  cursor: pointer;
+  float: left;
+  width: 133px;
+  height: 41px;
+  font-size: 16px;
+  line-height: 41px;
+  text-align: center;
+  background-image: url('../image/feimao/feimao_home.png');
+  background-position: -14px -72px;
+  color: #499eff;
+  font-weight: bold;
+}
+.print-type-menu .type-single.active {
+  background-position: -14px -9px;
+  color: #fff;
+}
+.print-type .type-content {
+  text-align: center;
+}
+.print-type .type-content ul {
+  width: 700px;
+  height: auto;
+  overflow: hidden;
+  margin: 60px auto;
+  padding: 0;
+}
+.print-type .type-content ul li {
+  background-image: url('../image/feimao/feimao_home.png');
+  background-position: -341px -6px;
+  background-repeat: no-repeat;
+  width: 303px;
+  height: 247px;
+  float: left;
+  margin-left: 20px;
+}
+.print-type .type-content ul li .type-logo {
+  width: 200px;
+  background-image: url('../image/feimao/feimao_home.png');
+  background-position: -18px -264px;
+  background-repeat: no-repeat;
+  margin: 50px auto 10px;
+  width: 91px;
+  height: 92px;
+}
+.print-type .type-content ul li .type-logo.company {
+  background-position: -135px -264px;
+}
+.print-type .type-content ul li .type-user {
+  background-image: url('../image/feimao/feimao_home.png');
+  background-position: -15px -135px;
+  width: 156px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 16px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+.print-type .type-content ul li .type-user a {
+  color: #fff;
+  font-size: 14px;
+}
+.print-type .type-content ul li .type-name {
+  width: 156px;
+  font-size: 14px;
+  line-height: 2;
+  margin: 10px auto;
+  text-align: center;
+}
+.item .item-head {
+  height: auto;
+  overflow: hidden;
+  border-bottom: solid 2px #121212;
+}
+.item .item-head .item-title {
+  margin: 0;
+  background-image: url('../image/feimao/feimao_home.png');
+  background-position: -15px -198px;
+  width: 117px;
+  height: 32px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: bold;
+  color: #499eff;
+}
+.item .item-head .more {
+  color: #fc8611;
+  margin-right: 10px;
+  margin-top: 8px;
+}
+.item ul.process-ul {
+  height: auto;
+  overflow: hidden;
+  width: 100%;
+  margin: 80px auto;
+  padding: 0;
+}
+.item ul.process-ul li {
+  float: left;
+  margin-left: 50px;
+}
+.item ul.process-ul li .pointer {
+  background-image: url('../image/feimao/feimao_home.png');
+  background-position: -190px 0px;
+  width: 47px;
+  margin-top: 30px;
+  height: 49px;
+  overflow: hidden;
+}
+.item ul.process-ul li .process-item {
+  background-image: url('../image/feimao/feimao_home.png');
+  width: 100px;
+  height: 110px;
+  display: block;
+}
+.item ul.process-ul li .process-item.no-a {
+  background-position: 0px 110px;
+}
+.item ul.process-ul li .process-item.no-b {
+  background-position: -116px 110px;
+}
+.item ul.process-ul li .process-item.no-c {
+  background-position: -238px 110px;
+}
+.item ul.process-ul li .process-item.no-d {
+  background-position: -371px 110px;
+}
+.item ul.process-ul li .process-item.no-e {
+  background-position: -500px 110px;
+}
+.item ul.product-ul {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 0;
+  margin: 30px auto;
+}
+.item ul.product-ul li {
+  padding: 2px;
+  border: solid 1px #499eff;
+  float: left;
+  width: 156px;
+  margin: 10px 20px;
+}
+.item ul.product-ul li a img {
+  border: none;
+}
 ol,
 ul {
   list-style: none outside none;
@@ -396,4 +557,10 @@ ul {
 }
 .banner-height {
   height: 95px;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
 }
