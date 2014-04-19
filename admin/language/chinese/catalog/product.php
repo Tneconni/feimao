@@ -38,7 +38,7 @@ $_['entry_name']                 = '商品名称：';
 $_['entry_meta_keyword']         = 'Meta标签关键词：';
 $_['entry_meta_description']     = '&nbsp;&nbsp;Meta标签描述：';
 $_['entry_description']          = '&nbsp;&nbsp;详细介绍：';
-$_['entry_store']                = '&nbsp;&nbsp;网店：';
+$_['entry_store']                = '&nbsp;&nbsp;网站：';
 $_['entry_keyword']              = '&nbsp;&nbsp;SEO关键字：<br /><span class="help">请不要使用空格键，SEO关键字必须是维一的。</span>';
 $_['entry_model']                = '&nbsp;&nbsp;商品型号：';
 $_['entry_sku']                  = '&nbsp;&nbsp;库存单位：<br/><span class="help">库存单位</span>';

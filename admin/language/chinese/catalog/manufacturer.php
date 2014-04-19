@@ -20,7 +20,7 @@ $_['column_action']              = '操作';
 
 // Entry
 $_['entry_name']                 = '品牌名称：';
-$_['entry_store']                = '网店：';
+$_['entry_store']                = '网站：';
 $_['entry_keyword']              = 'SEO关键词：';
 $_['entry_image']                = '图片：';
 $_['entry_sort_order']           = '排序：';

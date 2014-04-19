@@ -7,8 +7,8 @@
 $_['heading_title']                = '管理首页';
 
 // Text
-$_['text_overview']                = '商店信息';
-$_['text_statistics']              = '商店统计';
+$_['text_overview']                = '3D打印平台信息';
+$_['text_statistics']              = '3D打印统计';
 $_['text_latest_10_orders']        = '最新10笔订单';
 $_['text_total_sale']              = '销售总额：';
 $_['text_total_sale_year']         = '今年全年销售：';
