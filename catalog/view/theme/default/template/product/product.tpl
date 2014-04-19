@@ -161,6 +161,7 @@
     <a href="#tab-related"><?php echo $tab_related; ?> (<?php echo count($products); ?>)</a>
     <?php } ?>
   </div>
+    <div style="height:0; line-height:0; width:100%; overflow: hidden; clear:both"></div>
   <div id="tab-description" class="tab-content"><?php echo $description; ?></div>
   <?php if ($attribute_groups) { ?>
   <div id="tab-attribute" class="tab-content">
