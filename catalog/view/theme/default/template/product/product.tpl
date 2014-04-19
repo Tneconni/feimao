@@ -308,7 +308,7 @@ $('#button-cart').bind('click', function() {
 			} 
 			
 			if (json['success']) {
-				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+				$('#notification').html('<div class="success" style="display: none;margin-bottom: 5px;margin-top:5px;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
 					
 				$('.success').fadeIn('slow');
 					
@@ -445,7 +445,7 @@ $(document).ready(function() {
 
             viewer.update();
 
-            logoTimerID = setInterval(function(){viewer.rotate(0, 10, 0);viewer.update();}, 300);
+            logoTimerID = setInterval(function(){viewer.rotate(0, 10, 0);viewer.update();}, 200);
             viewer.enableDefaultInputHandler(false);
             setTimeout(function(){viewer.enableDefaultInputHandler(true); loadModel();}, 8000);
 

@@ -25,16 +25,16 @@ $_['text_payment']               = '支付地址';
 $_['text_mail']                  = 'Mail';
 $_['text_smtp']                  = 'SMTP';
 $_['text_default']               = '默认';
-$_['text_edit_store']            = '网店编辑：';
+$_['text_edit_store']            = '网站编辑：';
 
 // Entry
-$_['entry_name']                 = '商店名称：';
-$_['entry_owner']                = '商店管理员：';
+$_['entry_name']                 = '3D打印平台名称：';
+$_['entry_owner']                = '3D打印平台管理员：';
 $_['entry_address']              = '联系地址：';
 $_['entry_email']                = '电子邮箱：';
 $_['entry_telephone']            = '联系电话：';
 $_['entry_fax']                  = '&nbsp;&nbsp;传真号码：';
-$_['entry_title']                = '网店标题：';
+$_['entry_title']                = '网站标题：';
 $_['entry_meta_description']     = '&nbsp;&nbsp;SEO设置：';
 $_['entry_layout']               = '&nbsp;&nbsp;默认布局：';
 $_['entry_template']             = '&nbsp;&nbsp;模板设置：';
@@ -57,8 +57,8 @@ $_['entry_voucher_min']          = '最小礼品券数：<br /><span class="help
 $_['entry_voucher_max']          = '最大礼品券数：<br /><span class="help">客户可以购买优惠券的最商金额。</span>';
 $_['entry_tax']                  = '价格含税：';
 $_['entry_vat']                  = '增值税号码验证：<br /><span class="help">增值税号码验证网站http://ec.europa.eu </span>';
-$_['entry_tax_default']          = '使用商店所在地税率：<br /><span class="help">非注册用户使用商店所在地税率。 你可以使用商店所在地税率计算税费。</span>';
-$_['entry_tax_customer']         = '使用客户所在地税率：<br /><span class="help">注册客户使用客户所在地税率。 你可以使用商店所在地税率计算税费。</span>';
+$_['entry_tax_default']          = '使用3D打印平台所在地税率：<br /><span class="help">非注册用户使用3D打印平台所在地税率。 你可以使用3D打印平台所在地税率计算税费。</span>';
+$_['entry_tax_customer']         = '使用客户所在地税率：<br /><span class="help">注册客户使用客户所在地税率。 你可以使用3D打印平台所在地税率计算税费。</span>';
 $_['entry_customer_online']      = '在线客户：<br /><span class="help">通过客户的在线报告来跟踪客户。</span>';
 $_['entry_customer_group']       = '客户组：<br /><span class="help">默认客户组。</span>';
 $_['entry_customer_group_display'] = '客户组：<br /><span class="help">显示客户群体，新注册客户时可以选择。</span>';
@@ -79,7 +79,7 @@ $_['entry_affiliate']            = '加盟条款：<br /><span class="help">创�
 $_['entry_commission']           = '加盟佣金(%)：<br /><span class="help">默认加盟佣金百分比。</span>';
 $_['entry_return']               = '退换条款：<br /><span class="help">退货前客户必须同意该条款。</span>';
 $_['entry_return_status']        = '退换状态：<br /><span class="help">设置退换请求提交后默认的退换状态。</span>';
-$_['entry_logo']                 = '&nbsp;&nbsp;网店图标：';
+$_['entry_logo']                 = '&nbsp;&nbsp;网站图标：';
 $_['entry_icon']                 = '&nbsp;&nbsp;Icon 图标：<br /><span class="help">图标必须为PNG格式大小为：16px x 16px。</span>';
 $_['entry_image_category']       = '分类列表图的尺寸：';
 $_['entry_image_thumb']          = '商品缩略图片尺寸：';
@@ -111,7 +111,7 @@ $_['entry_fraud_key']            = 'MaxMind许可证密钥：</span>';
 $_['entry_fraud_score']          = 'MaxMind风险得分：<br /><span class="help">得分越高风险越大。设置一个介于0 - 100的得分。</span>';
 $_['entry_fraud_status']         = 'MaxMind欺诈订单状态：<br /><span class="help">MaxMind风险得分超过您所设定的得分订单将被分配到的状态，超过得分的订单将不能成功结算。</span>';
 $_['entry_secure']                 = '使用 SSL：<br /><span class="help">检查你的服务器是否安装了SSL认证，如果安装了，可以使用SSL。</span>';
-$_['entry_shared']                 = '多网店共享Sessions：<br /><span class="help">你可以让各个网店之间的购物车共享数据。</span>';
+$_['entry_shared']                 = '多网站共享Sessions：<br /><span class="help">你可以让各个网站之间的购物车共享数据。</span>';
 $_['entry_robots']                 = '爬虫/机器人：<br /><span class="help">加入不受欢迎的爬虫/机器人。</span>';
 $_['entry_use_ssl']              = '使用 SSL：<br /><span class="help">要使用SSL, 你需要在你的服务安装SSL及在设定档有SSL地址。</span>';
 $_['entry_seo_url']              = '高级URL Rewrite\'s：<br /><span class="help">要使用搜索引擎优化网址\'s 您的服务器必须支持 Apache Rewrite Mod 功能，在启用此项功能前你需要重新命名 htaccess.txt 文件为 .htaccess</span>';
@@ -124,15 +124,15 @@ $_['entry_compression']          = '输出压缩等级：<br /><span class="help
 $_['entry_error_display']        = '显示错误：';
 $_['entry_error_log']            = '日志错误：';
 $_['entry_error_filename']       = '错误日志文件名：';
-$_['entry_google_analytics']     = 'Google Analytics Code：<br /><span class="help">登录您的<a onclick="window.open(\'http：//www.google.com/analytics/\');"><u>Google Analytics</u></a>账户，后创建您的网店概述拷贝粘贴统计代码到框内。</span>';
+$_['entry_google_analytics']     = 'Google Analytics Code：<br /><span class="help">登录您的<a onclick="window.open(\'http：//www.google.com/analytics/\');"><u>Google Analytics</u></a>账户，后创建您的网站概述拷贝粘贴统计代码到框内。</span>';
 $_['entry_invoice']              = '起始发票号：<br /><span class="help">请设置发票的启始号。</span>';
 
 // Error
 $_['error_warning']              = '警告： 相关数据未键入！';
-$_['error_permission']           = '警告： 您没有权限更改商店设置！';
-$_['error_name']                 = '商店名称必须在3至32个字符之间！';
-$_['error_owner']                = '商店管理员必须在3到64个数字之间！';
-$_['error_address']              = '商店地址必须在10到256个字符之间！';
+$_['error_permission']           = '警告： 您没有权限更改3D打印平台设置！';
+$_['error_name']                 = '3D打印平台名称必须在3至32个字符之间！';
+$_['error_owner']                = '3D打印平台管理员必须在3到64个数字之间！';
+$_['error_address']              = '3D打印平台地址必须在10到256个字符之间！';
 $_['error_email']                = '邮箱地址无效！';
 $_['error_telephone']            = '电话必须在3到32个数字之间！';
 $_['error_title']                = '首页标题必须在3到32个数字之间！';

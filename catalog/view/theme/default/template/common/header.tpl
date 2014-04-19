@@ -150,11 +150,12 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 </div>
 <?php } ?>
     -->
-<?php if ($error) { ?>
-    
-    <div class="warning"><?php echo $error ?><img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>
-    
-<?php } ?>
-<div id="notification"></div>
 </div>
 <div class="banner-height"></div>
+<?php if ($error) { ?>
+<div class="warning">
+    <?php echo $error ?>
+    <img src="catalog/view/theme/default/image/close.png" alt="" class="close" />
+</div>
+<?php } ?>
+<div id="notification"></div>

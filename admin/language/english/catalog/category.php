@@ -11,6 +11,7 @@ $_['text_clear']             = 'Clear';
 
 // Column
 $_['column_name']            = 'Category Name';
+$_['column_category_type']   = 'Category Type';
 $_['column_sort_order']      = 'Sort Order';
 $_['column_action']          = 'Action';
 

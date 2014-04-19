@@ -9,7 +9,7 @@ $_['heading_title']     = '税率类别';
 // Text
 $_['text_shipping']     = '配送地址';
 $_['text_payment']      = '支付地址';
-$_['text_store']        = '商店地址';
+$_['text_store']        = '3D打印平台地址';
 $_['text_success']      = '成功： 您已成功更新税率类别！';
 
 // Column
