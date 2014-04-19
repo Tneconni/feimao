@@ -1932,7 +1932,11 @@ class lessc {
 
 	// compile only if changed input has changed or output doesn't exist
 	public function checkedCompile($in, $out) {
-		if (!is_file($out) || filemtime($in) > filemtime($out)) {
+
+        $dir = dirname($in);
+        $feimaoDir =  $dir .'/feimao_less/';
+
+		if (!is_file($out) || filemtime($in) > filemtime($out) || filemtime($feimaoDir) > filemtime($out) ) {
 			$this->compileFile($in, $out);
 			return true;
 		}
