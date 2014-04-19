@@ -1484,7 +1484,7 @@ class ControllerCatalogProduct extends Controller {
         if (!empty($this->request->files['file']['name'])) {
 
             $extension = substr(strrchr($this->request->files['file']['name'], '.'), 1);
-            $filename = time() . $extension;
+            $filename = time() . '.' . $extension;
 
             /*if ((utf8_strlen($filename) < 3) || (utf8_strlen($filename) > 128)) {
                 $json['error'] = $this->language->get('error_filename');

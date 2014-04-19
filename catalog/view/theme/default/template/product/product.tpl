@@ -445,7 +445,7 @@ $(document).ready(function() {
 
             viewer.update();
 
-            logoTimerID = setInterval(function(){viewer.rotate(0, 10, 0);viewer.update();}, 300);
+            logoTimerID = setInterval(function(){viewer.rotate(0, 10, 0);viewer.update();}, 200);
             viewer.enableDefaultInputHandler(false);
             setTimeout(function(){viewer.enableDefaultInputHandler(true); loadModel();}, 8000);
 
