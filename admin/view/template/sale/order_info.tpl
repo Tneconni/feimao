@@ -11,7 +11,9 @@
       <div class="buttons"><a href="<?php echo $invoice; ?>" target="_blank" class="button"><?php echo $button_invoice; ?></a><a href="<?php echo $cancel; ?>" class="button"><?php echo $button_cancel; ?></a></div>
     </div>
     <div class="content">
-      <div class="vtabs"><a href="#tab-order"><?php echo $tab_order; ?></a><a href="#tab-payment"><?php echo $tab_payment; ?></a>
+      <div class="vtabs">
+        <a href="#tab-order"><?php echo $tab_order; ?></a>
+        <!--<a href="#tab-payment"><?php echo $tab_payment; ?></a>-->
         <?php if ($shipping_method) { ?>
         <a href="#tab-shipping"><?php echo $tab_shipping; ?></a>
         <?php } ?>
@@ -164,7 +166,7 @@
           </tr>
         </table>
       </div>
-      <div id="tab-payment" class="vtabs-content">
+      <div id="tab-payment" class="vtabs-content" style="display:none;">
         <table class="form">
 <!--          <tr>
             <td><?php echo $text_firstname; ?></td>
