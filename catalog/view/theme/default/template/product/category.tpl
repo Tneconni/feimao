@@ -9,7 +9,7 @@
   <div style="display:none;">
       <h1><?php echo $heading_title; ?></h1>
       <?php if ($thumb || $description) { ?>
-          <div class="category-info">
+          <div class="category-info ">
             <?php if ($thumb) { ?>
             <div class="image"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" /></div>
             <?php } ?>
